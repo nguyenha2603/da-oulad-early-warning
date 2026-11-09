@@ -1,0 +1,62 @@
+Prepared Variable,Source File/Field,Transformation,Window/Filter,Purpose/AQ,Sensitivity
+code_module,studentInfo.code_module,"giữ nguyên; lọc BBB, FFF",C03,Khóa; nhóm so sánh AQ1–AQ4,Thấp
+code_presentation,studentInfo.code_presentation,giữ nguyên; lọc 4 kỳ,C03,Khóa; căn cứ split,Thấp
+id_student,studentInfo.id_student,giữ nguyên (đã ẩn danh),—,Khóa; không dùng làm predictor,Trung bình (định danh giả)
+week,studentVle.date,date // 7 + 1 với 0 ≤ date ≤ 27 (mỗi tuần 7 ngày),tuần 1–4,Trục thời gian AQ1,Thấp
+clicks,studentVle.sum_click,tổng click của SV trong tuần,tuần 1–4,Measure AQ1,Thấp
+active_days,studentVle.date,số ngày có hoạt động trong tuần,tuần 1–4,Measure AQ1,Thấp
+label3,studentInfo.final_result,Distinction gộp vào Pass → Pass/Fail/Withdrawn,cuối module,Ba nhóm của AQ1,Cao
+final_result,studentInfo.final_result,giữ nguyên,cuối module,So sánh nhóm AQ1–AQ2 (chỉ ở view diagnostic),Cao
+split,studentInfo.code_presentation,"2013B, 2013J → train; 2014B → validation; 2014J → test",—,Chống temporal leakage (AQ3–AQ5),Thấp
+target_noncompletion,studentInfo.final_result,"1 nếu ∈ {Fail, Withdrawn}, 0 nếu ∈ {Pass, Distinction}",quan sát cuối module,Target AQ3; outcome AQ1–AQ2; KPI,Cao (kết quả học tập)
+clicks_w1,"studentVle.sum_click, date",tổng sum_click (giữ dòng trùng) với date trong tuần 1 (ngày 0–6),tuần 1,AQ1 xu hướng; AQ2/AQ3 feature,Thấp
+clicks_w2,"studentVle.sum_click, date",tổng sum_click (giữ dòng trùng) với date trong tuần 2 (ngày 7–13),tuần 2,AQ1 xu hướng; AQ2/AQ3 feature,Thấp
+clicks_w3,"studentVle.sum_click, date",tổng sum_click (giữ dòng trùng) với date trong tuần 3 (ngày 14–20),tuần 3,AQ1 xu hướng; AQ2/AQ3 feature,Thấp
+clicks_w4,"studentVle.sum_click, date",tổng sum_click (giữ dòng trùng) với date trong tuần 4 (ngày 21–27),tuần 4,AQ1 xu hướng; AQ2/AQ3 feature,Thấp
+active_days_w1,studentVle.date,số ngày phân biệt có ≥ 1 click trong tuần 1,tuần 1,AQ1; AQ2/AQ3 feature,Thấp
+active_days_w2,studentVle.date,số ngày phân biệt có ≥ 1 click trong tuần 2,tuần 2,AQ1; AQ2/AQ3 feature,Thấp
+active_days_w3,studentVle.date,số ngày phân biệt có ≥ 1 click trong tuần 3,tuần 3,AQ1; AQ2/AQ3 feature,Thấp
+active_days_w4,studentVle.date,số ngày phân biệt có ≥ 1 click trong tuần 4,tuần 4,AQ1; AQ2/AQ3 feature,Thấp
+clicks_0_28,studentVle.sum_click,"tổng sum_click, 0 nếu không có bản ghi",ngày 0–28,AQ2/AQ3 feature,Thấp
+log_clicks_0_28,studentVle.sum_click,log(1 + clicks_0_28) – biến đổi không cần fit,ngày 0–28,"Giảm lệch phải (skew 3,1)",Thấp
+active_days_0_28,studentVle.date,số ngày phân biệt có hoạt động,ngày 0–28,AQ2/AQ3 feature,Thấp
+n_sites_0_28,studentVle.id_site,số tài nguyên VLE phân biệt đã truy cập,ngày 0–28,Độ rộng tương tác (AQ2/AQ3),Thấp
+clicks_change_w1_w4,"clicks_w1, clicks_w4",log1p(clicks_w4) − log1p(clicks_w1),tuần 1 và 4,"Mức thay đổi tương tác (AQ2, AQ4 quy tắc b)",Thấp
+days_since_last_active_d28,studentVle.date,28 − ngày hoạt động gần nhất; 29 nếu không có hoạt động 0–28,ngày 0–28,"Tín hiệu ngắt quãng (AQ3, AQ5)",Thấp
+clicks_pre_start,studentVle.sum_click,tổng click với date < 0,trước khai giảng,Mức chuẩn bị (AQ3),Thấp
+active_days_pre_start,studentVle.date,số ngày có hoạt động với date < 0,trước khai giảng,AQ3,Thấp
+no_vle_activity_0_28,studentVle,1 nếu không có bản ghi nào trong 0–28 (DQ-07),ngày 0–28,Phân biệt 'không có dữ liệu' với giá trị nhỏ,Thấp
+clicks_homepage_0_28,studentVle.sum_click + vle.activity_type,tổng click vào tài nguyên loại homepage,ngày 0–28,"Cấu trúc tương tác (AQ2, AQ5)",Thấp
+clicks_oucontent_0_28,studentVle.sum_click + vle.activity_type,tổng click vào tài nguyên loại oucontent,ngày 0–28,"Cấu trúc tương tác (AQ2, AQ5)",Thấp
+clicks_resource_0_28,studentVle.sum_click + vle.activity_type,tổng click vào tài nguyên loại resource,ngày 0–28,"Cấu trúc tương tác (AQ2, AQ5)",Thấp
+clicks_subpage_0_28,studentVle.sum_click + vle.activity_type,tổng click vào tài nguyên loại subpage,ngày 0–28,"Cấu trúc tương tác (AQ2, AQ5)",Thấp
+clicks_forumng_0_28,studentVle.sum_click + vle.activity_type,tổng click vào tài nguyên loại forumng,ngày 0–28,"Cấu trúc tương tác (AQ2, AQ5)",Thấp
+clicks_quiz_0_28,studentVle.sum_click + vle.activity_type,tổng click vào tài nguyên loại quiz,ngày 0–28,"Cấu trúc tương tác (AQ2, AQ5)",Thấp
+clicks_url_0_28,studentVle.sum_click + vle.activity_type,tổng click vào tài nguyên loại url,ngày 0–28,"Cấu trúc tương tác (AQ2, AQ5)",Thấp
+tma1_submitted_by_d28,studentAssessment.date_submitted + assessments.date,1 nếu nộp TMA đầu tiên (không bảo lưu) trước/đúng ngày 28,hạn TMA1 ngày 12–24,AQ2/AQ3 feature,Thấp
+tma1_on_time,"studentAssessment.date_submitted, assessments.date",1 nếu date_submitted ≤ hạn nộp,≤ ngày 28,AQ2/AQ3 feature,Thấp
+tma1_days_before_deadline,"studentAssessment.date_submitted, assessments.date",hạn − ngày nộp; NaN nếu chưa nộp (không áp dụng),≤ ngày 28,AQ2/AQ3 feature,Thấp
+tma1_score,studentAssessment.score,giữ nguyên; NaN nếu chưa nộp,nộp ≤ ngày 28,AQ2; AQ3 chỉ ở bộ feature có điều kiện (thời điểm có điểm chưa xác minh),Trung bình
+num_of_prev_attempts,studentInfo.num_of_prev_attempts,giữ nguyên,biết lúc đăng ký,AQ2/AQ3 feature,Thấp
+studied_credits,studentInfo.studied_credits,giữ nguyên (không cắt outlier),biết lúc đăng ký,Khối lượng học song song (AQ2/AQ3),Thấp
+highest_education_ord,studentInfo.highest_education,mã thứ bậc 0–4 theo bậc học,biết lúc đăng ký,AQ2/AQ3 feature,Trung bình
+registration_lead_days,studentRegistration.date_registration,−date_registration; NaN → median tập train (55),biết lúc đăng ký,Đăng ký sớm/muộn (AQ3),Thấp
+gender,studentInfo.gender,giữ nguyên,—,Chỉ audit công bằng,Cao
+age_band,studentInfo.age_band,giữ nguyên,—,Chỉ audit công bằng,Cao
+disability,studentInfo.disability,giữ nguyên,—,Chỉ audit công bằng,Cao
+imd_band,studentInfo.imd_band,chuẩn hóa '10-20' → '10-20%'; thiếu → 'Unknown',—,Chỉ audit công bằng (P1 mục 6),Cao
+region,studentInfo.region,giữ nguyên,—,Chỉ audit,Cao
+highest_education,studentInfo.highest_education,giữ nguyên,biết lúc đăng ký,AQ2; audit,Trung bình
+imd_band_missing,studentInfo.imd_band,1 nếu thiếu,—,Audit missingness,Cao
+flag_withdrawn_no_unreg_date,"studentInfo.final_result, studentRegistration.date_unregistration",1 nếu Withdrawn nhưng không có ngày hủy (DQ-04),—,Audit chất lượng nhãn,Thấp
+flag_unreg_date_not_withdrawn,như trên,1 nếu có ngày hủy nhưng nhãn khác Withdrawn (DQ-04),—,Audit chất lượng nhãn,Thấp
+date_registration_missing,studentRegistration.date_registration,1 nếu thiếu,—,Cờ imputation – chỉ audit (v1.2: không làm predictor),Thấp
+seen_in_earlier_presentation,studentInfo.id_student,1 nếu SV đã xuất hiện ở kỳ trước trong phạm vi,—,Audit student leakage (P4 sensitivity),Thấp
+late_registration_1_28,studentRegistration.date_registration,1 nếu đăng ký ở ngày 1–28 (cửa sổ quan sát bị rút ngắn),ngày 0–28,Diễn giải đúng click thấp do mất ngày (v1.1),Thấp
+days_observable_0_28,studentRegistration.date_registration,"29 − max(date_registration, 0), giới hạn 1–29",ngày 0–28,Số ngày quan sát được; dùng chuẩn hóa nếu cần (v1.1),Thấp
+flag_high_activity,studentVle.sum_click,1 nếu clicks_0_28 > p99 của tập train (1.911 click),ngày 0–28,Đánh dấu outlier thay vì xóa (v1.1); ngưỡng fit trên train,Thấp
+active_d28,"studentRegistration.date_registration, date_unregistration",1 nếu đăng ký ≤ 28 và chưa hủy ở ngày ≤ 28,ngày 28,"Population AQ1–AQ5 (C04, C06); mẫu số KPI (C05)",Thấp
+unregistered_by_d28,studentRegistration.date_unregistration,1 nếu date_unregistration ≤ 28,ngày 28,Bối cảnh rút sớm,Trung bình
+registered_after_d28,studentRegistration.date_registration,1 nếu date_registration > 28,ngày 28,Loại khỏi population,Thấp
+date_registration,studentRegistration.date_registration,giữ nguyên,—,Bối cảnh,Thấp
+date_unregistration,studentRegistration.date_unregistration,"giữ nguyên – CHỈ ở view bối cảnh, cấm làm feature",—,Lọc population; bối cảnh,Trung bình

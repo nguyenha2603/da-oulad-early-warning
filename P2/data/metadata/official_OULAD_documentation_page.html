@@ -1,0 +1,982 @@
+
+<!DOCTYPE html>
+<html lang="en" lang="en-GB" >
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+
+        <meta name="title" content="STEM Technical Services, Digital Development Team" />
+        <meta name="description" content="This page introduces the anonymised Open University Learning Analytics Dataset (OULAD). It contains data about courses, students and their interactions with Virtual Learning Environment (VLE) for seven selected courses (called modules). Presentations of courses start in February and October &#8211; they are marked by &#8220;B&#8221; and &#8220;J&#8221; respectively. The dataset consists of tables connected using [&hellip;]" />
+        <meta name="keywords" content="open university, distance learning, study, research, STEM, science, technology, engineering, mathematics" />
+        <meta name="author" content="The Open University" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://research.stem.open.ac.uk/ouanalyse/open-dataset-more/" />
+        <meta property="og:title" content="Open University Learning Analytics dataset &#8211; OU Analyse" />
+        <meta property="og:description" content="This page introduces the anonymised Open University Learning Analytics Dataset (OULAD). It contains data about courses, students and their interactions with Virtual Learning Environment (VLE) for seven selected courses (called modules). Presentations of courses start in February and October &#8211; they are marked by &#8220;B&#8221; and &#8220;J&#8221; respectively. The dataset consists of tables connected using [&hellip;]" />
+        <meta property="og:image" content="https://www.open.ac.uk/ouheaders/gui/Open_University_OG_Image.png" />
+        <meta property="og:image:secure_url" content="https://www.open.ac.uk/ouheaders/gui/Open_University_OG_Image.png" />
+        <meta property="og:image:alt" content="The Open University" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://research.stem.open.ac.uk/ouanalyse/open-dataset-more/" />
+        <meta property="twitter:title" content="Open University Learning Analytics dataset &#8211; OU Analyse" />
+        <meta property="twitter:description" content="This page introduces the anonymised Open University Learning Analytics Dataset (OULAD). It contains data about courses, students and their interactions with Virtual Learning Environment (VLE) for seven selected courses (called modules). Presentations of courses start in February and October &#8211; they are marked by &#8220;B&#8221; and &#8220;J&#8221; respectively. The dataset consists of tables connected using [&hellip;]" />
+        <meta property="twitter:image" content="https://www.open.ac.uk/ouheaders/gui/Open_University_OG_Image.png" />
+
+
+        <link rel="apple-touch-icon-precomposed" href="https://www.open.ac.uk/ouheaders/gui/Open_University_OG_Image.png" />
+
+        <title>Open University Learning Analytics dataset &#8211; OU Analyse</title>
+        <link rel="canonical" href="https://research.stem.open.ac.uk/ouanalyse/open-dataset-more/" />
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&family=Major+Mono+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <title>Open University Learning Analytics dataset &#8211; OU Analyse</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel="alternate" type="application/rss+xml" title="OU Analyse &raquo; Feed" href="https://research.stem.open.ac.uk/ouanalyse/feed/" />
+<link rel="alternate" type="application/rss+xml" title="OU Analyse &raquo; Comments Feed" href="https://research.stem.open.ac.uk/ouanalyse/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://research.stem.open.ac.uk/ouanalyse/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch.stem.open.ac.uk%2Fouanalyse%2Fopen-dataset-more%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://research.stem.open.ac.uk/ouanalyse/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch.stem.open.ac.uk%2Fouanalyse%2Fopen-dataset-more%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://research.stem.open.ac.uk/ouanalyse/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://research.stem.open.ac.uk/ouanalyse/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1% - var(--wp--style--block-gap, .5em)*(1 - var(--wp--block-button--width)/100))}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1%)}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:transparent;background-image:none}
+/*# sourceURL=https://research.stem.open.ac.uk/ouanalyse/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://research.stem.open.ac.uk/ouanalyse/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://research.stem.open.ac.uk/ouanalyse/wp-includes/blocks/buttons/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<link rel='stylesheet' id='unity-pattern-styles-css' href='https://research.stem.open.ac.uk/ouanalyse/wp-content/plugins/unity-patterns/css/style.css?ver=0.1.0' media='all' />
+<link rel='stylesheet' id='font-awesome-css-css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css?ver=7.0.1' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style id="jetpack-stats-inline-css">
+img#wpstats{display:none}
+/*# sourceURL=jetpack-stats-inline-css */
+</style>
+<script id="jquery-core-js" src="https://research.stem.open.ac.uk/ouanalyse/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://research.stem.open.ac.uk/ouanalyse/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="https://api.w.org/" href="https://research.stem.open.ac.uk/ouanalyse/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://research.stem.open.ac.uk/ouanalyse/wp-json/wp/v2/pages/36" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://research.stem.open.ac.uk/ouanalyse/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel="canonical" href="https://research.stem.open.ac.uk/ouanalyse/open-dataset-more/" />
+<link rel='shortlink' href='https://research.stem.open.ac.uk/ouanalyse/?p=36' />
+
+        <link rel="icon" type="image/png" sizes="16x16" href="https://research.stem.open.ac.uk/ouanalyse/wp-content/themes/dds-unity-theme/assets/images/favicon-light.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" type="image/png" sizes="16x16" href="https://research.stem.open.ac.uk/ouanalyse/wp-content/themes/dds-unity-theme/assets/images/favicon-light.png" media="(prefers-color-scheme: dark)" />
+        <link rel="shortcut icon" type="image/png" href="https://research.stem.open.ac.uk/ouanalyse/wp-content/themes/dds-unity-theme/assets/images/favicon-light.png" />
+        
+        
+<!-- ou-head v2.0.0.802 -->
+
+<script src="https://de.cdn-v3.conductrics.com/ac-LXFBNkXiNm/v3/agent-api/js/f-dWyHnIAdDA/dt-EzQ29xSsSbrFdEypQszyo9LrPicxDP?apikey=api-Yj4rznDbbdMSfZflSxhm7BLtxY"></script>
+
+<!-- Google Tag Manager Generic Data Layer -->
+<!-- Make sure any site specific layers happen before this line -->
+<script>/*<![CDATA[*/window.dataLayer = window.dataLayer || [];/*]]>*/</script>
+<!-- End Google Tag Manager Generic Data Layer -->
+
+<!-- Google Tag Manager -->
+
+<script>/*<![CDATA[*/   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://sgtm.open.ac.uk/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-PPS2SH');
+   /*]]>*/</script>
+<!-- End Google Tag Manager -->
+<!-- Silktide scripting -->
+<script defer src="https://analytics.silktide.com/6df84daffb8465655442c815000dfa70.js"></script><script>
+      (function (s,i,l,k,y) {
+      s[i] = s[i] || y;
+      s[l] = s[l] || [];
+      s[k] = function(e, p) { p = p || {}; p.event = e; s[l].push(p); };
+      s[k]('page_load');
+      })(window, 'stConfig', 'stEvents', 'silktide', {});
+    </script>
+<!-- End Silktide scripting -->
+
+<!-- Start JS-->
+<script src="/ouheaders/js/headerfooter.min.js?2.0.0.802"></script>
+<!-- End JS replacement -->
+
+<!-- Stylesheets --><link rel="stylesheet" type="text/css" href="/ouheaders/gui/headerfooter.css?2.0.0.802" media="screen">
+
+<!--[if lt IE 9]><link rel="stylesheet" href="/ouheaders/gui/header-footer-ie.css" /><![endif]-->
+<link rel="stylesheet" href="/ouheaders/gui/headerfooter-print.css?2.0.0.802" media="print">
+
+<!-- Stylesheets For cassie cookie widget -->
+<link rel="stylesheet" type="text/css" href="/ouheaders/gui/cassiecookiewidget.css?2.0.0.802" media="screen">
+<!-- End of Stylesheets For cassie cookie widget -->
+
+<!-- End ou-head v2.0.0.802 -->
+
+                    <link rel="stylesheet" href="https://schools.stem.open.ac.uk/cdn/css/unity.css?ver=1778260358">
+                <link rel="stylesheet" href="https://research.stem.open.ac.uk/ouanalyse/wp-content/themes/dds-unity-theme/assets/css/style.css">
+
+                    <script src="https://schools.stem.open.ac.uk/cdn/js/unity.js?ver=1777107720"></script>
+            </head>
+	
+        <body class="wp-singular page-template-default page page-id-36 wp-embed-responsive wp-theme-dds-unity-theme unity-platform-research unity-multisite unity-site-subsite"        id="page-top"
+        data-unity-platform="research"
+        data-unity-site="subsite"
+    >
+        <?xml encoding="utf-8" ?><!-- ou-header v2.0.0.802 --><div class="ou_gtaiframe"><noscript><iframe src="https://sgtm.open.ac.uk/ns.html?id=GTM-PPS2SH" height="0" width="0" style="display:none;visibility:hidden" name="GTM"></iframe></noscript></div><div id="ou-head">
+   <div id="ou-header"><a class="ou-skip" href="#int-content" id="ou-skip-anchor-tutor-home" data-translate="true"><i class="int-icon int-icon-arrow-circle-down"></i>Skip to content
+         </a>
+      
+      <div id="ou-logo">
+         <a class="ou-logo england" href="https://www.open.ac.uk/" title="The Open University">
+            <img src="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 2x" alt="The Open University">
+            </a>
+         <a class="ou-logo roi" href="https://www.open.ac.uk/republic-of-ireland/" title="The Open University">
+            <img src="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 2x" alt="The Open University">
+            </a>
+         <a class="ou-logo nir" href="https://www.open.ac.uk/northern-ireland/" title="The Open University">
+            <img src="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 2x" alt="The Open University">
+            </a>
+         <a class="ou-logo scotland" href="https://www.open.ac.uk/scotland/" title="The Open University">
+            <img src="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 2x" alt="The Open University">
+            </a>
+         <a class="ou-logo wales" href="https://www.open.ac.uk/wales/en/" title="The Open University">
+            <img src="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 2x" alt="The Open University">
+            </a>
+         <a class="ou-logo cymraeg" href="https://www.open.ac.uk/wales/cy/" title="The Open University">
+            <img src="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 2x" alt="The Open University">
+            </a>
+         <a class="ou-logo nonav" href="javascript:void(0);" title="The Open University">
+            <img src="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Logo_Mobile.svg?2.0.0.802 2x" alt="The Open University">
+            </a>
+         </div>
+      <div id="mod-mobile-basket"><button onclick="javascript:mc_show_mobile_basket()" id="mod-basket-link" aria-label="Shopping cart - Your module choices"><i class="int-icon int-icon-shopping-cart int-icon-2x"></i><span id="mc-mobilecredits">0</span>cr
+            </button></div>
+      <div class="ou-identity">
+         <p class="ou-identity-name" data-hj-masked=""></p>
+      </div>
+      <div class="ou-mobile-menu-toggle-div"><a href="#" class="ou-mobile-menu-toggle icon-up" id="ou-mobile-menu-toggle"><img src="/ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802" srcset="/ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802 1x, /ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802 2x" alt="Toggle service links" title="Toggle service links"></a></div>
+      
+      <div id="ou-header-nav">
+         <div id="ou-service-links" aria-label="Your links" role="navigation">
+            <div id="ou-identity">
+               <p class="ou-identity-name" data-hj-masked=""></p>
+               <p id="ou-identity-id" data-hj-masked=""></p>
+            </div>
+            <ul>
+               <li class="ou-role-signin" id="ou-signin1"><a href="https://msds.open.ac.uk/signon/sams001.aspx" id="ou-signin2" data-translate="true">Sign in</a><span>|</span></li>
+               <li class="ou-role-signout ou-header-remove" id="ou-signout"><a href="https://msds.open.ac.uk/signon/samsoff.aspx" id="ou-signout2" data-translate="true">Sign out</a><span>|</span></li>
+               
+               <li id="ou-myaccount" class="ou-header-remove">
+                  <a href="https://msds.open.ac.uk/students/" data-translate="true">My Account</a>
+                  <span>|</span>
+                  </li>
+               
+               <li id="ou-studenthome" class="ou-header-remove">
+                  <a href="https://msds.open.ac.uk/students/" data-translate="true">StudentHome</a>
+                  <span>|</span>
+                  </li>
+               
+               <li id="ou-tutorhome" class="ou-header-remove">
+                  <a href="https://msds.open.ac.uk/tutorhome/" data-translate="true">TutorHome</a>
+                  <span>|</span>
+                  </li>
+               
+               <li id="ou-intranethome" class="ou-header-remove">
+                  <a href="https://intranet.open.ac.uk/oulife-home/" data-translate="true">IntranetHome</a>
+                  <span>|</span>
+                  </li>
+               
+               <li id="ou-contact"><a href="https://www.open.ac.uk/contact" data-translate="true" class="ou-ia-public" id="ou-public-contact">Contact the OU</a><a href="https://www2.open.ac.uk/students/help/your-contacts/" data-translate="true" class="ou-ia-student" id="ou-student-contact">Contact the OU</a><a href="https://www2.open.ac.uk/tutors/help/who-to-contact/" data-translate="true" class="ou-ia-tutor" id="ou-tutor-contact">Contact the OU</a><span>|</span></li>
+               <li><a href="https://www.open.ac.uk/about/main/strategy-and-policies/policies-and-statements/website-accessibility-open-university" data-translate="true" class="ou-display-public-tutor">Accessibility hub</a><a href="https://www.open.ac.uk/about/main/strategy-and-policies/policies-and-statements/website-accessibility-open-university/" data-translate="true" class="ou-ia-student">Accessibility hub</a></li>
+               <li class="ou-search ou-ia-public"><label for="ou-header-search-public" class="ou-hide" data-translate="true">Search the OU</label><input type="search" id="ou-header-search-public" class="ou-header-search" name="q" data-translate="true" placeholder="Search the OU" onkeyup="javascript: onSearchBoxInput(event);"><div class="ou-button-container"><button type="button" value="Search" id="search-button-header" onclick="submitSearch('ou-header-search-public');"><img src="/ouheaders/gui/Search_Icon_Magnifier.svg?2.0.0.802" srcset="/ouheaders/gui/Search_Icon_Magnifier.svg?2.0.0.802 1x, /ouheaders/gui/Search_Icon_Magnifier.svg?2.0.0.802 2x" alt="Search" title="Search"></button></div>
+               </li>
+            </ul>
+         </div>
+         <!-- end ou-service-links -->
+         <div class="ou-ia-nav" id="ou-ia-nav" aria-label="STEM Research" role="navigation">
+        <ul class="ou-ia-public">
+<li class="ou-ia-platform"><a href="https://schools.stem.open.ac.uk">Schools</a></li>
+            <li class="ou-ia-platform is-active"><a href="https://research.stem.open.ac.uk">Research</a></li>
+            <li class="ou-ia-platform"><a href="https://blog.stem.open.ac.uk">News</a></li>
+            <li class="ou-ia-platform is-disabled "><a href="#">Events</a></li>
+            <li class="ou-ia-platform"><a href="https://research-archive.stem.open.ac.uk">Research Archive</a></li>
+
+        </ul>
+    </div>
+         <!-- end ou-ia-nav -->
+         </div>
+      <!--end ou-header-navigation-->
+      </div>
+</div><!-- End ou-header v2.0.0.802 -->
+
+<script>
+(function(){
+    Object.defineProperty(window, 'changeLinks', {
+        configurable: false,
+        writable: false,
+        value: function(){}
+    });
+})();
+</script>
+                <div class="container-fluid unity-nav-bar" id="unity-nav-bar">
+    <div class="container">
+        <div class="row">
+            <nav class="col-12 unity-nav" aria-label="Main">
+                <div class="row unity-nav-row">
+                    <div class="col-8 col-lg-5 unity-nav-title" id="unity-nav-title">
+                        <h2 class="page-title padding-left-25">
+                            OU Analyse                        </h2>
+                    </div>
+
+                    <div class="col-4 col-lg-7 unity-nav-menu-wrap">
+                        <button
+                            class="unity-nav-toggle"
+                            id="unity-nav-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="unity-nav-menu"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class="unity-nav-toggle__bar"></span>
+                            <span class="unity-nav-toggle__bar"></span>
+                            <span class="unity-nav-toggle__bar"></span>
+                        </button>
+
+                        <div class="unity-nav-menu" id="unity-nav-menu">
+                            <ul id="nav-items" class="unity-nav-items"><li class="menu-item unity-nav-home"><a href="https://research.stem.open.ac.uk/ouanalyse/">Home</a></li><li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-8"><a href="https://research.stem.open.ac.uk/ouanalyse/">Home</a></li>
+<li id="menu-item-64" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64"><a href="https://research.stem.open.ac.uk/ouanalyse/dashboard/">Dashboard</a></li>
+<li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://research.stem.open.ac.uk/ouanalyse/team/">Team</a></li>
+<li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://research.stem.open.ac.uk/ouanalyse/publications/">Publications</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://research.stem.open.ac.uk/ouanalyse/dataset/">Open dataset</a></li>
+<li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56"><a href="https://research.stem.open.ac.uk/ouanalyse/related-research/">Related research</a></li>
+<li id="menu-item-55" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"><a href="https://research.stem.open.ac.uk/ouanalyse/media/">Media</a></li>
+</ul>
+                                                    </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div id="unity-nav-sticky"></div>
+        <div class="clearfix"></div>
+
+
+<div class="container-fluid unity-banner unity-banner-research">
+    <div class="container scrolling-banner">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 order-2 order-md-1 unity-welcome-text">
+                <h1 class="welcome-heading">OU Analyse</h1>
+                <p class="welcome-text"></p>
+            </div>
+
+            <div class="col-md-7 col-sm-12 order-1 order-md-2 unity-welcome-banner">
+                <img class="welcome-banner"
+                     src="https://schools.stem.open.ac.uk/cdn/img/banners/research-banner-5.png"
+                     alt=""
+                     data-alternate-src=""
+                     data-fallback-src="https://schools.stem.open.ac.uk/cdn/img/banners/research-banner-5.png"
+                     onerror="if (!this.dataset.triedAlternate && this.dataset.alternateSrc) { this.dataset.triedAlternate='1'; this.src=this.dataset.alternateSrc; } else { this.onerror=null; this.src=this.dataset.fallbackSrc; }">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container unity-custom-page">
+    <div class="row">
+                <div class="col-12">
+            <section class="unity-custom-page__section">
+                                    <div class="edit-link"></div>
+                    <nav class="unity-breadcrumbs" aria-label="Breadcrumb"><ol class="unity-breadcrumbs__list"><li class="unity-breadcrumbs__item"><a href="https://research.stem.open.ac.uk/ouanalyse/">OU Analyse</a></li><li class="unity-breadcrumbs__item"><span aria-current="page">Open University Learning Analytics dataset</span></li></ol></nav>                    <h2 class="section-title">Open University Learning Analytics dataset</h2>
+                                        
+<p class="has-text-align-center wp-block-paragraph">This page introduces the anonymised Open University Learning Analytics Dataset (OULAD). It contains data about courses, students and their interactions with Virtual Learning Environment (VLE) for seven selected courses (called modules). Presentations of courses start in February and October &#8211; they are marked by &#8220;B&#8221; and &#8220;J&#8221; respectively. The dataset consists of tables connected using unique identifiers. All tables are stored in the csv format.<br><br></p>
+
+
+
+<h2 class="wp-block-heading">Data</h2>
+
+
+
+<p class="wp-block-paragraph">You can download the latest version of the OULAD here:</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Download dataset*</a></div>
+</div>
+
+
+
+<p class="wp-block-paragraph"><a href="https://analyse.kmi.open.ac.uk/open-dataset/downloadCheckSum">* You can check integrity of downloaded zip file using the MD5 checksum.</a></p>
+
+
+
+<h2 class="wp-block-heading">OULAD testimonials</h2>
+
+
+
+<h4 class="wp-block-heading"><a href="https://ctlt.ubc.ca/2018/03/19/learning-analytics-hackathon-3-0-explores-how-data-can-empower-students/">Learning Analytics &amp; Open Data Hackathon 3.0</a>&nbsp;at the University of British Columbia, Canada</h4>
+
+
+
+<p class="wp-block-paragraph">The two-day event was held at the University of British Columbia, Canada. Over 100 participants dove into our dataset and experimented with it. Interesting projects in the area of social comparison and visualisation have been developed.</p>
+
+
+
+<h4 class="wp-block-heading"><a href="https://lakhackathon.wordpress.com/">LAK18 Hackathon</a>&nbsp;at Learning Analytics and Knowledge conference (LAK18) in Sydney, Australia</h4>
+
+
+
+<p class="wp-block-paragraph">The principal aim of Hack@LAK18 was to enable multi-disciplinary thinking over key open challenges in Learning Analytics based on a problem-oriented, pragmatic approach. OULAD was one of the recommended datasets by the organisers.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://research.stem.open.ac.uk/ouanalyse/testimonials/">More testimonials</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading">Data description</h2>
+
+
+
+<h3 class="wp-block-heading">Database schema</h3>
+
+
+
+<p class="wp-block-paragraph"><img decoding="async" src="https://analyse.kmi.open.ac.uk/resources/images/model.png" alt="Database schema"></p>
+
+
+
+<h3 class="wp-block-heading">courses.csv</h3>
+
+
+
+<p class="wp-block-paragraph">File contains the list of all available modules and their presentations. The columns are:</p>
+
+
+
+<ul class="wp-block-list">
+<li>code_module &#8211; code name of the module, which serves as the identifier.</li>
+
+
+
+<li>code_presentation &#8211; code name of the presentation. It consists of the year and &#8220;B&#8221; for the presentation starting in February and &#8220;J&#8221; for the presentation starting in October.</li>
+
+
+
+<li>length &#8211; length of the module-presentation in days.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">The structure of B and J presentations may differ and therefore it is good practice to analyse the B and J presentations separately. Nevertheless, for some presentations the corresponding previous B/J presentation do not exist and therefore the J presentation must be used to inform the B presentation or vice versa. In the dataset this is the case of CCC, EEE and GGG modules.</p>
+
+
+
+<h3 class="wp-block-heading">assessments.csv</h3>
+
+
+
+<p class="wp-block-paragraph">This file contains information about assessments in module-presentations. Usually, every presentation has a number of assessments followed by the final exam. CSV contains columns:</p>
+
+
+
+<ul class="wp-block-list">
+<li>code_module &#8211; identification code of the module, to which the assessment belongs.</li>
+
+
+
+<li>code_presentation &#8211; identification code of the presentation, to which the assessment belongs.</li>
+
+
+
+<li>id_assessment &#8211; identification number of the assessment.</li>
+
+
+
+<li>assessment_type &#8211; type of assessment. Three types of assessments exist: Tutor Marked Assessment (TMA), Computer Marked Assessment (CMA) and Final Exam (Exam).</li>
+
+
+
+<li>date &#8211; information about the final submission date of the assessment calculated as the number of days since the start of the module-presentation. The starting date of the presentation has number 0 (zero).</li>
+
+
+
+<li>weight &#8211; weight of the assessment in %. Typically, Exams are treated separately and have the weight 100%; the sum of all other assessments is 100%.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">If the information about the final exam date is missing, it is at the end of the last presentation week.</p>
+
+
+
+<h3 class="wp-block-heading">vle.csv</h3>
+
+
+
+<p class="wp-block-paragraph">The csv file contains information about the available materials in the VLE. Typically, these are html pages, pdf files, etc. Students have access to these materials online and their interactions with the materials are recorded.<br>The vle.csv file contains the following columns:</p>
+
+
+
+<ul class="wp-block-list">
+<li>id_site &#8211; an identification number of the material.</li>
+
+
+
+<li>code_module &#8211; an identification code for module.</li>
+
+
+
+<li>code_presentation &#8211; the identification code of presentation.</li>
+
+
+
+<li>activity_type &#8211; the role associated with the module material.</li>
+
+
+
+<li>week_from &#8211; the week from which the material is planned to be used.</li>
+
+
+
+<li>week_to &#8211; week until which the material is planned to be used.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">studentInfo.csv</h3>
+
+
+
+<p class="wp-block-paragraph">This file contains demographic information about the students together with their results. File contains the following columns:</p>
+
+
+
+<ul class="wp-block-list">
+<li>code_module &#8211; an identification code for a module on which the student is registered.</li>
+
+
+
+<li>code_presentation &#8211; the identification code of the presentation during which the student is registered on the module.</li>
+
+
+
+<li>id_student &#8211; a unique identification number for the student.</li>
+
+
+
+<li>gender &#8211; the student&#8217;s gender.</li>
+
+
+
+<li>region &#8211; identifies the geographic region, where the student lived while taking the module-presentation.</li>
+
+
+
+<li>highest_education &#8211; highest student education level on entry to the module presentation.</li>
+
+
+
+<li>imd_band &#8211; specifies the&nbsp;<a href="https://en.wikipedia.org/wiki/Multiple_deprivation_index">Index of Multiple Depravation</a>&nbsp;band of the place where the student lived during the module-presentation.</li>
+
+
+
+<li>age_band &#8211; band of the student&#8217;s age.</li>
+
+
+
+<li>num_of_prev_attempts &#8211; the number times the student has attempted this module.</li>
+
+
+
+<li>studied_credits &#8211; the total number of credits for the modules the student is currently studying.</li>
+
+
+
+<li>disability &#8211; indicates whether the student has declared a disability.</li>
+
+
+
+<li>final_result &#8211; student&#8217;s final result in the module-presentation.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">studentRegistration.csv</h3>
+
+
+
+<p class="wp-block-paragraph">This file contains information about the time when the student registered for the module presentation. For students who unregistered the unregistered date is also recorded. File contains five columns:</p>
+
+
+
+<ul class="wp-block-list">
+<li>code_module &#8211; an identification code for a module.</li>
+
+
+
+<li>code_presentation &#8211; the identification code of the presentation.</li>
+
+
+
+<li>id_student &#8211; a unique identification number for the student.</li>
+
+
+
+<li>date_registration &#8211; the date of student&#8217;s registration on the module presentation, this is the number of days measured relative to the start of the module-presentation (e.g. the negative value -30 means that the student registered to module presentation 30 days before it started).</li>
+
+
+
+<li>date_unregistration &#8211; the student&#8217;s unregistered date from the module presentation, this is the number of days measured relative to the start of the module-presentation. Students, who completed the course have this field empty. Students who unregistered have Withdrawal as the value of the final_result column in the studentInfo.csv file.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">studentAssessment.csv</h3>
+
+
+
+<p class="wp-block-paragraph">This file contains the results of students&#8217; assessments. If the student does not submit the assessment, no result is recorded. The final exam submissions is missing, if the result of the assessments is not stored in the system.<br>This file contains the following columns:</p>
+
+
+
+<ul class="wp-block-list">
+<li>id_assessment &#8211; the identification number of the assessment.</li>
+
+
+
+<li>id_student &#8211; a unique identification number for the student.</li>
+
+
+
+<li>date_submitted &#8211; the date of student submission, measured as the number of days since the start of the module presentation.</li>
+
+
+
+<li>is_banked &#8211; a status flag indicating that the assessment result has been transferred from a previous presentation.</li>
+
+
+
+<li>score &#8211; the student&#8217;s score in this assessment. The range is from 0 to 100. The score lower than 40 is interpreted as Fail. The marks are in the range from 0 to 100.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">studentVle.csv</h3>
+
+
+
+<p class="wp-block-paragraph">The studentVle.csv file contains information about each student&#8217;s interactions with the materials in the VLE.<br>This file contains the following columns:</p>
+
+
+
+<ul class="wp-block-list">
+<li>code_module &#8211; an identification code for a module.</li>
+
+
+
+<li>code_presentation &#8211; the identification code of the module presentation.</li>
+
+
+
+<li>id_student &#8211; a unique identification number for the student.</li>
+
+
+
+<li>id_site &#8211; an identification number for the VLE material.</li>
+
+
+
+<li>date &#8211; the date of student&#8217;s interaction with the material measured as the number of days since the start of the module-presentation.</li>
+
+
+
+<li>sum_click &#8211; the number of times a student interacts with the material in that day.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Examples</h2>
+
+
+
+<h3 class="wp-block-heading">Open Data Mashup 2015</h3>
+
+
+
+<p class="wp-block-paragraph">Example usage of dataset demonstrated on a small subset of data created for the Open Data Mashup 2015 in London:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://analyse.kmi.open.ac.uk/resources/documents/mashupExample.pdf">Document describing a Mashup example</a>&nbsp;(in pdf format)</li>
+
+
+
+<li><a href="https://analyse.kmi.open.ac.uk/resources/documents/mashupData.RData">Example subset of OULAD</a>&nbsp;(in .Rdata format)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Rights statement and License</h2>
+
+
+
+<h3 class="wp-block-heading">License</h3>
+
+
+
+<p class="wp-block-paragraph">This dataset is released under&nbsp;<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>&nbsp;license.</p>
+
+
+
+<h3 class="wp-block-heading">Citing the dataset</h3>
+
+
+
+<p class="wp-block-paragraph">When citing the dataset please use the following reference:<br><br>Kuzilek J., Hlosta M., Zdrahal Z.&nbsp;<a href="https://www.nature.com/articles/sdata2017171">Open University Learning Analytics dataset&nbsp;</a>Sci. Data 4:170171 doi: 10.1038/sdata.2017.171 (2017).<br></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+                                                </section>
+        </div>
+            </div>
+</div>
+
+    <footer class="unity-footer">
+      <div class="unity-school-footer">
+	<div class="container" id="contact">
+		<div class="row">				
+			<div class="col-sm-12 col-12">
+				<a href="//schools.stem.open.ac.uk" title="About Us: STEM Faculty">Faculty of Science, Technology, Engineering and Mathematics</a>
+				<em class="fa-solid fa-arrow-up-right-from-square"></em>
+			</div>
+		</div>
+	</div>
+</div>      <?xml encoding="utf-8" ?><!-- ou-footer v2.0.0.802 --><div id="ou-org-footer" class="ou-footer" role="contentinfo" aria-label="ou site footer"><div class="ou-container"><div class="ou-header"><div class="ou-crest"><img src="/ouheaders/gui/OU_Crest_SVG.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Crest_SVG.svg?2.0.0.802 1x, /ouheaders/gui/OU_Crest_SVG.svg?2.0.0.802 2x" alt="The Open University Crest" title="The Open University Crest"></div><div class="ou-mob-crest"><img src="/ouheaders/gui/OU_Crest_SVG_Mobile.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Crest_SVG_Mobile.svg?2.0.0.802 1x, /ouheaders/gui/OU_Crest_SVG_Mobile.svg?2.0.0.802 2x" alt="The Open University Crest" title="The Open University Crest"></div><div class="ou-footer-title"><h2 data-translate="true">The Open University</h2></div></div><div class="ou-footer-nav">
+      <!--US-590505_OU_Public_Footer_Oct22:na5649-->
+      <div id="ou-ia-public" class="ou-ia-footer" role="tablist">
+        <div class="public-lineone">
+          <h3 class="ou-collapsible-footer" id="ou-publicFooter-explore-toggle" aria-controls="ou-publicFooter-explore" role="tab" tabindex="-1">
+            <span data-translate="true">Explore</span>
+            <span class="ou-mobile-menu-toggle icon-up">
+              <img src="/ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802" srcset="/ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802 1x, /ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802 2x" alt="Menu toggle" title="Menu toggle">
+            </span>
+          </h3>
+          <ul class="ou-mobile-menu-toggle" id="ou-publicFooter-explore" aria-labelledby="ou-publicFooter-explore-toggle">
+            <li>
+              <a data-translate="true" href="https://www.open.ac.uk/courses">Study with us</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://jobs.open.ac.uk/">Work with us</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            <li>
+              <a data-translate="true" href="https://research.open.ac.uk/">Research</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://www.open.ac.uk/blogs/news/">News &amp; media</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://www.open.ac.uk/contact">Contact the OU</a>
+            </li>
+          </ul>
+        </div>
+        
+        
+        <div class="public-linefour">
+          <h3 class="ou-collapsible-footer" id="ou-publicFooter-policy-toggle" aria-controls="ou-publicFooter-policy" role="tab" tabindex="-1">
+            <span data-translate="true">Policy</span>
+            <span class="ou-mobile-menu-toggle icon-up">
+              <img src="/ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802" srcset="/ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802 1x, /ouheaders/gui/Accordion_Chevron_Down.svg?2.0.0.802 2x" alt="Menu toggle" title="Menu toggle">
+            </span>
+          </h3>
+          <ul class="ou-mobile-menu-toggle" id="ou-publicFooter-policy" aria-labelledby="ou-publicFooter-policy-toggle">
+            <li class="ou-ia-footer-accessibility-statement">
+              <a data-translate="true" href="https://research.stem.open.ac.uk/accessibility-statement/">Accessibility Statement</a>
+            </li>
+            <li>
+              <a href="https://www5.open.ac.uk/wales/cy/yr-iaith-gymraeg">Cymraeg</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/conditions-use-open-university-websites">Conditions of use</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/website-privacy-ou">Privacy policy</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/cookie-use-ou-website">Cookie policy</a>
+            </li>
+            <li>
+              <a data-translate="true" href="#" onclick="CassieWidgetLoader.Widget.showModal(); managePreferenceSetInterval();">Manage cookie preferences</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/statement-eradicating-modern-slavery-supply-chains">Modern slavery act</a>
+            </li>
+            <li>
+              <a data-translate="true" href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/copyright-ou-websites">Copyright</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="ou-ia-student" class="ou-ia-footer">
+        <div class="ou-row">
+          <div class="ou-grid3">
+            <ul>
+              <li>
+                <h4 class="ou-social-media" id="ou-footer-ou-community-toggle">
+                  <span>Follow us on Social media</span>
+                  <span class="ou-mobile-menu-toggle icon-up">
+                    <img src="#" srcset="/ouheaders/gui/sprite.png?2.0.0.802 1x, /ouheaders/gui/sprite-x3.png?2.0.0.802 2x" alt="Menu toggle" title="Menu toggle">
+                  </span>
+                </h4>
+                <div class="ou-mobile-menu-toggle" id="ou-footer-ou-community" role="tabpanel">
+                  <ul class="ou-inline">
+                    <li class="facebook">
+                      <a href="https://www.facebook.com/theopenuniversity" title="Facebook">
+                        <span>
+                          <img src="/ouheaders/gui/Social_facebook.svg?2.0.0.802" srcset="/ouheaders/gui/Social_facebook.svg?2.0.0.802 1x, /ouheaders/gui/Social_facebook.svg?2.0.0.802 2x" alt="Facebook" title="Facebook">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="twitter">
+                      <a href="https://twitter.com/OpenUniversity" title="Twitter">
+                        <span>
+                          <img src="/ouheaders/gui/Twitter_X_icon.svg?2.0.0.802" srcset="/ouheaders/gui/Twitter_X_icon.svg?2.0.0.802 1x, /ouheaders/gui/Twitter_X_icon.svg?2.0.0.802 2x" alt="X (formerly Twitter)" title="X (formerly Twitter)">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="youtube">
+                      <a href="https://www.youtube.com/user/TheOpenUniversity" title="Youtube">
+                        <span>
+                          <img src="/ouheaders/gui/Social_youtube.svg?2.0.0.802" srcset="/ouheaders/gui/Social_youtube.svg?2.0.0.802 1x, /ouheaders/gui/Social_youtube.svg?2.0.0.802 2x" alt="YouTube" title="YouTube">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="linkedin">
+                      <a href="https://www.linkedin.com/edu/school?id=12659&amp;trk=edu-cp-title" title="LinkedIn">
+                        <span>
+                          <img src="/ouheaders/gui/Social_linkedin.svg?2.0.0.802" srcset="/ouheaders/gui/Social_linkedin.svg?2.0.0.802 1x, /ouheaders/gui/Social_linkedin.svg?2.0.0.802 2x" alt="LinkedIn" title="LinkedIn">
+                        </span>
+                      </a>
+                    </li>
+                    <!--<li class="googleplus">
+                      <a
+												href="https://plus.google.com/+TheOpenUniversity"
+												title="Google+">
+                        <span>
+                          <img src="/ouheaders/gui/sprite.png?2.0.0.802" srcset="/ouheaders/gui/sprite.png?2.0.0.802 1x, /ouheaders/gui/sprite-x3.png?2.0.0.802 2x" alt="Google+" title="Google+" />
+                        </span>
+                      </a>
+                    </li>-->
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="ou-grid3">
+            <ul class="ou-mobile-menu-toggle" id="ou-footer-support">
+                <li class="ou-ia-footer-accessibility-statement">
+                  <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/website-accessibility-hub/accessibility-statement-open">OU Accessibility statement</a>
+                </li>
+                <li>
+                  <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/conditions-use-open-university-websites">Conditions of use</a>
+                </li>
+                <li>
+                  <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/copyright-ou-websites">Copyright</a>
+                </li>
+                <li>
+                  <a href="https://www5.open.ac.uk/wales/cy/yr-iaith-gymraeg">Cymraeg</a>
+                </li>
+              </ul>         
+          </div>
+          <div class="ou-grid3">
+            <ul>
+              <li>
+                <ul class="ou-mobile-menu-toggle" id="ou-footer-study">
+                  <li>
+                    <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/website-privacy-ou">Privacy policy</a>
+                  </li>
+                  <li>
+                    <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/cookie-use-ou-website">Cookie policy</a>
+                  </li>
+                  <li>
+                    <a href="#" onclick="CassieWidgetLoader.Widget.showModal(); managePreferenceSetInterval();">Manage cookie preferences</a>
+                  </li>
+                  <li>
+                    <a href="https://help.open.ac.uk/documents/policies">
+                      Student Policies and Regulations
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="ou-grid3">
+            <ul>
+              <li>
+                <ul class="ou-mobile-menu-toggle" id="ou-footer-policy">
+                  <li>
+                    <a href="https://about.open.ac.uk/policies-and-reports/policies-and-statements/student-charter">
+                      Student Charter
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://status.open.ac.uk">
+                      System Status
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="ou-ia-outis1bd-footer">
+        <ul>
+          <li>
+            <a href="https://www.open.ac.uk/contact" class="ou-ia-public" id="ou-footer-public-contact" data-translate="true">Contact the OU</a>
+            <a href="https://www2.open.ac.uk/tutors/help/who-to-contact/" class="ou-ia-tutor" id="ou-footer-tutor-contact" data-translate="true">Contact the OU</a>
+          </li>
+          <li>
+            <a href="https://jobs.open.ac.uk/" data-translate="true">Work with us</a>
+          </li>
+          <li class="ou-ia-footer-accessibility-statement">
+            <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/website-accessibility-hub/accessibility-statement-open" data-translate="true">OU Accessibility statement</a>
+          </li>
+          <li>
+            <a href="https://www5.open.ac.uk/wales/cy/yr-iaith-gymraeg">Cymraeg</a>
+          </li>
+          <li>
+            <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/conditions-use-open-university-websites" data-translate="true">Conditions of use</a>
+          </li>
+          <li>
+            <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/website-privacy-ou" data-translate="true">Privacy policy</a>
+          </li>
+          <li>
+            <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/cookie-use-ou-website" data-translate="true">Cookie policy</a>
+          </li>
+          <li>
+            <a href="#" onclick="CassieWidgetLoader.Widget.showModal(); managePreferenceSetInterval();" data-translate="true">Manage cookie preferences</a>
+          </li>
+          <li>
+            <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/statement-eradicating-modern-slavery-supply-chains" data-translate="true">Modern Slavery Act</a>
+          </li>
+          <li>
+            <a href="https://about.open.ac.uk/strategy-and-policies/policies-and-statements/copyright-ou-websites" data-translate="true">Copyright</a>
+          </li>
+        </ul>
+      </div>
+
+    
+<div class="ou-small-print"><div class="ou-crest-icon"><img src="/ouheaders/gui/OU_Crest_SVG.svg?2.0.0.802" srcset="/ouheaders/gui/OU_Crest_SVG.svg?2.0.0.802 1x, /ouheaders/gui/OU_Crest_SVG.svg?2.0.0.802 2x" alt="The Open University Crest" title="The Open University Crest"></div><p class="ou-copyright" id="ou-copyright" style="display:none"><small>
+                &copy;<span id="ou-copyright-year"><a style="display:none">.</a></span>. <span data-translate="true" id="ou-footer-statement"><a style="display:none">.</a></span></small></p>
+</div>
+</div>
+</div>
+</div><!-- End ou-footer v2.0.0.802 -->
+    </footer>
+
+    <a class="unity-floating-login"
+       href="https://research.stem.open.ac.uk/stemadmin/"
+       aria-label="Open the STEM platform dashboard"
+       data-wordpress-logged-in="false"
+       hidden>
+      <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+    </a>
+
+    <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/ouanalyse/*"},{"not":{"href_matches":["/ouanalyse/wp-*.php","/ouanalyse/wp-admin/*","/ouanalyse/wp-content/uploads/sites/3/*","/ouanalyse/wp-content/*","/ouanalyse/wp-content/plugins/*","/ouanalyse/wp-content/themes/dds-unity-theme/*","/ouanalyse/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="unity-nav-js" src="https://research.stem.open.ac.uk/ouanalyse/wp-content/plugins/unity-core/assets/js/unity-nav.js?ver=1789322968"></script>
+<script id="unity-patterns-js-js" src="https://research.stem.open.ac.uk/ouanalyse/wp-content/plugins/unity-patterns/js/script.js?ver=0.1.0"></script>
+<script id="jquery-cdn-js" src="https://code.jquery.com/jquery-3.4.1.min.js?ver=3.4.1"></script>
+<script id="bootstrap-js" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js?ver=5.3.2"></script>
+<script id="unity-filter-forms-js" src="https://research.stem.open.ac.uk/ouanalyse/wp-content/themes/dds-unity-theme/assets/js/unity-filter-forms.js?ver=1789322968"></script>
+<script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"255252215","post":"36","tz":"0","srv":"research.stem.open.ac.uk","j":"1:16.4"} ]);
+_stq.push([ "clickTrackerInit", "255252215", "36" ]);
+//# sourceURL=jetpack-stats-js-before
+</script>
+<script data-wp-strategy="defer" defer fetchpriority="low" id="jetpack-stats-js" src="https://stats.wp.com/e-202646.js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://research.stem.open.ac.uk/ouanalyse/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://research.stem.open.ac.uk/ouanalyse/wp-includes/js/wp-emoji-loader.min.js
+</script>
+  </body>
+</html>

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N05 Chart Guide</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f9f9f7;--surface:#fcfcfb;--card:#ffffff;--ink:#0b0b0b;--ink2:#52514e;--muted:#8a8984;--line:#e4e3df;--accent:#2a78d6;
+--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--hl:#e8f1fc;--code:#f3f2ee}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--surface:#1a1a19;--card:#1f1f1d;--ink:#f0efec;--ink2:#c3c2b7;--muted:#8f8e86;--line:#383835;--accent:#3987e5;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--hl:#1e2b3b;--code:#2a2a27}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--surface:#1a1a19;--card:#1f1f1d;--ink:#f0efec;--ink2:#c3c2b7;--muted:#8f8e86;--line:#383835;--accent:#3987e5;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--hl:#1e2b3b;--code:#2a2a27}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:20px 16px 0;max-width:1240px;margin:0 auto}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--ink2);margin:0 0 14px;font-size:14px}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--line);max-width:1240px;margin:0 auto;padding:0 16px}
+nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:10px 12px;color:var(--ink2);font:inherit;cursor:pointer}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+main{max-width:1240px;margin:0 auto;padding:16px}
+section[hidden]{display:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:260px 1fr;gap:16px}
+.list button{display:block;width:100%;text-align:left;background:none;border:1px solid transparent;border-radius:8px;padding:8px 10px;color:var(--ink);font:inherit;cursor:pointer;margin-bottom:2px}
+.list button small{display:block;color:var(--muted);font-size:12px}
+.list button[aria-current="true"]{background:var(--hl);border-color:var(--line)}
+.chartbox{position:relative;height:340px;background:var(--surface);border-radius:8px;padding:8px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--ink2);font-weight:600;background:var(--surface)}
+.spec{display:grid;grid-template-columns:150px 1fr;gap:6px 12px;font-size:14px}
+.spec dt{color:var(--ink2)}
+.spec dd{margin:0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:13px}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:6px;padding:7px 12px;font:inherit;font-size:14px;cursor:pointer}
+.btn.ghost{background:none;color:var(--accent);border:1px solid var(--accent)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.scroll{overflow-x:auto}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi span{display:block;color:var(--ink2);font-size:12px}
+.kpi b{font-size:22px}
+.dash{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;margin-top:12px}
+.dlist{max-height:470px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.dlist tr{cursor:pointer}
+.dlist tr.sel td{background:var(--hl)}
+.pill{display:inline-block;border-radius:999px;padding:1px 8px;font-size:12px;border:1px solid var(--line)}
+select,input[type=range]{font:inherit}
+select{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+.note{color:var(--ink2);font-size:13px}
+.story p{max-width:780px}
+.story h3{margin:18px 0 6px}
+header{position:relative}.themebtn{position:absolute;top:20px;right:16px}header h1,header .sub{padding-right:240px}
+@media (max-width:820px){.grid2,.dash{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.spec{grid-template-columns:1fr}.chartbox{height:280px}.themebtn{position:static;margin:0 0 10px}header h1,header .sub{padding-right:0}}
+</style>
+</head>
+<body>
+<header>
+<h1>Bộ hướng dẫn vẽ biểu đồ – Nhóm N05</h1>
+<p class="sub">Hệ thống phát hiện sớm nhu cầu hỗ trợ của sinh viên (OULAD, BBB + FFF). Mỗi biểu đồ kèm dữ liệu CSV và cách dựng lại trong Power BI hoặc Apache Superset. Số liệu sinh ra từ pipeline P3/P4, không chỉnh tay.</p>
+<button class="btn ghost themebtn" id="themeBtn" type="button">Đổi giao diện sáng/tối</button>
+</header>
+<nav class="tabs" role="tablist">
+<button role="tab" data-tab="guide" aria-selected="true">Hướng dẫn</button>
+<button role="tab" data-tab="charts" aria-selected="false">Biểu đồ</button>
+<button role="tab" data-tab="dash" aria-selected="false">Dashboard cố vấn</button>
+<button role="tab" data-tab="oiel" aria-selected="false">O-I-E-L</button>
+<button role="tab" data-tab="story" aria-selected="false">Data Story</button>
+</nav>
+<main>
+<section id="tab-guide">
+<div class="card">
+<h2 style="margin-top:0">Dùng file này thế nào</h2>
+<ol>
+<li>Vào tab <b>Biểu đồ</b>, chọn một biểu đồ ở cột trái. Bên phải có bản vẽ mẫu, bảng mô tả (loại chart, trục, màu, bộ lọc) và nút <b>Tải CSV</b>.</li>
+<li><b>Power BI Desktop</b>: <i>Get data → Text/CSV</i> → chọn file CSV vừa tải → <i>Load</i>. Chọn visual theo dòng “Power BI” rồi kéo trường vào đúng ô như bảng mô tả.</li>
+<li><b>Apache Superset</b>: <i>Datasets → + Dataset</i> (hoặc <i>Upload CSV to database</i>) → tạo chart theo dòng “Superset”, gán Metric/Dimension như bảng mô tả.</li>
+<li>Tab <b>Dashboard cố vấn</b> là bản mẫu chạy được của wireframe trong P5 (Hình 11.1): dựng lại trong Power BI với dữ liệu <code>dashboard_top300.csv</code>.</li>
+<li>Tab <b>O-I-E-L</b> và <b>Data Story</b> là nội dung đi kèm khi trình bày (slide, vấn đáp).</li>
+</ol>
+<p class="note">Bảng màu thống nhất cho mọi biểu đồ: Pass = xanh dương <code>#2a78d6</code>, Fail = cam <code>#eb6834</code>, Withdrawn = xanh ngọc <code>#1baf7a</code>, nhóm thứ tư = vàng <code>#eda100</code>. Giữ cố định màu theo nhóm, không đổi màu khi lọc.</p>
+<p class="note">Lưu ý trung thực: tỷ lệ chuyển đổi 14% và năng lực 200 ca là <b>giả định</b>; mọi số còn lại là kết quả đo trên dữ liệu thật (test = kỳ 2014J).</p>
+</div>
+</section>
+
+<section id="tab-charts" hidden>
+<div class="grid2">
+<div class="card list" id="chartList"></div>
+<div>
+<div class="card">
+<h2 id="cTitle" style="margin:0 0 4px"></h2>
+<p class="note" id="cGoal" style="margin:0 0 10px"></p>
+<div class="chartbox"><canvas id="cCanvas" aria-label="Biểu đồ mẫu"></canvas></div>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Cách dựng lại</h3>
+<dl class="spec" id="cSpec"></dl>
+<div class="row" style="margin-top:12px"><button class="btn" id="cDl" type="button">Tải CSV</button><span class="note" id="cRows"></span></div>
+</div>
+<div class="card scroll"><h3 style="margin-top:0">Xem trước dữ liệu (10 dòng đầu)</h3><div id="cPreview"></div></div>
+</div>
+</div>
+</section>
+
+<section id="tab-dash" hidden>
+<div class="card">
+<div class="row" style="justify-content:space-between">
+<h2 style="margin:0">Danh sách ưu tiên liên hệ – cuối tuần 4</h2>
+<div class="row">
+<label>Module-kỳ <select id="dMod"><option value="FFF">FFF-2014J</option><option value="BBB">BBB-2014J</option></select></label>
+<label>Hạn mức <select id="dK"><option>100</option><option selected>200</option><option>300</option></select></label>
+<label><input type="checkbox" id="dEval"> Hiện kết quả thật (chỉ để đánh giá)</label>
+</div>
+</div>
+<div class="kpis" style="margin-top:12px">
+<div class="kpi"><span>Sĩ số còn học ở ngày 28</span><b id="kN"></b></div>
+<div class="kpi"><span>Đề xuất liên hệ</span><b id="kK"></b></div>
+<div class="kpi"><span>Đã duyệt</span><b id="kOk">0</b></div>
+<div class="kpi"><span id="kPrecLab">Đúng đối tượng (ẩn)</span><b id="kPrec">—</b></div>
+</div>
+<div class="dash">
+<div class="dlist"><table><thead><tr><th>#</th><th>Mã SV (giả danh)</th><th>Ưu tiên</th><th>Lý do chính</th><th>Duyệt</th></tr></thead><tbody id="dBody"></tbody></table></div>
+<div class="card" style="margin:0">
+<h3 id="dTitle" style="margin-top:0"></h3>
+<div class="chartbox" style="height:220px"><canvas id="dCanvas" aria-label="Tương tác theo tuần của sinh viên so với trung vị lớp"></canvas></div>
+<p class="note" style="margin:10px 0 4px">Lý do (mô hình giải thích, ngôn ngữ trung tính):</p>
+<ul id="dReasons"></ul>
+<div class="row"><button class="btn" id="bOk" type="button">Duyệt liên hệ</button><button class="btn ghost" id="bSkip" type="button">Bỏ qua</button></div>
+</div>
+</div>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Dựng lại trong Power BI</h3>
+<table>
+<thead><tr><th>Thành phần</th><th>Visual Power BI</th><th>Trường dữ liệu</th></tr></thead>
+<tbody>
+<tr><td>Bộ lọc module-kỳ, hạn mức</td><td>Slicer (dropdown); hạn mức = What-if parameter 100/200/300</td><td><code>code_module</code>; measure <code>Trong hạn mức = IF(MAX(rank_in_module) &lt;= [Hạn mức], 1, 0)</code> làm filter visual</td></tr>
+<tr><td>4 thẻ KPI</td><td>Card</td><td>Sĩ số (lấy từ c02 hoặc nhập 1.786/1.858); <code>[Hạn mức]</code>; đếm cột trạng thái duyệt (nếu có)</td></tr>
+<tr><td>Danh sách ưu tiên</td><td>Table, sắp theo <code>rank_in_module</code></td><td><code>rank_in_module, ma_sv, muc_uu_tien, reason_1</code></td></tr>
+<tr><td>Tương tác theo tuần</td><td>Line chart (unpivot <code>clicks_w1..w4</code> trong Power Query)</td><td>Trục X = tuần; Y = click; thêm đường trung vị lớp từ <code>dashboard_class_median_weekly.csv</code></td></tr>
+<tr><td>Lý do</td><td>Multi-row card hoặc Table</td><td><code>reason_1, reason_2, reason_3</code> (drill-through từ danh sách)</td></tr>
+</tbody></table>
+<p class="note">Superset: dùng Table chart (danh sách), Big Number (KPI), Line Chart (tương tác) và Native Filters cho module/hạn mức. Không hiển thị cột <code>target_noncompletion</code> trên dashboard vận hành – cột này chỉ dùng để đánh giá.</p>
+</div>
+</section>
+
+<section id="tab-oiel" hidden>
+<div class="card scroll"><h2 style="margin-top:0">Observation – Insight – Evidence – Limitation</h2><div id="oielBox"></div></div>
+</section>
+
+<section id="tab-story" hidden>
+<div class="card story" id="storyBox"></div>
+</section>
+</main>
+<script>
+const DATA = __DATA__;
+const SPECS = __SPECS__;
+const OIEL = __OIEL__;
+const STORY = __STORY__;
+
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const COL = () => ({Pass: css('--s1'), Fail: css('--s2'), Withdrawn: css('--s3'), x4: css('--s4')});
+const fmt = (v, d=3) => (typeof v === 'number') ? v.toLocaleString('vi-VN', {maximumFractionDigits: d}) : v;
+
+// tabs
+document.querySelectorAll('nav.tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('nav.tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('main > section').forEach(s => s.hidden = s.id !== 'tab-' + b.dataset.tab);
+  try { localStorage.setItem('n05tab', b.dataset.tab); } catch(e) {}
+  if (b.dataset.tab === 'charts') drawChart(current); if (b.dataset.tab === 'dash') renderDash();
+}));
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme = dark ? 'light' : 'dark'; drawChart(current); if (dChart) renderDetail();
+});
+
+function csvDownload(name, rows) {
+  const cols = Object.keys(rows[0]);
+  const esc = v => { v = v == null ? '' : String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+  const txt = '﻿' + [cols.join(','), ...rows.map(r => cols.map(c => esc(r[c])).join(','))].join('\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], {type: 'text/csv'})); a.download = name + '.csv'; a.click();
+}
+function tableHTML(rows, n=10) {
+  if (!rows.length) return '';
+  const cols = Object.keys(rows[0]);
+  return '<table><thead><tr>' + cols.map(c => `<th>${c}</th>`).join('') + '</tr></thead><tbody>' +
+    rows.slice(0, n).map(r => '<tr>' + cols.map(c => `<td>${fmt(r[c], 4)}</td>`).join('') + '</tr>').join('') + '</tbody></table>';
+}
+
+// charts
+const list = document.getElementById('chartList');
+let current = SPECS[0].id, chart = null;
+SPECS.forEach(s => {
+  const b = document.createElement('button'); b.type = 'button';
+  b.innerHTML = `${s.title}<small>${s.where}</small>`; b.dataset.id = s.id;
+  b.addEventListener('click', () => { current = s.id; drawChart(s.id); }); list.appendChild(b);
+});
+function baseOpts(extra={}) {
+  const g = css('--line'), t = css('--ink2');
+  return Object.assign({responsive: true, maintainAspectRatio: false, animation: false,
+    interaction: {mode: 'nearest', intersect: false},
+    plugins: {legend: {labels: {color: t, usePointStyle: true}}, tooltip: {enabled: true}},
+    scales: {x: {grid: {color: g}, ticks: {color: t}}, y: {grid: {color: g}, ticks: {color: t}}}}, extra);
+}
+function hist(values, step, lo, hi) {
+  const bins = []; for (let x = lo; x < hi; x += step) bins.push({x: +x.toFixed(2), n: 0});
+  values.forEach(v => { const i = Math.floor((v - lo) / step); if (i >= 0 && i < bins.length) bins[i].n++; });
+  return bins;
+}
+function refLine(y, label) { return {label, data: [], borderColor: css('--ink2'), borderDash: [5, 4], pointRadius: 0, yRef: y}; }
+const yLinePlugin = {id: 'yline', afterDraw(c, a, o) {
+  (c.options.plugins.yline || []).forEach(l => {
+    const sc = l.axis === 'x' ? c.scales.x : c.scales.y, ctx = c.ctx; const p = sc.getPixelForValue(l.value);
+    ctx.save(); ctx.strokeStyle = css('--ink2'); ctx.setLineDash([5, 4]); ctx.beginPath();
+    if (l.axis === 'x') { ctx.moveTo(p, c.chartArea.top); ctx.lineTo(p, c.chartArea.bottom); } else { ctx.moveTo(c.chartArea.left, p); ctx.lineTo(c.chartArea.right, p); }
+    ctx.stroke(); ctx.fillStyle = css('--ink2'); ctx.font = '12px system-ui'; ctx.fillText(l.label, l.axis === 'x' ? p + 4 : c.chartArea.left + 4, l.axis === 'x' ? c.chartArea.top + 12 : p - 4); ctx.restore();
+  });
+}};
+Chart.register(yLinePlugin);
+
+function drawChart(id) {
+  const s = SPECS.find(x => x.id === id), rows = DATA[s.data], C = COL();
+  document.querySelectorAll('#chartList button').forEach(b => b.setAttribute('aria-current', b.dataset.id === id));
+  document.getElementById('cTitle').textContent = s.title;
+  document.getElementById('cGoal').textContent = s.goal;
+  document.getElementById('cSpec').innerHTML = s.spec.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+  document.getElementById('cRows').textContent = `${s.data}.csv · ${rows.length.toLocaleString('vi-VN')} dòng`;
+  document.getElementById('cDl').onclick = () => csvDownload(s.data, rows);
+  document.getElementById('cPreview').innerHTML = tableHTML(rows);
+  if (chart) chart.destroy();
+  const ctx = document.getElementById('cCanvas');
+  let cfg;
+  const labs3 = ['Pass', 'Fail', 'Withdrawn'];
+  if (id === 'c01') {
+    const r = [...rows].sort((a, b) => b.missing_rate - a.missing_rate);
+    cfg = {type: 'bar', data: {labels: r.map(x => x.variable), datasets: [{label: 'Tỷ lệ thiếu', data: r.map(x => x.missing_rate * 100), backgroundColor: C.Pass, borderRadius: 4}]},
+      options: baseOpts({indexAxis: 'y', plugins: {legend: {display: false}}})};
+  } else if (id === 'c02') {
+    const mp = [...new Set(rows.map(r => r.code_module + '-' + r.code_presentation))];
+    cfg = {type: 'bar', data: {labels: mp, datasets: labs3.map(l => ({label: l, backgroundColor: C[l], borderColor: css('--surface'), borderWidth: 2,
+      data: mp.map(m => { const r = rows.find(x => x.code_module + '-' + x.code_presentation === m && x.label3 === l); return r ? r.share * 100 : 0; })}))},
+      options: baseOpts({scales: {x: {stacked: true}, y: {stacked: true, max: 100, title: {display: true, text: '%'}}}})};
+  } else if (id === 'c03') {
+    const ds = ['BBB', 'FFF'].map((m, i) => ({label: m, data: rows.filter(r => r.code_module === m).map(r => ({x: r.date, y: r.active_students})),
+      borderColor: i ? C.Fail : C.Pass, pointRadius: 0, borderWidth: 2}));
+    cfg = {type: 'line', data: {datasets: ds}, options: baseOpts({parsing: false, scales: {x: {type: 'linear', title: {display: true, text: 'Ngày so với khai giảng'}}, y: {title: {display: true, text: 'Số SV có hoạt động'}}},
+      plugins: {yline: [{axis: 'x', value: 28, label: 'ngày 28'}]}})};
+  } else if (id === 'c04') {
+    const ds = []; labs3.forEach(l => { const r = rows.filter(x => x.label3 === l);
+      ds.push({label: l, data: r.map(x => x.clicks_median), borderColor: C[l], backgroundColor: C[l], borderWidth: 2, pointRadius: 5});
+      ds.push({label: l + ' KTC 95% thấp', data: r.map(x => x.clicks_ci_low), borderColor: 'transparent', pointRadius: 0, fill: false});
+      ds.push({label: l + ' KTC 95% cao', data: r.map(x => x.clicks_ci_high), borderColor: 'transparent', backgroundColor: C[l] + '33', fill: '-1', pointRadius: 0}); });
+    cfg = {type: 'line', data: {labels: ['Tuần 1', 'Tuần 2', 'Tuần 3', 'Tuần 4'], datasets: ds},
+      options: baseOpts({plugins: {legend: {labels: {filter: i => !i.text.includes('KTC'), color: css('--ink2'), usePointStyle: true}}}, scales: {y: {beginAtZero: true, title: {display: true, text: 'Trung vị click / tuần'}}}})};
+  } else if (id === 'c05') {
+    const bins = hist(rows.map(r => Math.log1p(r.clicks_0_28)), 0.2, 0, 9);
+    cfg = {type: 'bar', data: {labels: bins.map(b => b.x), datasets: [{label: 'Số sinh viên', data: bins.map(b => b.n), backgroundColor: C.Pass, barPercentage: 1, categoryPercentage: 0.95}]},
+      options: baseOpts({plugins: {legend: {display: false}}, scales: {x: {title: {display: true, text: 'log(1 + tổng click ngày 0–28)'}}}})};
+  } else if (id === 'c06') {
+    const bins = hist(rows.map(r => r.date_unregistration), 7, -200, 280);
+    cfg = {type: 'bar', data: {labels: bins.map(b => b.x), datasets: [{label: 'Số lượt hủy', data: bins.map(b => b.n), backgroundColor: C.Withdrawn, barPercentage: 1, categoryPercentage: 0.95}]},
+      options: baseOpts({plugins: {legend: {display: false}}, scales: {x: {title: {display: true, text: 'Ngày hủy đăng ký (bin 7 ngày)'}}}})};
+  } else if (id === 'c07') {
+    const ds = [['clicks', 'Số click', C.Pass], ['active_days', 'Số ngày hoạt động', C.Fail]].map(([m, l, c]) =>
+      ({label: l, data: rows.filter(r => r.measure === m).sort((a, b) => a.week - b.week).map(r => r.cliffs_delta), borderColor: c, backgroundColor: c, pointRadius: 5, borderWidth: 2}));
+    cfg = {type: 'line', data: {labels: ['Tuần 1', 'Tuần 2', 'Tuần 3', 'Tuần 4'], datasets: ds},
+      options: baseOpts({scales: {y: {max: 0, title: {display: true, text: "Cliff's δ"}}}, plugins: {yline: [{value: -0.147, label: 'ngưỡng nhỏ −0,147'}]}})};
+  } else if (id === 'c08') {
+    const models = [...new Set(rows.map(r => r.model))], cs = [C.x4, C.Pass, C.Fail];
+    cfg = {type: 'line', data: {datasets: models.map((m, i) => ({label: m, data: rows.filter(r => r.model === m).map(r => ({x: r.recall, y: r.precision})), borderColor: cs[i], pointRadius: 0, borderWidth: 2}))},
+      options: baseOpts({parsing: false, scales: {x: {type: 'linear', min: 0, max: 1, title: {display: true, text: 'Recall'}}, y: {min: 0.3, max: 1, title: {display: true, text: 'Precision'}}},
+      plugins: {yline: [{value: 0.3776, label: 'tỷ lệ nền 0,378'}]}})};
+  } else if (id === 'c08b') {
+    const models = [...new Set(rows.map(r => r.model))], cs = [C.Pass, C.Fail];
+    const ds = models.map((m, i) => ({label: m, data: rows.filter(r => r.model === m).map(r => ({x: r.predicted, y: r.observed})), borderColor: cs[i], backgroundColor: cs[i], pointRadius: 5, showLine: true}));
+    ds.push({label: 'Hiệu chỉnh hoàn hảo', data: [{x: 0, y: 0}, {x: 1, y: 1}], borderColor: css('--ink2'), borderDash: [5, 4], pointRadius: 0, showLine: true});
+    cfg = {type: 'scatter', data: {datasets: ds}, options: baseOpts({scales: {x: {min: 0, max: 1, title: {display: true, text: 'Xác suất dự báo'}}, y: {min: 0, max: 1, title: {display: true, text: 'Tỷ lệ thực tế'}}}})};
+  } else if (id === 'c09') {
+    const ks = [100, 200, 300], rules = [['a', '(a) theo xác suất, hạn mức/module', C.Pass], ['b', '(b) suy giảm tuần 1→4', C.Withdrawn], ['d', '(d) gộp – vượt trần', C.x4]];
+    const val = (r, k) => { const x = rows.filter(z => z.rule === r && z.k === k); return x.reduce((a, b) => a + b.precision, 0) / x.length; };
+    cfg = {type: 'bar', data: {labels: ks.map(k => 'k = ' + k), datasets: rules.map(([r, l, c]) => ({label: l, data: ks.map(k => val(r, k)), backgroundColor: c, borderRadius: 4}))},
+      options: baseOpts({scales: {y: {min: 0, max: 1, title: {display: true, text: 'Precision@k (TB hai module)'}}}, plugins: {yline: [{value: 0.7, label: 'mục tiêu 0,70'}]}})};
+  } else if (id === 'c10') {
+    cfg = {type: 'bar', data: {labels: rows.map(r => r.feature), datasets: [{label: 'Mức giảm PR-AUC', data: rows.map(r => r.pr_auc_drop), backgroundColor: C.Pass, borderRadius: 4}]},
+      options: baseOpts({indexAxis: 'y', plugins: {legend: {display: false}}})};
+  } else if (id === 'c11') {
+    cfg = {type: 'bar', data: {labels: rows.map(r => r.attribute + ': ' + r.group), datasets: [
+      {label: 'Recall', data: rows.map(r => r.recall), backgroundColor: C.Pass, borderRadius: 4},
+      {label: 'Precision', data: rows.map(r => r.precision), backgroundColor: C.Fail, borderRadius: 4}]},
+      options: baseOpts({scales: {y: {min: 0, max: 1}}})};
+  }
+  chart = new Chart(ctx, cfg);
+}
+
+// dashboard
+const DL = DATA.dashboard_top300, MED = DATA.dashboard_class_median_weekly;
+const COH = {BBB: 1786, FFF: 1858};
+let sel = null, dChart = null; const approved = new Set();
+function renderDash() {
+  const m = document.getElementById('dMod').value, k = +document.getElementById('dK').value, ev = document.getElementById('dEval').checked;
+  const rows = DL.filter(r => r.code_module === m && r.rank_in_module <= k);
+  document.getElementById('kN').textContent = COH[m].toLocaleString('vi-VN');
+  document.getElementById('kK').textContent = k;
+  document.getElementById('kOk').textContent = rows.filter(r => approved.has(r.ma_sv)).length + ' / ' + k;
+  const tp = rows.reduce((a, r) => a + r.target_noncompletion, 0);
+  document.getElementById('kPrecLab').textContent = ev ? 'Đúng đối tượng (Precision@k)' : 'Đúng đối tượng (ẩn)';
+  document.getElementById('kPrec').textContent = ev ? (tp / k).toLocaleString('vi-VN', {maximumFractionDigits: 3}) : '—';
+  document.getElementById('dBody').innerHTML = rows.map(r => `<tr data-id="${r.ma_sv}" class="${sel === r.ma_sv ? 'sel' : ''}"><td>${r.rank_in_module}</td><td>${r.ma_sv}</td><td><span class="pill">${r.muc_uu_tien}</span></td><td>${r.reason_1}${ev ? (r.target_noncompletion ? ' <b>· thật: không HT</b>' : ' · thật: HT') : ''}</td><td>${approved.has(r.ma_sv) ? '☑' : '☐'}</td></tr>`).join('');
+  document.querySelectorAll('#dBody tr').forEach(tr => tr.addEventListener('click', () => { sel = tr.dataset.id; renderDash(); }));
+  if (!rows.find(r => r.ma_sv === sel)) sel = rows[0].ma_sv;
+  renderDetail();
+}
+function renderDetail() {
+  const m = document.getElementById('dMod').value, r = DL.find(x => x.ma_sv === sel && x.code_module === m); if (!r) return;
+  document.getElementById('dTitle').textContent = `Sinh viên ${r.ma_sv} – ưu tiên ${r.muc_uu_tien}`;
+  document.getElementById('dReasons').innerHTML = [r.reason_1, r.reason_2, r.reason_3].filter(Boolean).map(x => `<li>${x}</li>`).join('');
+  const med = MED.filter(x => x.code_module === m).sort((a, b) => a.week - b.week).map(x => x.clicks);
+  if (dChart) dChart.destroy(); const C = COL();
+  dChart = new Chart(document.getElementById('dCanvas'), {type: 'line', data: {labels: ['T1', 'T2', 'T3', 'T4'], datasets: [
+    {label: 'Sinh viên', data: [r.clicks_w1, r.clicks_w2, r.clicks_w3, r.clicks_w4], borderColor: C.Pass, backgroundColor: C.Pass, pointRadius: 5, borderWidth: 2},
+    {label: 'Trung vị lớp', data: med, borderColor: css('--ink2'), borderDash: [5, 4], pointRadius: 3}]}, options: baseOpts({scales: {y: {beginAtZero: true}}})});
+}
+['dMod', 'dK', 'dEval'].forEach(i => document.getElementById(i).addEventListener('change', renderDash));
+document.getElementById('bOk').addEventListener('click', () => { approved.add(sel); renderDash(); });
+document.getElementById('bSkip').addEventListener('click', () => { approved.delete(sel); renderDash(); });
+
+// O-I-E-L + story
+document.getElementById('oielBox').innerHTML = '<table><thead><tr><th>Biểu đồ</th><th>Observation</th><th>Insight</th><th>Evidence</th><th>Limitation</th></tr></thead><tbody>' +
+  OIEL.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('') + '</tbody></table>';
+document.getElementById('storyBox').innerHTML = STORY;
+
+let start = 'guide'; try { start = localStorage.getItem('n05tab') || 'guide'; } catch(e) {}
+const hs = location.hash.slice(1).split(':'); if (hs[0]) start = hs[0]; if (hs[1]) current = hs[1];
+const sb = document.querySelector(`nav.tabs button[data-tab="${start}"]`); (sb || document.querySelector('nav.tabs button')).click();
+</script>
+</body>
+</html>

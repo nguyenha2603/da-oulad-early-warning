@@ -1,0 +1,8 @@
+variable,n_missing,missing_rate
+studentInfo.imd_band,430,0.0274
+studentRegistration.date_registration,20,0.0013
+studentRegistration.date_unregistration,10914,0.6964
+assessments.date,4,0.0426
+studentAssessment.score,99,0.001
+vle.week_from,2109,0.6757
+vle.week_to,2109,0.6757

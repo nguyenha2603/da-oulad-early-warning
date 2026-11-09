@@ -1,0 +1,21 @@
+model,predicted,observed
+M2 logistic,0.1598,0.1178
+M2 logistic,0.2396,0.1621
+M2 logistic,0.2881,0.261
+M2 logistic,0.3336,0.2822
+M2 logistic,0.3807,0.3489
+M2 logistic,0.4273,0.3434
+M2 logistic,0.483,0.3808
+M2 logistic,0.5504,0.4918
+M2 logistic,0.6712,0.5165
+M2 logistic,0.8924,0.8712
+M3 gradient boosting,0.073,0.126
+M3 gradient boosting,0.1544,0.239
+M3 gradient boosting,0.2192,0.261
+M3 gradient boosting,0.2837,0.274
+M3 gradient boosting,0.3527,0.272
+M3 gradient boosting,0.4287,0.3462
+M3 gradient boosting,0.5152,0.4055
+M3 gradient boosting,0.6139,0.4808
+M3 gradient boosting,0.7437,0.5385
+M3 gradient boosting,0.9185,0.8329

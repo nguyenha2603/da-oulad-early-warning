@@ -1,0 +1,347 @@
+{
+  "models": {
+    "M0": {
+      "threshold_from_validation": 0.5,
+      "validation": {
+        "pr_auc": 0.4649,
+        "roc_auc": 0.5,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "brier": 0.2491,
+        "flagged_share": 0.0
+      },
+      "test": {
+        "pr_auc": 0.3776,
+        "roc_auc": 0.5,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1": 0.0,
+        "brier": 0.24,
+        "flagged_share": 0.0
+      }
+    },
+    "M1": {
+      "threshold_from_validation": 0.3167,
+      "validation": {
+        "pr_auc": 0.6882,
+        "roc_auc": 0.6968,
+        "recall": 0.7,
+        "precision": 0.5801,
+        "f1": 0.6344,
+        "brier": 0.2257,
+        "flagged_share": 0.561
+      },
+      "test": {
+        "pr_auc": 0.6148,
+        "roc_auc": 0.6863,
+        "recall": 0.7144,
+        "precision": 0.4724,
+        "f1": 0.5687,
+        "brier": 0.2042,
+        "flagged_share": 0.5711
+      }
+    },
+    "M2": {
+      "threshold_from_validation": 0.4012,
+      "validation": {
+        "pr_auc": 0.7363,
+        "roc_auc": 0.7465,
+        "recall": 0.7,
+        "precision": 0.6368,
+        "f1": 0.6669,
+        "brier": 0.2015,
+        "flagged_share": 0.511
+      },
+      "test": {
+        "pr_auc": 0.6623,
+        "roc_auc": 0.7315,
+        "recall": 0.6933,
+        "precision": 0.5188,
+        "f1": 0.5935,
+        "brier": 0.1981,
+        "flagged_share": 0.5047
+      }
+    },
+    "M3": {
+      "threshold_from_validation": 0.4144,
+      "validation": {
+        "pr_auc": 0.7297,
+        "roc_auc": 0.7343,
+        "recall": 0.7,
+        "precision": 0.6359,
+        "f1": 0.6664,
+        "brier": 0.2099,
+        "flagged_share": 0.5118
+      },
+      "test": {
+        "pr_auc": 0.6445,
+        "roc_auc": 0.7167,
+        "recall": 0.6642,
+        "precision": 0.5323,
+        "f1": 0.591,
+        "brier": 0.2081,
+        "flagged_share": 0.4712
+      }
+    },
+    "M2+score": {
+      "threshold_from_validation": 0.394,
+      "validation": {
+        "pr_auc": 0.7494,
+        "roc_auc": 0.7589,
+        "recall": 0.7,
+        "precision": 0.6507,
+        "f1": 0.6744,
+        "brier": 0.1966,
+        "flagged_share": 0.5002
+      },
+      "test": {
+        "pr_auc": 0.533,
+        "roc_auc": 0.6842,
+        "recall": 0.6701,
+        "precision": 0.5171,
+        "f1": 0.5837,
+        "brier": 0.2485,
+        "flagged_share": 0.4893
+      }
+    },
+    "M3+score": {
+      "threshold_from_validation": 0.3856,
+      "validation": {
+        "pr_auc": 0.7374,
+        "roc_auc": 0.7365,
+        "recall": 0.7,
+        "precision": 0.6302,
+        "f1": 0.6632,
+        "brier": 0.2097,
+        "flagged_share": 0.5165
+      },
+      "test": {
+        "pr_auc": 0.5817,
+        "roc_auc": 0.6906,
+        "recall": 0.6708,
+        "precision": 0.5035,
+        "f1": 0.5753,
+        "brier": 0.241,
+        "flagged_share": 0.503
+      }
+    }
+  },
+  "selection": {
+    "validation_gain_M3_over_M2": -0.0066,
+    "primary": "M2",
+    "validation_gain_with_score": -0.012,
+    "success_AQ3": false
+  },
+  "split": {
+    "train": {
+      "n": 6795,
+      "rate": 0.4481
+    },
+    "validation": {
+      "n": 2581,
+      "rate": 0.4649
+    },
+    "test": {
+      "n": 3644,
+      "rate": 0.3776
+    }
+  },
+  "exploratory_reduced_PD02": {
+    "n_features": 21,
+    "threshold_from_validation": 0.407,
+    "validation": {
+      "pr_auc": 0.7334,
+      "roc_auc": 0.7454,
+      "recall": 0.7,
+      "precision": 0.633,
+      "f1": 0.6648,
+      "brier": 0.2021,
+      "flagged_share": 0.5141
+    },
+    "test": {
+      "pr_auc": 0.6573,
+      "roc_auc": 0.725,
+      "recall": 0.7166,
+      "precision": 0.5038,
+      "f1": 0.5917,
+      "brier": 0.2029,
+      "flagged_share": 0.537
+    },
+    "primary_test_pr_auc": 0.6623,
+    "sign_check_vs_aq2": {
+      "clicks_w1": true,
+      "clicks_w2": true,
+      "clicks_w4": true,
+      "active_days_w1": true,
+      "active_days_w2": true,
+      "active_days_w3": true,
+      "tma1_submitted_by_d28": true,
+      "tma1_on_time": true,
+      "highest_education_ord": true
+    },
+    "n_sign_inconsistent": 0,
+    "note": "PD-02: phân tích khám phá sau khi P4 phát hiện đa cộng tuyến; không thay đổi primary approach đã chốt",
+    "precision_at_200": {
+      "BBB-2014J": 0.77,
+      "FFF-2014J": 0.895
+    },
+    "engagement_features_positive_coef": {
+      "clicks_oucontent_0_28": 0.316,
+      "clicks_resource_0_28": 0.087
+    },
+    "counterintuitive_share_top200": 0.245
+  },
+  "extras": {
+    "pr_auc_ci95": {
+      "M1": [
+        0.591,
+        0.639
+      ],
+      "M2": [
+        0.637,
+        0.686
+      ],
+      "M3": [
+        0.619,
+        0.669
+      ]
+    },
+    "pr_auc_diff_ci95": {
+      "M2-M1": [
+        0.033,
+        0.061
+      ],
+      "M2-M3": [
+        0.004,
+        0.031
+      ]
+    },
+    "recall_test_ci95": {
+      "tp": 954,
+      "pos": 1376,
+      "ci": [
+        0.668,
+        0.717
+      ]
+    },
+    "precision_at_recall_0_70_test": {
+      "M1": 0.4724,
+      "M2": 0.515,
+      "M3": 0.5174
+    },
+    "flag_share_at_t": {
+      "M1": 0.5711,
+      "M2": 0.5047,
+      "M3": 0.4712
+    },
+    "top200_list_recall": {
+      "BBB-2014J": 0.239,
+      "FFF-2014J": 0.238
+    },
+    "precision_at_200_ci95": {
+      "BBB-2014J": [
+        0.696,
+        0.814
+      ],
+      "FFF-2014J": [
+        0.828,
+        0.918
+      ]
+    },
+    "calibration": {
+      "validation": {
+        "mean_pred": 0.4592,
+        "base_rate": 0.4649,
+        "slope": 0.917,
+        "intercept": 0.008
+      },
+      "test": {
+        "mean_pred": 0.4426,
+        "base_rate": 0.3776,
+        "slope": 0.97,
+        "intercept": -0.335
+      }
+    },
+    "brier_base_rate_test": 0.235,
+    "roc_auc_val_vs_test": {
+      "validation": 0.7465,
+      "test": 0.7315
+    },
+    "alternative_thresholds": {
+      "0.6": {
+        "threshold": 0.4605,
+        "recall": 0.5923,
+        "precision": 0.5687,
+        "flagged_share": 0.3932
+      },
+      "0.7": {
+        "threshold": 0.4012,
+        "recall": 0.6933,
+        "precision": 0.5188,
+        "flagged_share": 0.5047
+      },
+      "0.8": {
+        "threshold": 0.3437,
+        "recall": 0.8067,
+        "precision": 0.486,
+        "flagged_share": 0.6268
+      }
+    },
+    "tma1_drift": {
+      "BBB-2014B": {
+        "weight": 5.0,
+        "deadline": 12,
+        "median_score_completers": 75.0,
+        "median_score_noncompleters": 68.0
+      },
+      "FFF-2013J": {
+        "weight": 12.5,
+        "deadline": 19,
+        "median_score_completers": 82.0,
+        "median_score_noncompleters": 76.0
+      },
+      "BBB-2014J": {
+        "weight": 0.0,
+        "deadline": 19,
+        "median_score_completers": 100.0,
+        "median_score_noncompleters": 100.0
+      },
+      "BBB-2013B": {
+        "weight": 5.0,
+        "deadline": 19,
+        "median_score_completers": 75.0,
+        "median_score_noncompleters": 68.5
+      },
+      "BBB-2013J": {
+        "weight": 5.0,
+        "deadline": 19,
+        "median_score_completers": 75.0,
+        "median_score_noncompleters": 70.0
+      },
+      "FFF-2013B": {
+        "weight": 12.5,
+        "deadline": 19,
+        "median_score_completers": 86.0,
+        "median_score_noncompleters": 78.0
+      },
+      "FFF-2014B": {
+        "weight": 12.5,
+        "deadline": 24,
+        "median_score_completers": 84.0,
+        "median_score_noncompleters": 80.0
+      },
+      "FFF-2014J": {
+        "weight": 12.5,
+        "deadline": 24,
+        "median_score_completers": 82.0,
+        "median_score_noncompleters": 76.0
+      }
+    }
+  },
+  "PD03": {
+    "plan_data_input": "P3 prepared dataset N05-prepared-v1.0 (verify SHA-256 in P3/data/metadata/prepared_manifest.json)",
+    "actual_data_version": "N05-prepared-v1.2",
+    "note": "PD-03: plan chốt với v1.0; chạy chính thức trên v1.2 sau khi sửa lỗi dữ liệu do rà soát phát hiện (tuần 4 dài 8 ngày; cờ thiếu ngày đăng ký làm predictor). Metric, mô hình, ngưỡng, quy tắc chọn giữ nguyên."
+  }
+}

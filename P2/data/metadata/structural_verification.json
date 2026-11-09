@@ -1,0 +1,770 @@
+{
+  "tables": {
+    "courses": {
+      "rows": 22,
+      "cols": 3,
+      "columns": {
+        "code_module": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        },
+        "code_presentation": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 4
+        },
+        "module_presentation_length": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        }
+      },
+      "doc_rows": 22,
+      "key": [
+        "code_module",
+        "code_presentation"
+      ],
+      "dup_key_rows": 0,
+      "dup_full_rows": 0
+    },
+    "assessments": {
+      "rows": 206,
+      "cols": 6,
+      "columns": {
+        "code_module": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        },
+        "code_presentation": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 4
+        },
+        "id_assessment": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 206
+        },
+        "assessment_type": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 3
+        },
+        "date": {
+          "dtype": "float64",
+          "n_empty": 0,
+          "n_qmark": 11,
+          "n_unique": 74
+        },
+        "weight": {
+          "dtype": "float64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 24
+        }
+      },
+      "doc_rows": 206,
+      "key": [
+        "id_assessment"
+      ],
+      "dup_key_rows": 0,
+      "dup_full_rows": 0
+    },
+    "vle": {
+      "rows": 6364,
+      "cols": 6,
+      "columns": {
+        "id_site": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 6364
+        },
+        "code_module": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        },
+        "code_presentation": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 4
+        },
+        "activity_type": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 20
+        },
+        "week_from": {
+          "dtype": "float64",
+          "n_empty": 0,
+          "n_qmark": 5243,
+          "n_unique": 30
+        },
+        "week_to": {
+          "dtype": "float64",
+          "n_empty": 0,
+          "n_qmark": 5243,
+          "n_unique": 30
+        }
+      },
+      "doc_rows": 6364,
+      "key": [
+        "id_site"
+      ],
+      "dup_key_rows": 0,
+      "dup_full_rows": 0
+    },
+    "studentInfo": {
+      "rows": 32593,
+      "cols": 12,
+      "columns": {
+        "code_module": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        },
+        "code_presentation": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 4
+        },
+        "id_student": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 28785
+        },
+        "gender": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 2
+        },
+        "region": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 13
+        },
+        "highest_education": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 5
+        },
+        "imd_band": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 1111,
+          "n_unique": 10
+        },
+        "age_band": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 3
+        },
+        "num_of_prev_attempts": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        },
+        "studied_credits": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 61
+        },
+        "disability": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 2
+        },
+        "final_result": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 4
+        }
+      },
+      "doc_rows": 32953,
+      "key": [
+        "code_module",
+        "code_presentation",
+        "id_student"
+      ],
+      "dup_key_rows": 0,
+      "dup_full_rows": 0
+    },
+    "studentRegistration": {
+      "rows": 32593,
+      "cols": 5,
+      "columns": {
+        "code_module": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        },
+        "code_presentation": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 4
+        },
+        "id_student": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 28785
+        },
+        "date_registration": {
+          "dtype": "float64",
+          "n_empty": 0,
+          "n_qmark": 45,
+          "n_unique": 332
+        },
+        "date_unregistration": {
+          "dtype": "float64",
+          "n_empty": 0,
+          "n_qmark": 22521,
+          "n_unique": 416
+        }
+      },
+      "doc_rows": 32953,
+      "key": [
+        "code_module",
+        "code_presentation",
+        "id_student"
+      ],
+      "dup_key_rows": 0,
+      "dup_full_rows": 0
+    },
+    "studentAssessment": {
+      "rows": 173912,
+      "cols": 5,
+      "columns": {
+        "id_assessment": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 188
+        },
+        "id_student": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 23369
+        },
+        "date_submitted": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 312
+        },
+        "is_banked": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 2
+        },
+        "score": {
+          "dtype": "float64",
+          "n_empty": 0,
+          "n_qmark": 173,
+          "n_unique": 101
+        }
+      },
+      "doc_rows": 173912,
+      "key": [
+        "id_assessment",
+        "id_student"
+      ],
+      "dup_key_rows": 0,
+      "dup_full_rows": 0
+    },
+    "studentVle": {
+      "rows": 10655280,
+      "cols": 6,
+      "columns": {
+        "code_module": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 7
+        },
+        "code_presentation": {
+          "dtype": "str",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 4
+        },
+        "id_student": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 26074
+        },
+        "id_site": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 6268
+        },
+        "date": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 295
+        },
+        "sum_click": {
+          "dtype": "int64",
+          "n_empty": 0,
+          "n_qmark": 0,
+          "n_unique": 498
+        }
+      },
+      "doc_rows": 10655280,
+      "dup_full_rows": 787170
+    }
+  },
+  "value_sets": {
+    "final_result": [
+      "Distinction",
+      "Fail",
+      "Pass",
+      "Withdrawn"
+    ],
+    "imd_band": [
+      "0-10%",
+      "10-20",
+      "20-30%",
+      "30-40%",
+      "40-50%",
+      "50-60%",
+      "60-70%",
+      "70-80%",
+      "80-90%",
+      "90-100%"
+    ],
+    "age_band": [
+      "0-35",
+      "35-55",
+      "55<="
+    ],
+    "highest_education": [
+      "A Level or Equivalent",
+      "HE Qualification",
+      "Lower Than A Level",
+      "No Formal quals",
+      "Post Graduate Qualification"
+    ],
+    "gender": [
+      "F",
+      "M"
+    ],
+    "disability": [
+      "N",
+      "Y"
+    ],
+    "activity_type": [
+      "dataplus",
+      "dualpane",
+      "externalquiz",
+      "folder",
+      "forumng",
+      "glossary",
+      "homepage",
+      "htmlactivity",
+      "oucollaborate",
+      "oucontent",
+      "ouelluminate",
+      "ouwiki",
+      "page",
+      "questionnaire",
+      "quiz",
+      "repeatactivity",
+      "resource",
+      "sharedsubpage",
+      "subpage",
+      "url"
+    ],
+    "assessment_type": [
+      "CMA",
+      "Exam",
+      "TMA"
+    ],
+    "code_presentation": [
+      "2013B",
+      "2013J",
+      "2014B",
+      "2014J"
+    ]
+  },
+  "final_result_dist": {
+    "Pass": 12361,
+    "Withdrawn": 10156,
+    "Fail": 7052,
+    "Distinction": 3024
+  },
+  "integrity": {
+    "studentInfo_vs_registration_same_keys": 32593,
+    "studentVle_keys_not_in_studentInfo": 0,
+    "studentVle_site_not_in_vle": 0,
+    "studentAssessment_assess_not_in_assessments": 0,
+    "students_in_info_without_any_vle": 3365,
+    "unique_id_student": 28785
+  },
+  "doc_check_unreg": {
+    "has_unreg_date": 10072,
+    "has_unreg_but_not_withdrawn": 9,
+    "withdrawn_without_unreg_date": 93,
+    "unreg_before_day0": 3097,
+    "unreg_day1_28": 1958
+  },
+  "time_ranges": {
+    "studentVle.date": [
+      -25,
+      269
+    ],
+    "studentAssessment.date_submitted": [
+      -11,
+      608
+    ],
+    "assessments.date": [
+      12.0,
+      261.0
+    ],
+    "studentRegistration.date_registration": [
+      -322.0,
+      167.0
+    ],
+    "courses.length": [
+      234,
+      269
+    ]
+  },
+  "score_range": [
+    0.0,
+    100.0
+  ],
+  "modules": [
+    {
+      "module": "AAA",
+      "n_presentations": 2,
+      "presentations": [
+        "2013J",
+        "2014J"
+      ],
+      "n_enrolments": 748,
+      "nonCompletion_rate": 0.2901,
+      "withdrawn_rate": 0.1684,
+      "fail_rate": 0.1217,
+      "first_nonexam_assessment_day_by_pres": {
+        "2013J": 19.0,
+        "2014J": 19.0
+      },
+      "first_assessment_types": [
+        "TMA"
+      ],
+      "unreg_le_day0_share": 0.0267,
+      "unreg_day1_28_share": 0.0134,
+      "share_with_vle_0_28": 0.9679,
+      "median_clicks_0_28": 275.0,
+      "imd_missing_share": 0.0307,
+      "vle_week_from_missing_share": 0.9855,
+      "length_days": {
+        "2013J": 268,
+        "2014J": 269
+      }
+    },
+    {
+      "module": "BBB",
+      "n_presentations": 4,
+      "presentations": [
+        "2013B",
+        "2013J",
+        "2014B",
+        "2014J"
+      ],
+      "n_enrolments": 7909,
+      "nonCompletion_rate": 0.5254,
+      "withdrawn_rate": 0.3019,
+      "fail_rate": 0.2234,
+      "first_nonexam_assessment_day_by_pres": {
+        "2013B": 19.0,
+        "2013J": 19.0,
+        "2014B": 12.0,
+        "2014J": 19.0
+      },
+      "first_assessment_types": [
+        "TMA"
+      ],
+      "unreg_le_day0_share": 0.1249,
+      "unreg_day1_28_share": 0.0616,
+      "share_with_vle_0_28": 0.8017,
+      "median_clicks_0_28": 100.0,
+      "imd_missing_share": 0.008,
+      "vle_week_from_missing_share": 0.8388,
+      "length_days": {
+        "2013J": 268,
+        "2014J": 262,
+        "2013B": 240,
+        "2014B": 234
+      }
+    },
+    {
+      "module": "CCC",
+      "n_presentations": 2,
+      "presentations": [
+        "2014B",
+        "2014J"
+      ],
+      "n_enrolments": 4434,
+      "nonCompletion_rate": 0.6216,
+      "withdrawn_rate": 0.4454,
+      "fail_rate": 0.1761,
+      "first_nonexam_assessment_day_by_pres": {
+        "2014B": 18.0,
+        "2014J": 18.0
+      },
+      "first_assessment_types": [
+        "CMA"
+      ],
+      "unreg_le_day0_share": 0.1125,
+      "unreg_day1_28_share": 0.0938,
+      "share_with_vle_0_28": 0.8602,
+      "median_clicks_0_28": 199.0,
+      "imd_missing_share": 0.0573,
+      "vle_week_from_missing_share": 0.9761,
+      "length_days": {
+        "2014J": 269,
+        "2014B": 241
+      }
+    },
+    {
+      "module": "DDD",
+      "n_presentations": 4,
+      "presentations": [
+        "2013B",
+        "2013J",
+        "2014B",
+        "2014J"
+      ],
+      "n_enrolments": 6272,
+      "nonCompletion_rate": 0.5839,
+      "withdrawn_rate": 0.3587,
+      "fail_rate": 0.2251,
+      "first_nonexam_assessment_day_by_pres": {
+        "2013B": 23.0,
+        "2013J": 25.0,
+        "2014B": 25.0,
+        "2014J": 20.0
+      },
+      "first_assessment_types": [
+        "CMA",
+        "TMA"
+      ],
+      "unreg_le_day0_share": 0.095,
+      "unreg_day1_28_share": 0.0625,
+      "share_with_vle_0_28": 0.8763,
+      "median_clicks_0_28": 162.0,
+      "imd_missing_share": 0.0446,
+      "vle_week_from_missing_share": 0.9988,
+      "length_days": {
+        "2013J": 261,
+        "2014J": 262,
+        "2013B": 240,
+        "2014B": 241
+      }
+    },
+    {
+      "module": "EEE",
+      "n_presentations": 3,
+      "presentations": [
+        "2013J",
+        "2014B",
+        "2014J"
+      ],
+      "n_enrolments": 2934,
+      "nonCompletion_rate": 0.4376,
+      "withdrawn_rate": 0.2461,
+      "fail_rate": 0.1915,
+      "first_nonexam_assessment_day_by_pres": {
+        "2013J": 33.0,
+        "2014B": 33.0,
+        "2014J": 33.0
+      },
+      "first_assessment_types": [
+        "TMA"
+      ],
+      "unreg_le_day0_share": 0.0794,
+      "unreg_day1_28_share": 0.0504,
+      "share_with_vle_0_28": 0.8814,
+      "median_clicks_0_28": 283.5,
+      "imd_missing_share": 0.0399,
+      "vle_week_from_missing_share": 0.7649,
+      "length_days": {
+        "2013J": 268,
+        "2014J": 269,
+        "2014B": 241
+      }
+    },
+    {
+      "module": "FFF",
+      "n_presentations": 4,
+      "presentations": [
+        "2013B",
+        "2013J",
+        "2014B",
+        "2014J"
+      ],
+      "n_enrolments": 7762,
+      "nonCompletion_rate": 0.53,
+      "withdrawn_rate": 0.3096,
+      "fail_rate": 0.2204,
+      "first_nonexam_assessment_day_by_pres": {
+        "2013B": 19.0,
+        "2013J": 19.0,
+        "2014B": 24.0,
+        "2014J": 24.0
+      },
+      "first_assessment_types": [
+        "TMA"
+      ],
+      "unreg_le_day0_share": 0.0893,
+      "unreg_day1_28_share": 0.0613,
+      "share_with_vle_0_28": 0.8817,
+      "median_clicks_0_28": 390.5,
+      "imd_missing_share": 0.0473,
+      "vle_week_from_missing_share": 0.5801,
+      "length_days": {
+        "2013J": 268,
+        "2014J": 269,
+        "2013B": 240,
+        "2014B": 241
+      }
+    },
+    {
+      "module": "GGG",
+      "n_presentations": 3,
+      "presentations": [
+        "2013J",
+        "2014B",
+        "2014J"
+      ],
+      "n_enrolments": 2534,
+      "nonCompletion_rate": 0.4025,
+      "withdrawn_rate": 0.1152,
+      "fail_rate": 0.2873,
+      "first_nonexam_assessment_day_by_pres": {
+        "2013J": 61.0,
+        "2014B": 61.0,
+        "2014J": 61.0
+      },
+      "first_assessment_types": [
+        "TMA"
+      ],
+      "unreg_le_day0_share": 0.0268,
+      "unreg_day1_28_share": 0.0114,
+      "share_with_vle_0_28": 0.8299,
+      "median_clicks_0_28": 43.0,
+      "imd_missing_share": 0.0028,
+      "vle_week_from_missing_share": 0.9673,
+      "length_days": {
+        "2013J": 261,
+        "2014J": 269,
+        "2014B": 241
+      }
+    }
+  ],
+  "proposed_scope": [
+    {
+      "module": "BBB",
+      "presentation": "2013B",
+      "n_enrolments": 1767,
+      "nonCompletion_all": 0.5456,
+      "active_at_day28": 1530,
+      "nonCompletion_active_d28": 0.4752
+    },
+    {
+      "module": "BBB",
+      "presentation": "2013J",
+      "n_enrolments": 2237,
+      "nonCompletion_all": 0.5208,
+      "active_at_day28": 1835,
+      "nonCompletion_active_d28": 0.4158
+    },
+    {
+      "module": "BBB",
+      "presentation": "2014B",
+      "n_enrolments": 1613,
+      "nonCompletion_all": 0.5493,
+      "active_at_day28": 1282,
+      "nonCompletion_active_d28": 0.4329
+    },
+    {
+      "module": "BBB",
+      "presentation": "2014J",
+      "n_enrolments": 2292,
+      "nonCompletion_all": 0.4974,
+      "active_at_day28": 1787,
+      "nonCompletion_active_d28": 0.3553
+    },
+    {
+      "module": "FFF",
+      "presentation": "2013B",
+      "n_enrolments": 1614,
+      "nonCompletion_all": 0.5155,
+      "active_at_day28": 1450,
+      "nonCompletion_active_d28": 0.4607
+    },
+    {
+      "module": "FFF",
+      "presentation": "2013J",
+      "n_enrolments": 2283,
+      "nonCompletion_all": 0.5204,
+      "active_at_day28": 1982,
+      "nonCompletion_active_d28": 0.4475
+    },
+    {
+      "module": "FFF",
+      "presentation": "2014B",
+      "n_enrolments": 1500,
+      "nonCompletion_all": 0.564,
+      "active_at_day28": 1302,
+      "nonCompletion_active_d28": 0.4977
+    },
+    {
+      "module": "FFF",
+      "presentation": "2014J",
+      "n_enrolments": 2365,
+      "nonCompletion_all": 0.5277,
+      "active_at_day28": 1859,
+      "nonCompletion_active_d28": 0.3991
+    }
+  ],
+  "proposed_scope_total": {
+    "n_enrolments": 15671,
+    "active_at_day28": 13027,
+    "nonCompletion_all": 0.5277,
+    "nonCompletion_active_d28": 0.4318
+  }
+}

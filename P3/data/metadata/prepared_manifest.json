@@ -1,0 +1,174 @@
+{
+  "prepared_version": "N05-prepared-v1.2",
+  "input_raw": "OULAD (UCI id 349, DOI 10.24432/C5KK69), tải 09/11/2026",
+  "created_utc": "2026-11-09T16:39:22Z",
+  "python": "3.11.9",
+  "pandas": "3.0.5",
+  "numpy": "1.26.4",
+  "pipeline": "src/prepare_data.py",
+  "pipeline_sha256": "2a51990c1a0d2f9035502b2e0545a70ee0e2dee6d9c467633d8672181f60948f",
+  "config_sha256": "e828c189a90adf579e6613ef1af00370342444d7b28bd1041b3ac6c928fb02fa",
+  "prediction_day": 28,
+  "split": {
+    "2013B": "train",
+    "2013J": "train",
+    "2014B": "validation",
+    "2014J": "test"
+  },
+  "feature_sets": {
+    "behavioural": [
+      "clicks_w1",
+      "clicks_w2",
+      "clicks_w3",
+      "clicks_w4",
+      "active_days_w1",
+      "active_days_w2",
+      "active_days_w3",
+      "active_days_w4",
+      "clicks_0_28",
+      "log_clicks_0_28",
+      "active_days_0_28",
+      "n_sites_0_28",
+      "clicks_change_w1_w4",
+      "days_since_last_active_d28",
+      "clicks_pre_start",
+      "active_days_pre_start",
+      "no_vle_activity_0_28",
+      "clicks_homepage_0_28",
+      "clicks_oucontent_0_28",
+      "clicks_resource_0_28",
+      "clicks_subpage_0_28",
+      "clicks_forumng_0_28",
+      "clicks_quiz_0_28",
+      "clicks_url_0_28"
+    ],
+    "academic_d28": [
+      "tma1_submitted_by_d28",
+      "tma1_on_time",
+      "tma1_days_before_deadline"
+    ],
+    "background": [
+      "num_of_prev_attempts",
+      "studied_credits",
+      "highest_education_ord",
+      "registration_lead_days"
+    ],
+    "conditional_score": [
+      "tma1_score"
+    ],
+    "audit_only_sensitive": [
+      "gender",
+      "age_band",
+      "disability",
+      "imd_band",
+      "region"
+    ],
+    "flags": [
+      "seen_in_earlier_presentation",
+      "late_registration_1_28",
+      "days_observable_0_28",
+      "flag_high_activity"
+    ],
+    "target": [
+      "target_noncompletion"
+    ],
+    "reduced_core": [
+      "clicks_w1",
+      "clicks_w2",
+      "clicks_w4",
+      "active_days_w1",
+      "active_days_w2",
+      "active_days_w3",
+      "clicks_change_w1_w4",
+      "clicks_pre_start",
+      "no_vle_activity_0_28",
+      "clicks_oucontent_0_28",
+      "clicks_resource_0_28",
+      "clicks_forumng_0_28",
+      "clicks_quiz_0_28",
+      "clicks_url_0_28",
+      "tma1_submitted_by_d28",
+      "tma1_on_time",
+      "tma1_days_before_deadline",
+      "num_of_prev_attempts",
+      "studied_credits",
+      "highest_education_ord",
+      "registration_lead_days"
+    ]
+  },
+  "files": {
+    "aq1_student_week.csv": {
+      "sha256": "8c11f8f5d5f2eb3ca01587bf71bd88c458243730e258ff886e717d1a173a6579",
+      "bytes": 2247267,
+      "rows": 52080
+    },
+    "aq2_diagnostic_table.csv": {
+      "sha256": "6a3ef60b7b545044cae06e6748003f0a65c9ad39e2cdad25ee31d518c95c21e4",
+      "bytes": 2691064,
+      "rows": 13020
+    },
+    "aq3_audit_attributes.csv": {
+      "sha256": "3ca494f80ed6a1ab929ef5aabcc22dec5d0d4887b686144574366895872dd918",
+      "bytes": 997307,
+      "rows": 13020
+    },
+    "aq3_model_table.csv": {
+      "sha256": "f688038cc5609b4700332fdd8ca64224114807ebaf59412ad2e875e9de715f98",
+      "bytes": 1976538,
+      "rows": 13020
+    },
+    "aq4_decision_params.json": {
+      "sha256": "91a908bb270568647180517e1f75c0c546a0a7d99ae1ee48ff1963dc46c222db",
+      "bytes": 163,
+      "rows": null
+    },
+    "context_all_registrations.csv": {
+      "sha256": "0c1cb4ea3aa1bb271bf3dc018ed3d1f4a0b27a9eedd514ed29d80e13da15c718",
+      "bytes": 846158,
+      "rows": 15671
+    }
+  },
+  "model_table_columns": [
+    "code_module",
+    "code_presentation",
+    "id_student",
+    "split",
+    "clicks_w1",
+    "clicks_w2",
+    "clicks_w3",
+    "clicks_w4",
+    "active_days_w1",
+    "active_days_w2",
+    "active_days_w3",
+    "active_days_w4",
+    "clicks_0_28",
+    "log_clicks_0_28",
+    "active_days_0_28",
+    "n_sites_0_28",
+    "clicks_change_w1_w4",
+    "days_since_last_active_d28",
+    "clicks_pre_start",
+    "active_days_pre_start",
+    "no_vle_activity_0_28",
+    "clicks_homepage_0_28",
+    "clicks_oucontent_0_28",
+    "clicks_resource_0_28",
+    "clicks_subpage_0_28",
+    "clicks_forumng_0_28",
+    "clicks_quiz_0_28",
+    "clicks_url_0_28",
+    "tma1_submitted_by_d28",
+    "tma1_on_time",
+    "tma1_days_before_deadline",
+    "num_of_prev_attempts",
+    "studied_credits",
+    "highest_education_ord",
+    "registration_lead_days",
+    "tma1_score",
+    "seen_in_earlier_presentation",
+    "late_registration_1_28",
+    "days_observable_0_28",
+    "flag_high_activity",
+    "target_noncompletion"
+  ]
+}

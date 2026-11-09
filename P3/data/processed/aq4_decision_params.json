@@ -1,0 +1,10 @@
+{
+  "capacity_k_per_module_presentation": [
+    100,
+    200,
+    300
+  ],
+  "default_k": 200,
+  "assumed_conversion_rate": 0.14,
+  "source": "A5 (P1), C05 (P3)"
+}

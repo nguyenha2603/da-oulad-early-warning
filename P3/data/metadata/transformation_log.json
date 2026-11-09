@@ -1,0 +1,163 @@
+[
+  {
+    "step": 1,
+    "action": "Load raw + kiểm tra SHA-256 và schema",
+    "rows_in": null,
+    "rows_out": null,
+    "note": "7 bảng, studentVle 10.655.280 dòng"
+  },
+  {
+    "step": 2,
+    "action": "Chọn phạm vi BBB+FFF, 4 kỳ: studentInfo",
+    "rows_in": 32593,
+    "rows_out": 15671,
+    "note": ""
+  },
+  {
+    "step": 2,
+    "action": "Chọn phạm vi BBB+FFF, 4 kỳ: studentRegistration",
+    "rows_in": 32593,
+    "rows_out": 15671,
+    "note": ""
+  },
+  {
+    "step": 2,
+    "action": "Chọn phạm vi BBB+FFF, 4 kỳ: assessments",
+    "rows_in": 206,
+    "rows_out": 94,
+    "note": ""
+  },
+  {
+    "step": 2,
+    "action": "Chọn phạm vi BBB+FFF, 4 kỳ: vle",
+    "rows_in": 6364,
+    "rows_out": 3121,
+    "note": ""
+  },
+  {
+    "step": 2,
+    "action": "Chọn phạm vi BBB+FFF, 4 kỳ: courses",
+    "rows_in": 22,
+    "rows_out": 8,
+    "note": ""
+  },
+  {
+    "step": 2,
+    "action": "Chọn phạm vi BBB+FFF, 4 kỳ: studentVle",
+    "rows_in": 10655280,
+    "rows_out": 5582063,
+    "note": ""
+  },
+  {
+    "step": 2,
+    "action": "Chọn phạm vi: studentAssessment (theo id_assessment của BBB+FFF)",
+    "rows_in": 173912,
+    "rows_out": 97847,
+    "note": ""
+  },
+  {
+    "step": 7,
+    "action": "Ghép studentInfo + studentRegistration (1:1, validate)",
+    "rows_in": 15671,
+    "rows_out": 15671,
+    "note": ""
+  },
+  {
+    "step": 3,
+    "action": "Chuẩn hóa nhãn imd_band '10-20' → '10-20%' (DQ-05)",
+    "rows_in": null,
+    "rows_out": null,
+    "note": ""
+  },
+  {
+    "step": 5,
+    "action": "imd_band thiếu → nhãn 'Unknown' + cờ; date_registration thiếu → giữ NaN + cờ (impute ở bước fit-on-train)",
+    "rows_in": null,
+    "rows_out": null,
+    "note": "imd_band thiếu 430, date_registration thiếu 20"
+  },
+  {
+    "step": 6,
+    "action": "Giữ final_result làm outcome chính thức; gắn cờ ca mâu thuẫn với date_unregistration (DQ-04)",
+    "rows_in": null,
+    "rows_out": null,
+    "note": "Withdrawn không có ngày hủy 40, có ngày hủy nhưng không Withdrawn 6"
+  },
+  {
+    "step": 4,
+    "action": "Giữ dòng trùng studentVle (nhiều lượt/ngày là hợp lệ), cộng dồn theo ngày",
+    "rows_in": null,
+    "rows_out": null,
+    "note": "dòng trùng hoàn toàn 448.874; khóa nhiều dòng có click khác nhau 618.781"
+  },
+  {
+    "step": 9,
+    "action": "Interim: tổng click theo sinh viên × ngày (toàn kỳ)",
+    "rows_in": 5582063,
+    "rows_out": 865577,
+    "note": ""
+  },
+  {
+    "step": 8,
+    "action": "Đặc trưng bài đánh giá đầu tiên (TMA1, hạn ngày 12–24): nộp trước ngày 28, đúng hạn, điểm (có điều kiện)",
+    "rows_in": null,
+    "rows_out": null,
+    "note": "loại 268 bài bảo lưu"
+  },
+  {
+    "step": 7,
+    "action": "Ghép đặc trưng VLE + đánh giá vào bảng đăng ký (left, 1:1)",
+    "rows_in": 15671,
+    "rows_out": 15671,
+    "note": ""
+  },
+  {
+    "step": 5,
+    "action": "Không có bản ghi VLE trong 0–28 → 0 click + cờ no_vle_activity_0_28; days_since_last_active = 29 nếu chưa từng hoạt động",
+    "rows_in": null,
+    "rows_out": null,
+    "note": ""
+  },
+  {
+    "step": 8,
+    "action": "Đặc trưng dẫn xuất: clicks_change_w1_w4 = log1p(w4) − log1p(w1); log_clicks_0_28; highest_education_ord; registration_lead_days = −date_registration",
+    "rows_in": null,
+    "rows_out": null,
+    "note": ""
+  },
+  {
+    "step": 5,
+    "action": "Impute registration_lead_days bằng median tập train = 55 (fit trên train, áp cho validation/test)",
+    "rows_in": null,
+    "rows_out": null,
+    "note": ""
+  },
+  {
+    "step": 6,
+    "action": "Cờ chất lượng: late_registration_1_28 (cửa sổ quan sát bị rút ngắn), days_observable_0_28, flag_high_activity (> p99 tập train = 1910.96 click) – chỉ gắn cờ, không xóa/cắt",
+    "rows_in": null,
+    "rows_out": null,
+    "note": "đăng ký muộn 117, hoạt động cao 115"
+  },
+  {
+    "step": 9,
+    "action": "Population AQ1–AQ5: còn đăng ký ở cuối ngày 28 (C04, C06)",
+    "rows_in": 15671,
+    "rows_out": 13020,
+    "note": ""
+  },
+  {
+    "step": 9,
+    "action": "Xuất 4 view: aq1_student_week, aq2_diagnostic_table, aq3_model_table (+ audit), context_all_registrations",
+    "rows_in": null,
+    "rows_out": null,
+    "note": ""
+  },
+  {
+    "step": 8,
+    "action": "Phân tích trùng lặp feature (train): 21 cặp |r| > 0,8; active_days_0_28 ≈ tổng 4 tuần (68.3% dòng bằng đúng); bộ rút gọn 21 feature, VIF lớn nhất 4.66",
+    "rows_in": null,
+    "rows_out": null,
+    "note": ""
+  }
+]

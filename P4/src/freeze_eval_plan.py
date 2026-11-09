@@ -1,0 +1,65 @@
+"""Chốt Evaluation Plan TRƯỚC khi chạy prototype (đề P4 mục 8, checklist: 'Evaluation Plan được viết trước').
+Ghi evaluation/evaluation_plan.json + SHA-256 + thời điểm. run_prototype.py từ chối chạy nếu file bị sửa sau khi chốt."""
+import hashlib, json
+from datetime import datetime, timezone
+from pathlib import Path
+
+OUT = Path(__file__).resolve().parents[1] / "evaluation"
+PLAN = {
+  "version": "EvalPlan-v1.0",
+  "data_input": "P3 prepared dataset N05-prepared-v1.0 (verify SHA-256 in P3/data/metadata/prepared_manifest.json)",
+  "random_seed": 42,
+  "AQ1": {"task": "aggregation by label3 x week", "measures": ["clicks", "active_days"],
+          "statistic": "median + mean, bootstrap 95% CI (1000 resamples)",
+          "checks": ["rows == 4 x population", "each student exactly 4 weeks", "group counts reconcile with final_result"],
+          "success": "all consistency checks pass; CIs reported"},
+  "AQ2": {"task": "group comparison completers (0) vs non-completers (1)",
+          "indicators_continuous": ["clicks_w1", "clicks_w2", "clicks_w3", "clicks_w4", "active_days_w1", "active_days_w2",
+                                    "active_days_w3", "active_days_w4", "clicks_change_w1_w4", "days_since_last_active_d28",
+                                    "tma1_score", "num_of_prev_attempts", "studied_credits", "highest_education_ord"],
+          "indicators_binary": ["tma1_submitted_by_d28", "tma1_on_time"],
+          "unadjusted": "Mann-Whitney U + Cliff's delta (continuous); chi-square + risk difference (binary); Holm correction",
+          "significant_difference": "Holm-adjusted p < 0.05 AND |Cliff's delta| >= 0.147 (small) or |risk difference| >= 0.05",
+          "first_week_rule": "earliest week w in 1..4 where clicks_w AND active_days_w both meet the significance rule",
+          "adjusted": "logistic regression (statsmodels), standardized predictors + module-presentation fixed effects; OR with 95% CI",
+          "claim": "association only"},
+  "AQ3": {"task": "binary classification, target_noncompletion, prediction point end of day 28",
+          "split": "fit on train (2013B, 2013J); select model and threshold on validation (2014B); evaluate test (2014J) once",
+          "models": {"M0": "majority / prevalence baseline", "M1": "simple rule: not submitted TMA1 first, then fewer active days 0-28",
+                     "M2": "logistic regression L2 (C=1.0), median impute + log1p counts + standardize, fit on train",
+                     "M3": "histogram gradient boosting (max_iter=200, learning_rate=0.1, default depth), fit on train",
+                     "variants": "core features (no tma1_score) = default; +tma1_score = sensitivity (DQ10)"},
+          "feature_policy": "no sensitive attributes, no final_result/date_unregistration, only features <= day 28",
+          "primary_metric": "PR-AUC on test",
+          "secondary_metrics": ["ROC-AUC", "Recall, Precision, F1 at threshold t*", "Brier score", "calibration curve"],
+          "threshold_rule": "t* = highest threshold with Recall >= 0.70 on validation",
+          "selection_rule": "primary approach = M2 unless M3 validation PR-AUC exceeds M2 by >= 0.02 (interpretability needed by AQ5)",
+          "success": "test Recall at t* >= 0.70 AND test PR-AUC > PR-AUC of M0 and M1"},
+  "AQ4": {"task": "ranking under capacity per module-presentation",
+          "rules": {"a": "top-k by predicted probability within each module-presentation",
+                    "b": "among p >= t*, order by clicks_change_w1_w4 ascending (largest decline first), top-k",
+                    "d": "pooled top-(2k) across BBB+FFF without per-module quota (compare with per-module quota of a)"},
+          "k": [100, 200, 300], "selection": "rule with highest mean Precision@200 on validation 2014B",
+          "metrics": ["Precision@k", "true non-completers reached", "scenario: expected students changed = TP x 0.14 (assumption A5/C05)"],
+          "success": "Precision@200 >= 0.70 in each module-presentation of test 2014J for the selected rule",
+          "claim": "decision support under capacity; no intervention effect is estimated"},
+  "AQ5": {"task": "local explanation of risk score",
+          "method": "for linear model: contribution_j = coef_j * standardized x_j (exact additive in logit space); top-3 positive contributions -> template sentences; global: permutation importance on validation (PR-AUC drop, 10 repeats)",
+          "checks": ["faithfulness: intercept + sum(contributions) == logit (|err| < 1e-6)", "no sensitive attribute in any explanation",
+                     "<= 3 sentences per student", "sign consistency with AQ2 direction for top global features"],
+          "success": "100% of students in top-200 lists receive an explanation with >= 2 reasons and all checks pass"},
+  "fairness": {"groups": {"gender": ["F", "M"], "age_band": ["0-35", "35+"], "disability": ["N", "Y"],
+                          "imd_group": ["0-30%", "30-70%", "70-100%", "Unknown"]},
+               "metrics": ["recall", "precision", "false negative rate at t*", "share in top-200 vs share in population"],
+               "flag_rule": "recall gap > 0.10 between groups of the same attribute -> disclose and discuss (no silent re-tuning)"},
+  "error_analysis": ["recall by final_result (Fail vs Withdrawn)", "false-negative profile (median features)",
+                     "performance by module", "performance excluding seen_in_earlier_presentation"],
+}
+
+if __name__ == "__main__":
+    OUT.mkdir(exist_ok=True)
+    f = OUT / "evaluation_plan.json"
+    f.write_text(json.dumps(PLAN, indent=2, ensure_ascii=False))
+    sha = hashlib.sha256(f.read_bytes()).hexdigest()
+    (OUT / "evaluation_plan.lock").write_text(json.dumps({"sha256": sha, "frozen_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}))
+    print("frozen", sha)

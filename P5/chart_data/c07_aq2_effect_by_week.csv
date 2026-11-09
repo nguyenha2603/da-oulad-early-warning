@@ -1,0 +1,9 @@
+measure,week,cliffs_delta,p_holm,significant
+clicks,1,-0.26,0.0,True
+clicks,2,-0.297,0.0,True
+clicks,3,-0.261,0.0,True
+clicks,4,-0.29,0.0,True
+active_days,1,-0.263,0.0,True
+active_days,2,-0.307,0.0,True
+active_days,3,-0.296,0.0,True
+active_days,4,-0.313,0.0,True

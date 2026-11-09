@@ -1,0 +1,229 @@
+{
+  "table": [
+    {
+      "label3": "Fail",
+      "week": 1,
+      "n": 3469,
+      "clicks_median": 20.0,
+      "clicks_mean": 55.23,
+      "clicks_ci_low": 18.0,
+      "clicks_ci_high": 22.0,
+      "active_days_median": 2.0,
+      "active_days_mean": 2.02,
+      "active_days_ci_low": 1.0,
+      "active_days_ci_high": 2.0
+    },
+    {
+      "label3": "Fail",
+      "week": 2,
+      "n": 3469,
+      "clicks_median": 15.0,
+      "clicks_mean": 45.56,
+      "clicks_ci_low": 13.0,
+      "clicks_ci_high": 16.0,
+      "active_days_median": 1.0,
+      "active_days_mean": 1.81,
+      "active_days_ci_low": 1.0,
+      "active_days_ci_high": 1.0
+    },
+    {
+      "label3": "Fail",
+      "week": 3,
+      "n": 3469,
+      "clicks_median": 23.0,
+      "clicks_mean": 59.32,
+      "clicks_ci_low": 20.0,
+      "clicks_ci_high": 25.0,
+      "active_days_median": 2.0,
+      "active_days_mean": 2.2,
+      "active_days_ci_low": 2.0,
+      "active_days_ci_high": 2.0
+    },
+    {
+      "label3": "Fail",
+      "week": 4,
+      "n": 3469,
+      "clicks_median": 10.0,
+      "clicks_mean": 44.41,
+      "clicks_ci_low": 8.0,
+      "clicks_ci_high": 12.0,
+      "active_days_median": 1.0,
+      "active_days_mean": 1.9,
+      "active_days_ci_low": 1.0,
+      "active_days_ci_high": 1.0
+    },
+    {
+      "label3": "Pass",
+      "week": 1,
+      "n": 7399,
+      "clicks_median": 59.0,
+      "clicks_mean": 102.92,
+      "clicks_ci_low": 57.0,
+      "clicks_ci_high": 62.0,
+      "active_days_median": 3.0,
+      "active_days_mean": 3.15,
+      "active_days_ci_low": 3.0,
+      "active_days_ci_high": 3.0
+    },
+    {
+      "label3": "Pass",
+      "week": 2,
+      "n": 7399,
+      "clicks_median": 50.0,
+      "clicks_mean": 90.48,
+      "clicks_ci_low": 48.0,
+      "clicks_ci_high": 52.0,
+      "active_days_median": 3.0,
+      "active_days_mean": 3.09,
+      "active_days_ci_low": 3.0,
+      "active_days_ci_high": 3.0
+    },
+    {
+      "label3": "Pass",
+      "week": 3,
+      "n": 7399,
+      "clicks_median": 60.0,
+      "clicks_mean": 109.1,
+      "clicks_ci_low": 58.0,
+      "clicks_ci_high": 63.0,
+      "active_days_median": 3.0,
+      "active_days_mean": 3.46,
+      "active_days_ci_low": 3.0,
+      "active_days_ci_high": 3.0
+    },
+    {
+      "label3": "Pass",
+      "week": 4,
+      "n": 7399,
+      "clicks_median": 43.0,
+      "clicks_mean": 92.73,
+      "clicks_ci_low": 41.0,
+      "clicks_ci_high": 45.0,
+      "active_days_median": 3.0,
+      "active_days_mean": 3.26,
+      "active_days_ci_low": 3.0,
+      "active_days_ci_high": 3.0
+    },
+    {
+      "label3": "Withdrawn",
+      "week": 1,
+      "n": 2152,
+      "clicks_median": 33.0,
+      "clicks_mean": 71.31,
+      "clicks_ci_low": 30.0,
+      "clicks_ci_high": 36.0,
+      "active_days_median": 2.0,
+      "active_days_mean": 2.42,
+      "active_days_ci_low": 2.0,
+      "active_days_ci_high": 2.0
+    },
+    {
+      "label3": "Withdrawn",
+      "week": 2,
+      "n": 2152,
+      "clicks_median": 24.5,
+      "clicks_mean": 58.25,
+      "clicks_ci_low": 22.0,
+      "clicks_ci_high": 28.0,
+      "active_days_median": 2.0,
+      "active_days_mean": 2.26,
+      "active_days_ci_low": 2.0,
+      "active_days_ci_high": 2.0
+    },
+    {
+      "label3": "Withdrawn",
+      "week": 3,
+      "n": 2152,
+      "clicks_median": 36.0,
+      "clicks_mean": 76.91,
+      "clicks_ci_low": 31.5,
+      "clicks_ci_high": 40.0,
+      "active_days_median": 2.0,
+      "active_days_mean": 2.62,
+      "active_days_ci_low": 2.0,
+      "active_days_ci_high": 2.0
+    },
+    {
+      "label3": "Withdrawn",
+      "week": 4,
+      "n": 2152,
+      "clicks_median": 21.0,
+      "clicks_mean": 58.73,
+      "clicks_ci_low": 17.0,
+      "clicks_ci_high": 24.0,
+      "active_days_median": 2.0,
+      "active_days_mean": 2.33,
+      "active_days_ci_low": 2.0,
+      "active_days_ci_high": 2.0
+    }
+  ],
+  "checks": {
+    "rows_eq_4x": true,
+    "each_student_4_weeks": true,
+    "group_counts": {
+      "Pass": 7399,
+      "Fail": 3469,
+      "Withdrawn": 2152
+    },
+    "zero_click_share_by_week": {
+      "1": {
+        "Fail": 0.274,
+        "Pass": 0.123,
+        "Withdrawn": 0.224
+      },
+      "2": {
+        "Fail": 0.32,
+        "Pass": 0.113,
+        "Withdrawn": 0.239
+      },
+      "3": {
+        "Fail": 0.253,
+        "Pass": 0.079,
+        "Withdrawn": 0.204
+      },
+      "4": {
+        "Fail": 0.342,
+        "Pass": 0.123,
+        "Withdrawn": 0.275
+      }
+    }
+  },
+  "median_clicks_by_module": {
+    "BBB|Fail": {
+      "1": 9.0,
+      "2": 6.0,
+      "3": 9.0,
+      "4": 2.0
+    },
+    "BBB|Pass": {
+      "1": 30.0,
+      "2": 27.0,
+      "3": 26.0,
+      "4": 16.0
+    },
+    "BBB|Withdrawn": {
+      "1": 16.0,
+      "2": 11.0,
+      "3": 14.0,
+      "4": 4.0
+    },
+    "FFF|Fail": {
+      "1": 45.0,
+      "2": 32.0,
+      "3": 58.0,
+      "4": 35.0
+    },
+    "FFF|Pass": {
+      "1": 112.0,
+      "2": 99.0,
+      "3": 140.0,
+      "4": 114.0
+    },
+    "FFF|Withdrawn": {
+      "1": 58.0,
+      "2": 44.0,
+      "3": 76.0,
+      "4": 52.0
+    }
+  }
+}

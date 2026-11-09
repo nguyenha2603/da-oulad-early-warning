@@ -1,0 +1,311 @@
+{
+  "shape": {
+    "studentInfo": {
+      "rows_all": 32593,
+      "rows_scope": 15671,
+      "cols": 12
+    },
+    "studentRegistration": {
+      "rows_all": 32593,
+      "rows_scope": 15671,
+      "cols": 5
+    },
+    "assessments": {
+      "rows_all": 206,
+      "rows_scope": 94,
+      "cols": 6
+    },
+    "studentAssessment": {
+      "rows_all": 173912,
+      "rows_scope": null,
+      "cols": 5
+    },
+    "vle": {
+      "rows_all": 6364,
+      "rows_scope": 3121,
+      "cols": 6
+    },
+    "courses": {
+      "rows_all": 22,
+      "rows_scope": 8,
+      "cols": 3
+    }
+  },
+  "course_length": {
+    "BBB-2013J": 268,
+    "BBB-2014J": 262,
+    "BBB-2013B": 240,
+    "BBB-2014B": 234,
+    "FFF-2013J": 268,
+    "FFF-2014J": 269,
+    "FFF-2013B": 240,
+    "FFF-2014B": 241
+  },
+  "missing": {
+    "studentInfo.imd_band": {
+      "n": 430,
+      "rate": 0.0274
+    },
+    "studentRegistration.date_registration": {
+      "n": 20,
+      "rate": 0.0013
+    },
+    "studentRegistration.date_unregistration": {
+      "n": 10914,
+      "rate": 0.6964
+    },
+    "assessments.date": {
+      "n": 4,
+      "rate": 0.0426
+    },
+    "studentAssessment.score": {
+      "n": 99,
+      "rate": 0.001
+    },
+    "vle.week_from": {
+      "n": 2109,
+      "rate": 0.6757
+    },
+    "vle.week_to": {
+      "n": 2109,
+      "rate": 0.6757
+    }
+  },
+  "imd_missing_by_region_top": {
+    "North Region": 0.343,
+    "Ireland": 0.141,
+    "South Region": 0.016
+  },
+  "imd_missing_by_result": {
+    "Distinction": 0.0468,
+    "Fail": 0.017,
+    "Pass": 0.0375,
+    "Withdrawn": 0.0169
+  },
+  "score_missing_by_type": {
+    "CMA": 0,
+    "TMA": 99
+  },
+  "imd_missing_mechanism": {
+    "region": {
+      "chi2": 3566.9,
+      "dof": 12,
+      "p": 0.0,
+      "cramers_v": 0.477
+    },
+    "final_result": {
+      "chi2": 76.0,
+      "dof": 3,
+      "p": 2.2124364271116197e-16,
+      "cramers_v": 0.07
+    },
+    "code_module": {
+      "chi2": 225.4,
+      "dof": 1,
+      "p": 5.895944884175378e-51,
+      "cramers_v": 0.12
+    },
+    "gender": {
+      "chi2": 118.7,
+      "dof": 1,
+      "p": 1.191607987579235e-27,
+      "cramers_v": 0.087
+    },
+    "age_band": {
+      "chi2": 7.6,
+      "dof": 2,
+      "p": 0.02218919460543217,
+      "cramers_v": 0.022
+    }
+  },
+  "imd_missing_by_region_all": {
+    "North Region": 0.3428,
+    "Ireland": 0.1412,
+    "South Region": 0.016,
+    "West Midlands Region": 0.015,
+    "South West Region": 0.0037,
+    "Scotland": 0.0034,
+    "Yorkshire Region": 0.003,
+    "North Western Region": 0.0023,
+    "East Anglian Region": 0.0,
+    "East Midlands Region": 0.0,
+    "London Region": 0.0,
+    "South East Region": 0.0,
+    "Wales": 0.0
+  },
+  "date_registration_missing_outcome": {
+    "Withdrawn": 18,
+    "Fail": 2
+  },
+  "score_missing_detail": {
+    "n": 99,
+    "has_date_submitted": 99,
+    "banked": 1,
+    "score_zero_n": 140
+  },
+  "submitted_before_start": {
+    "n": 1240,
+    "banked": 1103,
+    "banked_total": 1103
+  },
+  "vle_week_missing_by_type": {
+    "dataplus": 0.9,
+    "dualpane": 0.71,
+    "folder": 1.0,
+    "forumng": 1.0,
+    "glossary": 1.0,
+    "homepage": 1.0,
+    "htmlactivity": 1.0,
+    "oucollaborate": 1.0,
+    "oucontent": 0.43,
+    "ouelluminate": 1.0,
+    "ouwiki": 0.77,
+    "page": 0.62,
+    "questionnaire": 0.31,
+    "quiz": 0.79,
+    "repeatactivity": 0.2,
+    "resource": 0.89,
+    "sharedsubpage": 1.0,
+    "subpage": 0.6,
+    "url": 0.39
+  },
+  "orphans": {
+    "studentAssessment_student_not_registered": 0,
+    "registrations_without_any_vle": 1957,
+    "registrations_without_vle_0_28": 2486,
+    "active_d28_without_vle_0_28": 542
+  },
+  "no_vle_by_result": {
+    "Withdrawn": 1768,
+    "Fail": 187,
+    "Pass": 2
+  },
+  "validity": {
+    "score_out_of_0_100": 0,
+    "submitted_after_course_end": 72,
+    "unregistration_before_registration": 0,
+    "vle_date_min": -23,
+    "vle_date_max": 269,
+    "vle_after_course_end": 0,
+    "vle_week_from_missing_rate": 0.676,
+    "imd_band_levels": [
+      "0-10%",
+      "10-20%",
+      "20-30%",
+      "30-40%",
+      "40-50%",
+      "50-60%",
+      "60-70%",
+      "70-80%",
+      "80-90%",
+      "90-100%",
+      "Unknown"
+    ]
+  },
+  "clicks_0_28": {
+    "mean": 330.2,
+    "median": 192.5,
+    "p99": 1824.0,
+    "max": 6211,
+    "zero_rate": 0.0416,
+    "skew": 3.14,
+    "iqr_outliers": 675
+  },
+  "daily_clicks": {
+    "p99": 192.0,
+    "p999": 443.0,
+    "max": 4114,
+    "n_days_over_1000": 26
+  },
+  "studied_credits": {
+    "median": 60.0,
+    "max": 430,
+    "n_over_240": 42
+  },
+  "final_result_all": {
+    "Pass": 6055,
+    "Withdrawn": 4791,
+    "Fail": 3478,
+    "Distinction": 1347
+  },
+  "noncompletion_all": 0.5277,
+  "noncompletion_active": 0.4317,
+  "n_active": 13020,
+  "n_all": 15671,
+  "unregistered_by_d28": 2644,
+  "registered_after_d28": 7,
+  "unreg_day_quantiles": {
+    "0.25": -5.0,
+    "0.5": 13.0,
+    "0.75": 97.0
+  },
+  "withdrawn_by_d28_share_of_withdrawn": 0.5508,
+  "demographics_active": {
+    "gender": {
+      "F": 0.527,
+      "M": 0.473
+    },
+    "age_band": {
+      "0-35": 0.696,
+      "35-55": 0.302,
+      "55<=": 0.003
+    },
+    "disability": {
+      "N": 0.907,
+      "Y": 0.093
+    },
+    "highest_education": {
+      "A Level or Equivalent": 0.432,
+      "Lower Than A Level": 0.422,
+      "HE Qualification": 0.129,
+      "No Formal quals": 0.011,
+      "Post Graduate Qualification": 0.005
+    }
+  },
+  "module_domain": {
+    "BBB": "Social Sciences",
+    "FFF": "STEM"
+  },
+  "rate_by_imd": {
+    "0-10%": 0.57,
+    "10-20%": 0.506,
+    "20-30%": 0.49,
+    "30-40%": 0.426,
+    "40-50%": 0.424,
+    "50-60%": 0.407,
+    "60-70%": 0.385,
+    "70-80%": 0.403,
+    "80-90%": 0.34,
+    "90-100%": 0.321,
+    "Unknown": 0.277
+  },
+  "rate_by_disability": {
+    "N": 0.42,
+    "Y": 0.55
+  },
+  "active_students_per_week": {
+    "1": 10967,
+    "2": 10762,
+    "3": 11213,
+    "4": 10375,
+    "5": 9949,
+    "6": 9680
+  },
+  "median_by_label3_active": {
+    "clicks_0_28": {
+      "Fail": 112.0,
+      "Pass": 257.0,
+      "Withdrawn": 160.5
+    },
+    "active_days_0_28": {
+      "Fail": 7.0,
+      "Pass": 12.0,
+      "Withdrawn": 9.0
+    }
+  },
+  "tma1_submit_rate_by_label3": {
+    "Fail": 0.749,
+    "Pass": 0.973,
+    "Withdrawn": 0.764
+  }
+}

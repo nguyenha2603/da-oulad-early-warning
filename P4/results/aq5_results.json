@@ -1,0 +1,177 @@
+{
+  "faithfulness_max_abs_error": 8.881784197001252e-16,
+  "n_explained": 400,
+  "share_with_ge2_reasons": 1.0,
+  "sensitive_in_features": [],
+  "examples": [
+    {
+      "student": "BBB-2014J-2698591",
+      "p": 0.957,
+      "actual": 1,
+      "reasons": [
+        {
+          "feature": "tma1_submitted_by_d28",
+          "contribution_logit": 1.142
+        },
+        {
+          "feature": "active_days_0_28",
+          "contribution_logit": 0.673
+        },
+        {
+          "feature": "clicks_homepage_0_28",
+          "contribution_logit": 0.532
+        }
+      ],
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (0 so với trung vị 11). Lượt tương tác với tài nguyên homepage thấp hơn mức thường gặp (0 so với trung vị 40)."
+    },
+    {
+      "student": "BBB-2014J-689298",
+      "p": 0.947,
+      "actual": 1,
+      "reasons": [
+        {
+          "feature": "tma1_submitted_by_d28",
+          "contribution_logit": 1.142
+        },
+        {
+          "feature": "active_days_0_28",
+          "contribution_logit": 0.616
+        },
+        {
+          "feature": "clicks_w2",
+          "contribution_logit": 0.298
+        }
+      ],
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (1 so với trung vị 11). Lượt tương tác tuần 2 thấp hơn mức thường gặp (0 so với trung vị 37)."
+    },
+    {
+      "student": "BBB-2014J-624709",
+      "p": 0.947,
+      "actual": 1,
+      "reasons": [
+        {
+          "feature": "tma1_submitted_by_d28",
+          "contribution_logit": 1.142
+        },
+        {
+          "feature": "active_days_0_28",
+          "contribution_logit": 0.275
+        },
+        {
+          "feature": "clicks_oucontent_0_28",
+          "contribution_logit": 0.168
+        }
+      ],
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (7 so với trung vị 11). Lượt tương tác với tài nguyên oucontent cao hơn mức thường gặp (91 so với trung vị 9)."
+    },
+    {
+      "student": "BBB-2014J-695654",
+      "p": 0.896,
+      "actual": 0,
+      "reasons": [
+        {
+          "feature": "tma1_submitted_by_d28",
+          "contribution_logit": 1.142
+        },
+        {
+          "feature": "active_days_0_28",
+          "contribution_logit": 0.559
+        },
+        {
+          "feature": "clicks_homepage_0_28",
+          "contribution_logit": 0.426
+        }
+      ],
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (2 so với trung vị 11). Lượt tương tác với tài nguyên homepage thấp hơn mức thường gặp (1 so với trung vị 40)."
+    }
+  ],
+  "coef_top_positive": {
+    "num_of_prev_attempts": 0.103,
+    "active_days_w1": 0.135,
+    "studied_credits": 0.136,
+    "log_clicks_0_28": 0.142,
+    "clicks_oucontent_0_28": 0.179,
+    "clicks_subpage_0_28": 0.313
+  },
+  "coef_top_negative": {
+    "active_days_0_28": -0.441,
+    "tma1_submitted_by_d28": -0.423,
+    "highest_education_ord": -0.35,
+    "tma1_on_time": -0.226,
+    "clicks_homepage_0_28": -0.201,
+    "tma1_days_before_deadline": -0.182
+  },
+  "permutation_importance_top10": {
+    "tma1_submitted_by_d28": 0.0572,
+    "active_days_0_28": 0.0392,
+    "highest_education_ord": 0.0291,
+    "clicks_subpage_0_28": 0.0153,
+    "tma1_on_time": 0.0121,
+    "clicks_homepage_0_28": 0.0103,
+    "tma1_days_before_deadline": 0.0064,
+    "clicks_oucontent_0_28": 0.0062,
+    "clicks_w2": 0.0052,
+    "days_since_last_active_d28": 0.0048
+  },
+  "sign_consistency_top10": {
+    "tma1_submitted_by_d28": {
+      "aq2_sign": -1,
+      "lr_sign": -1,
+      "consistent": true
+    },
+    "active_days_0_28": {
+      "aq2_sign": -1,
+      "lr_sign": -1,
+      "consistent": true
+    },
+    "highest_education_ord": {
+      "aq2_sign": -1,
+      "lr_sign": -1,
+      "consistent": true
+    },
+    "tma1_on_time": {
+      "aq2_sign": -1,
+      "lr_sign": -1,
+      "consistent": true
+    },
+    "clicks_w2": {
+      "aq2_sign": -1,
+      "lr_sign": -1,
+      "consistent": true
+    },
+    "days_since_last_active_d28": {
+      "aq2_sign": 1,
+      "lr_sign": 1,
+      "consistent": true
+    }
+  },
+  "engagement_features_positive_coef": {
+    "clicks_w3": 0.101,
+    "clicks_oucontent_0_28": 0.179,
+    "clicks_subpage_0_28": 0.313,
+    "active_days_w1": 0.135,
+    "active_days_w2": 0.079,
+    "log_clicks_0_28": 0.142,
+    "active_days_pre_start": 0.037
+  },
+  "max_sentences_per_student": 3,
+  "background_excluded_from_reasons": [
+    "highest_education_ord",
+    "num_of_prev_attempts",
+    "registration_lead_days",
+    "studied_credits"
+  ],
+  "counterintuitive_reasons": {
+    "share_students": 0.1375,
+    "by_feature": {
+      "clicks_oucontent_0_28": 35,
+      "clicks_subpage_0_28": 28,
+      "active_days_w1": 9,
+      "active_days_w2": 3,
+      "log_clicks_0_28": 1,
+      "active_days_pre_start": 1
+    }
+  },
+  "n_inconsistent": 0,
+  "success_AQ5": true
+}

@@ -1,0 +1,274 @@
+{
+  "unadjusted": [
+    {
+      "indicator": "clicks_w1",
+      "type": "continuous",
+      "median_noncompl": 24.0,
+      "median_compl": 59.0,
+      "effect": -0.26,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "clicks_w2",
+      "type": "continuous",
+      "median_noncompl": 18.0,
+      "median_compl": 50.0,
+      "effect": -0.297,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "clicks_w3",
+      "type": "continuous",
+      "median_noncompl": 27.0,
+      "median_compl": 60.0,
+      "effect": -0.261,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "clicks_w4",
+      "type": "continuous",
+      "median_noncompl": 13.0,
+      "median_compl": 43.0,
+      "effect": -0.29,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "active_days_w1",
+      "type": "continuous",
+      "median_noncompl": 2.0,
+      "median_compl": 3.0,
+      "effect": -0.263,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "active_days_w2",
+      "type": "continuous",
+      "median_noncompl": 1.0,
+      "median_compl": 3.0,
+      "effect": -0.307,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "active_days_w3",
+      "type": "continuous",
+      "median_noncompl": 2.0,
+      "median_compl": 3.0,
+      "effect": -0.296,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "active_days_w4",
+      "type": "continuous",
+      "median_noncompl": 2.0,
+      "median_compl": 3.0,
+      "effect": -0.313,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "clicks_change_w1_w4",
+      "type": "continuous",
+      "median_noncompl": -0.031749,
+      "median_compl": -0.149532,
+      "effect": -0.041,
+      "effect_name": "Cliff's delta",
+      "p": 6.3e-05,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 6.3e-05,
+      "significant": false
+    },
+    {
+      "indicator": "days_since_last_active_d28",
+      "type": "continuous",
+      "median_noncompl": 3.0,
+      "median_compl": 1.0,
+      "effect": 0.303,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "tma1_score",
+      "type": "continuous",
+      "median_noncompl": 74.0,
+      "median_compl": 80.0,
+      "effect": -0.223,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 4238,
+      "n0": 7198,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "num_of_prev_attempts",
+      "type": "continuous",
+      "median_noncompl": 0.0,
+      "median_compl": 0.0,
+      "effect": 0.096,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": false
+    },
+    {
+      "indicator": "studied_credits",
+      "type": "continuous",
+      "median_noncompl": 60.0,
+      "median_compl": 60.0,
+      "effect": 0.061,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": false
+    },
+    {
+      "indicator": "highest_education_ord",
+      "type": "continuous",
+      "median_noncompl": 1.0,
+      "median_compl": 2.0,
+      "effect": -0.184,
+      "effect_name": "Cliff's delta",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "tma1_submitted_by_d28",
+      "type": "binary",
+      "median_noncompl": 0.755,
+      "median_compl": 0.973,
+      "effect": -0.218,
+      "effect_name": "risk difference (rate1 - rate0)",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "indicator": "tma1_on_time",
+      "type": "binary",
+      "median_noncompl": 0.665,
+      "median_compl": 0.936,
+      "effect": -0.271,
+      "effect_name": "risk difference (rate1 - rate0)",
+      "p": 0.0,
+      "n1": 5621,
+      "n0": 7399,
+      "p_holm": 0.0,
+      "significant": true
+    }
+  ],
+  "first_week": 1,
+  "adjusted": [
+    {
+      "predictor": "active_days_0_28",
+      "OR_per_SD": 0.603,
+      "ci_low": 0.562,
+      "ci_high": 0.646,
+      "p": 3.019032113926279e-45
+    },
+    {
+      "predictor": "clicks_change_w1_w4",
+      "OR_per_SD": 0.949,
+      "ci_low": 0.911,
+      "ci_high": 0.989,
+      "p": 0.012295048138437311
+    },
+    {
+      "predictor": "tma1_submitted_by_d28",
+      "OR_per_SD": 0.606,
+      "ci_low": 0.572,
+      "ci_high": 0.641,
+      "p": 2.3994077509910156e-66
+    },
+    {
+      "predictor": "num_of_prev_attempts",
+      "OR_per_SD": 1.099,
+      "ci_low": 1.054,
+      "ci_high": 1.145,
+      "p": 8.296912330779676e-06
+    },
+    {
+      "predictor": "studied_credits",
+      "OR_per_SD": 1.113,
+      "ci_low": 1.069,
+      "ci_high": 1.158,
+      "p": 1.4734087417971846e-07
+    },
+    {
+      "predictor": "highest_education_ord",
+      "OR_per_SD": 0.702,
+      "ci_low": 0.675,
+      "ci_high": 0.731,
+      "p": 1.6505409486702491e-66
+    },
+    {
+      "predictor": "days_since_last_active_d28",
+      "OR_per_SD": 1.092,
+      "ci_low": 1.014,
+      "ci_high": 1.176,
+      "p": 0.020069753721326217
+    },
+    {
+      "predictor": "log_clicks_0_28",
+      "OR_per_SD": 0.852,
+      "ci_low": 0.773,
+      "ci_high": 0.939,
+      "p": 0.001222896796635099
+    }
+  ],
+  "adjusted_pseudo_r2": 0.153,
+  "n": 13020,
+  "max_abs_corr_predictors": 0.81
+}

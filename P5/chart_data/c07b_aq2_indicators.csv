@@ -1,0 +1,17 @@
+indicator,type,median_noncompl,median_compl,effect,p_holm,significant
+clicks_w1,continuous,24.0,59.0,-0.26,0.0,True
+clicks_w2,continuous,18.0,50.0,-0.297,0.0,True
+clicks_w3,continuous,27.0,60.0,-0.261,0.0,True
+clicks_w4,continuous,13.0,43.0,-0.29,0.0,True
+active_days_w1,continuous,2.0,3.0,-0.263,0.0,True
+active_days_w2,continuous,1.0,3.0,-0.307,0.0,True
+active_days_w3,continuous,2.0,3.0,-0.296,0.0,True
+active_days_w4,continuous,2.0,3.0,-0.313,0.0,True
+clicks_change_w1_w4,continuous,-0.031749,-0.149532,-0.041,6.3e-05,False
+days_since_last_active_d28,continuous,3.0,1.0,0.303,0.0,True
+tma1_score,continuous,74.0,80.0,-0.223,0.0,True
+num_of_prev_attempts,continuous,0.0,0.0,0.096,0.0,False
+studied_credits,continuous,60.0,60.0,0.061,0.0,False
+highest_education_ord,continuous,1.0,2.0,-0.184,0.0,True
+tma1_submitted_by_d28,binary,0.755,0.973,-0.218,0.0,True
+tma1_on_time,binary,0.665,0.936,-0.271,0.0,True

@@ -1,0 +1,592 @@
+{
+  "raw_checksum_ok": {
+    "studentInfo.csv": true,
+    "studentRegistration.csv": true,
+    "assessments.csv": true,
+    "studentAssessment.csv": true,
+    "vle.csv": true,
+    "courses.csv": true,
+    "studentVle.csv": true
+  },
+  "dup_key_studentInfo": 0,
+  "dup_key_studentRegistration": 0,
+  "registration_join_unmatched": 0,
+  "vle_exact_duplicate_extra_rows": 448874,
+  "vle_keys_multi_rows": 851993,
+  "vle_keys_multi_rows_diff_clicks": 618781,
+  "vle_orphan_site_rows": 0,
+  "feature_max_vle_date_used": 28,
+  "tma1_deadline_max": 24,
+  "tma1_banked_rows_excluded": 268,
+  "tma1_dup_student": 0,
+  "rows": {
+    "registrations_scope": 15671,
+    "population_active_d28": 13020,
+    "student_week": 52080
+  },
+  "key_unique_model_table": true,
+  "student_week_rows_equal_4x": true,
+  "missing_in_features": {
+    "tma1_days_before_deadline": 1579,
+    "tma1_score": 1584
+  },
+  "target_rate": {
+    "all_registrations": 0.5277,
+    "active_d28": 0.4317,
+    "by_split_active_d28": {
+      "test": {
+        "size": 3644,
+        "mean": 0.3776
+      },
+      "train": {
+        "size": 6795,
+        "mean": 0.4481
+      },
+      "validation": {
+        "size": 2581,
+        "mean": 0.4649
+      }
+    },
+    "by_module_presentation_active_d28": {
+      "BBB-2013B": {
+        "n": 1529,
+        "rate": 0.4755
+      },
+      "BBB-2013J": {
+        "n": 1834,
+        "rate": 0.416
+      },
+      "BBB-2014B": {
+        "n": 1280,
+        "rate": 0.432
+      },
+      "BBB-2014J": {
+        "n": 1786,
+        "rate": 0.3555
+      },
+      "FFF-2013B": {
+        "n": 1450,
+        "rate": 0.4607
+      },
+      "FFF-2013J": {
+        "n": 1982,
+        "rate": 0.4475
+      },
+      "FFF-2014B": {
+        "n": 1301,
+        "rate": 0.4973
+      },
+      "FFF-2014J": {
+        "n": 1858,
+        "rate": 0.3988
+      }
+    }
+  },
+  "final_result_active_d28": {
+    "Pass": 6053,
+    "Fail": 3469,
+    "Withdrawn": 2152,
+    "Distinction": 1346
+  },
+  "leakage_columns_absent": {
+    "final_result": true,
+    "label3": true,
+    "date_unregistration": true,
+    "unregistered_by_d28": true,
+    "flag_withdrawn_no_unreg_date": true,
+    "flag_unreg_date_not_withdrawn": true,
+    "gender": true,
+    "age_band": true,
+    "disability": true,
+    "imd_band": true,
+    "region": true,
+    "date_registration_missing": true
+  },
+  "manual_check": [
+    {
+      "key": "FFF-2013J-443753",
+      "clicks_w1_w4_pipeline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "clicks_w1_w4_manual": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "active_days_pipeline": 0,
+      "active_days_manual": 0,
+      "clicks_0_28_pipeline": 0,
+      "clicks_0_28_manual": 0,
+      "match": true
+    },
+    {
+      "key": "FFF-2014J-645518",
+      "clicks_w1_w4_pipeline": [
+        200,
+        289,
+        320,
+        151
+      ],
+      "clicks_w1_w4_manual": [
+        200,
+        289,
+        320,
+        151
+      ],
+      "active_days_pipeline": 17,
+      "active_days_manual": 17,
+      "clicks_0_28_pipeline": 1037,
+      "clicks_0_28_manual": 1037,
+      "match": true
+    },
+    {
+      "key": "BBB-2014J-473095",
+      "clicks_w1_w4_pipeline": [
+        0,
+        3,
+        27,
+        0
+      ],
+      "clicks_w1_w4_manual": [
+        0,
+        3,
+        27,
+        0
+      ],
+      "active_days_pipeline": 4,
+      "active_days_manual": 4,
+      "clicks_0_28_pipeline": 30,
+      "clicks_0_28_manual": 30,
+      "match": true
+    },
+    {
+      "key": "FFF-2013B-149680",
+      "clicks_w1_w4_pipeline": [
+        115,
+        134,
+        217,
+        427
+      ],
+      "clicks_w1_w4_manual": [
+        115,
+        134,
+        217,
+        427
+      ],
+      "active_days_pipeline": 29,
+      "active_days_manual": 29,
+      "clicks_0_28_pipeline": 899,
+      "clicks_0_28_manual": 899,
+      "match": true
+    },
+    {
+      "key": "FFF-2013J-118050",
+      "clicks_w1_w4_pipeline": [
+        193,
+        23,
+        54,
+        0
+      ],
+      "clicks_w1_w4_manual": [
+        193,
+        23,
+        54,
+        0
+      ],
+      "active_days_pipeline": 10,
+      "active_days_manual": 10,
+      "clicks_0_28_pipeline": 271,
+      "clicks_0_28_manual": 271,
+      "match": true
+    },
+    {
+      "key": "BBB-2013J-2617839",
+      "clicks_w1_w4_pipeline": [
+        0,
+        15,
+        51,
+        16
+      ],
+      "clicks_w1_w4_manual": [
+        0,
+        15,
+        51,
+        16
+      ],
+      "active_days_pipeline": 6,
+      "active_days_manual": 6,
+      "clicks_0_28_pipeline": 82,
+      "clicks_0_28_manual": 82,
+      "match": true
+    },
+    {
+      "key": "FFF-2014B-2336654",
+      "clicks_w1_w4_pipeline": [
+        30,
+        17,
+        0,
+        0
+      ],
+      "clicks_w1_w4_manual": [
+        30,
+        17,
+        0,
+        0
+      ],
+      "active_days_pipeline": 2,
+      "active_days_manual": 2,
+      "clicks_0_28_pipeline": 47,
+      "clicks_0_28_manual": 47,
+      "match": true
+    },
+    {
+      "key": "FFF-2014B-593220",
+      "clicks_w1_w4_pipeline": [
+        0,
+        15,
+        0,
+        9
+      ],
+      "clicks_w1_w4_manual": [
+        0,
+        15,
+        0,
+        9
+      ],
+      "active_days_pipeline": 3,
+      "active_days_manual": 3,
+      "clicks_0_28_pipeline": 24,
+      "clicks_0_28_manual": 24,
+      "match": true
+    },
+    {
+      "key": "BBB-2014J-551276",
+      "clicks_w1_w4_pipeline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "clicks_w1_w4_manual": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "active_days_pipeline": 0,
+      "active_days_manual": 0,
+      "clicks_0_28_pipeline": 0,
+      "clicks_0_28_manual": 0,
+      "match": true
+    },
+    {
+      "key": "BBB-2014J-695972",
+      "clicks_w1_w4_pipeline": [
+        0,
+        24,
+        1,
+        0
+      ],
+      "clicks_w1_w4_manual": [
+        0,
+        24,
+        1,
+        0
+      ],
+      "active_days_pipeline": 2,
+      "active_days_manual": 2,
+      "clicks_0_28_pipeline": 25,
+      "clicks_0_28_manual": 25,
+      "match": true
+    }
+  ],
+  "unknown_share_equals_missing": {
+    "imd_unknown_after": 430,
+    "imd_missing_flag": 430
+  },
+  "semantic_checks_scope": "train (2013B + 2013J), n = 6795",
+  "zero_activity_semantics": {
+    "noncompletion_rate_no_vle_0_28": 0.884,
+    "noncompletion_rate_with_vle": 0.4267,
+    "n_no_vle": 319
+  },
+  "late_registration": {
+    "n": 34,
+    "n_population_all_splits": 111,
+    "noncompletion_rate": 0.4412,
+    "ci95": [
+      0.274,
+      0.608
+    ],
+    "noncompletion_rate_ontime": 0.4482,
+    "median_clicks_late": 83.5,
+    "median_clicks_ontime": 206.0,
+    "median_clicks_per_observable_day_late": 3.42,
+    "median_clicks_per_observable_day_ontime": 7.1
+  },
+  "high_activity": {
+    "n": 68,
+    "n_population_all_splits": 115,
+    "max_daily_clicks_in_group": 4114
+  },
+  "before_after_stats_train": {
+    "clicks_0_28": {
+      "raw_median": 205.0,
+      "raw_iqr": 399.0,
+      "raw_skew": 3.1,
+      "log1p_median": 5.33,
+      "log1p_skew": -1.31
+    },
+    "clicks_w1": {
+      "raw_median": 44.0,
+      "raw_iqr": 108.0,
+      "raw_skew": 7.7,
+      "log1p_median": 3.81,
+      "log1p_skew": -0.59
+    },
+    "clicks_w4": {
+      "raw_median": 23.0,
+      "raw_iqr": 93.0,
+      "raw_skew": 3.45,
+      "log1p_median": 3.18,
+      "log1p_skew": -0.2
+    },
+    "clicks_pre_start": {
+      "raw_median": 28.0,
+      "raw_iqr": 95.0,
+      "raw_skew": 4.79,
+      "log1p_median": 3.37,
+      "log1p_skew": -0.26
+    }
+  },
+  "activity_after_unregistration": {
+    "student_days": 2757,
+    "registrations": 607,
+    "within_feature_window_for_population": 0
+  },
+  "missing_before_after": {
+    "imd_band": {
+      "before": 430,
+      "after": 0,
+      "how": "nhãn Unknown + cờ"
+    },
+    "registration_lead_days": {
+      "before": 20,
+      "in_population": 2,
+      "after": 0,
+      "how": "median train (kỹ thuật); cờ chỉ audit, không làm predictor"
+    },
+    "vle_counts_0_28": {
+      "before": 2486,
+      "after": 0,
+      "how": "0 + cờ no_vle_activity_0_28"
+    },
+    "tma1_score": {
+      "before": 1584,
+      "after": 1584,
+      "how": "giữ NaN (chưa nộp / nộp nhưng chưa có điểm) – không impute"
+    },
+    "tma1_days_before_deadline": {
+      "before": 1579,
+      "after": 1579,
+      "how": "giữ NaN = không áp dụng (chưa nộp); impute trong pipeline M4 + cờ tma1_submitted_by_d28"
+    }
+  },
+  "sensitivity_dedup": {
+    "mean_clicks_keep": 332.5,
+    "mean_clicks_dedup": 257.7,
+    "spearman": 0.9959
+  },
+  "fit_params": {
+    "registration_lead_days_median_train": 55.0,
+    "clicks_0_28_p99_train": 1910.9599999999919
+  },
+  "feature_redundancy": {
+    "pairs_abs_r_gt_0_8": [
+      [
+        "log_clicks_0_28",
+        "clicks_homepage_0_28",
+        0.95
+      ],
+      [
+        "clicks_pre_start",
+        "active_days_pre_start",
+        0.924
+      ],
+      [
+        "n_sites_0_28",
+        "clicks_subpage_0_28",
+        0.871
+      ],
+      [
+        "active_days_w2",
+        "active_days_0_28",
+        0.869
+      ],
+      [
+        "clicks_w4",
+        "active_days_w4",
+        0.866
+      ],
+      [
+        "active_days_w4",
+        "active_days_0_28",
+        0.866
+      ],
+      [
+        "log_clicks_0_28",
+        "clicks_subpage_0_28",
+        0.861
+      ],
+      [
+        "log_clicks_0_28",
+        "clicks_forumng_0_28",
+        0.859
+      ],
+      [
+        "active_days_w3",
+        "active_days_0_28",
+        0.858
+      ],
+      [
+        "active_days_0_28",
+        "clicks_homepage_0_28",
+        0.851
+      ],
+      [
+        "active_days_w1",
+        "active_days_0_28",
+        0.845
+      ],
+      [
+        "n_sites_0_28",
+        "clicks_oucontent_0_28",
+        0.842
+      ],
+      [
+        "clicks_w3",
+        "log_clicks_0_28",
+        0.841
+      ],
+      [
+        "clicks_w1",
+        "active_days_w1",
+        0.838
+      ],
+      [
+        "clicks_w3",
+        "active_days_w3",
+        0.835
+      ],
+      [
+        "clicks_homepage_0_28",
+        "clicks_forumng_0_28",
+        0.835
+      ],
+      [
+        "clicks_w2",
+        "active_days_w2",
+        0.833
+      ],
+      [
+        "clicks_homepage_0_28",
+        "clicks_subpage_0_28",
+        0.817
+      ],
+      [
+        "clicks_w3",
+        "clicks_homepage_0_28",
+        0.813
+      ],
+      [
+        "log_clicks_0_28",
+        "active_days_0_28",
+        0.807
+      ],
+      [
+        "clicks_resource_0_28",
+        "clicks_subpage_0_28",
+        0.805
+      ]
+    ],
+    "share_rows_active_days_total_equals_weeks": 0.6826,
+    "vif_before_top": {
+      "active_days_0_28": 426.3,
+      "log_clicks_0_28": 46.2,
+      "active_days_w4": 45.3,
+      "active_days_w2": 39.6,
+      "active_days_w3": 39.1,
+      "active_days_w1": 38.7,
+      "clicks_homepage_0_28": 15.8,
+      "clicks_subpage_0_28": 11.3,
+      "n_sites_0_28": 9.5,
+      "clicks_forumng_0_28": 8.2
+    },
+    "dropped_in_reduced": [
+      [
+        "active_days_0_28",
+        "gần như tổng của active_days_w1..w4 (chỉ khác ngày 28)"
+      ],
+      [
+        "log_clicks_0_28",
+        "VIF = 46.2"
+      ],
+      [
+        "clicks_homepage_0_28",
+        "VIF = 12.7"
+      ],
+      [
+        "clicks_subpage_0_28",
+        "VIF = 10.0"
+      ],
+      [
+        "n_sites_0_28",
+        "VIF = 9.2"
+      ],
+      [
+        "active_days_pre_start",
+        "VIF = 8.1"
+      ],
+      [
+        "clicks_w3",
+        "VIF = 6.3"
+      ],
+      [
+        "days_since_last_active_d28",
+        "VIF = 5.2"
+      ],
+      [
+        "active_days_w4",
+        "VIF = 5.2"
+      ]
+    ],
+    "vif_after_max": 4.66,
+    "reduced_core": [
+      "clicks_w1",
+      "clicks_w2",
+      "clicks_w4",
+      "active_days_w1",
+      "active_days_w2",
+      "active_days_w3",
+      "clicks_change_w1_w4",
+      "clicks_pre_start",
+      "no_vle_activity_0_28",
+      "clicks_oucontent_0_28",
+      "clicks_resource_0_28",
+      "clicks_forumng_0_28",
+      "clicks_quiz_0_28",
+      "clicks_url_0_28",
+      "tma1_submitted_by_d28",
+      "tma1_on_time",
+      "tma1_days_before_deadline",
+      "num_of_prev_attempts",
+      "studied_credits",
+      "highest_education_ord",
+      "registration_lead_days"
+    ]
+  }
+}
