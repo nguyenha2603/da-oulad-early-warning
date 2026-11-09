@@ -26,7 +26,7 @@ P2/  Thu thập dữ liệu: data/raw (zip gốc OULAD), data/metadata (nguồn,
 P3/  Hiểu và chuẩn bị dữ liệu: src/prepare_data.py (pipeline), profile_data.py, dictionary.py, column_decisions.py,
      notebooks 02–03, data/processed (analytic-ready views), data/metadata (dictionary, lineage, manifest, logs)
 P4/  Mô hình hóa và đánh giá: evaluation/ (plan chốt bằng SHA-256), src/run_prototype.py, notebook 04, results/
-P5/  Dữ liệu biểu đồ và hướng dẫn vẽ lại: chart_data/*.csv, chart_guide/N05_chart_guide.html, figures/
+P5/  Dữ liệu biểu đồ, biểu đồ kể chuyện (story_charts/) và hướng dẫn vẽ lại (chart_guide/N05_chart_guide.html)
 ```
 
 ## Tái lập
@@ -35,7 +35,7 @@ pip install -r requirements.txt
 cd P2 && jupyter nbconvert --to notebook --execute notebooks/01_data_collection.ipynb && cd ..   # giải nén + kiểm tra SHA-256
 cd P3 && python3 src/prepare_data.py && python3 src/profile_data.py && python3 src/dictionary.py && python3 src/column_decisions.py && cd ..
 cd P4 && python3 src/run_prototype.py && cd ..
-cd P5 && python3 src/export_chart_data.py && python3 src/build_chart_guide.py
+cd P5 && python3 src/export_chart_data.py && python3 src/story_charts.py && python3 src/build_chart_guide.py
 ```
 Prepared dataset hiện tại: `N05-prepared-v1.2`. Mọi bước đều tất định (seed 42); kết quả ghi trong `P3/data/metadata` và `P4/results`.
 

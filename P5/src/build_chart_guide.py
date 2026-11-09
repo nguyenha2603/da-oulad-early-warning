@@ -113,16 +113,20 @@ OIEL = [
     ["11. Công bằng", "Recall gần nhau; FPR nữ cao hơn nam", "Không bỏ sót nhóm nào rõ rệt; nữ bị gắn cờ nhầm nhiều hơn", f"FPR {f(G['F']['fpr'],2)} vs {f(G['M']['fpr'],2)}", "Nhóm nhỏ (IMD Unknown) có KTC rộng"],
 ]
 
-STORY = (f"""
-<h2 style="margin-top:0">Sinh viên cần hỗ trợ không “biến mất dần” – họ khác ngay từ tuần đầu tiên</h2>
-<h3>1. Bối cảnh</h3><p>Ở một trường đào tạo từ xa, cố vấn học tập chỉ có khoảng 200 ca liên hệ cho mỗi module mỗi kỳ, trong khi mỗi module có khoảng 1.600 sinh viên còn học sau tháng đầu và khoảng 2 trên 5 người sẽ không hoàn thành. Câu hỏi không phải “ai có nguy cơ”, mà là “200 cuộc gọi nên dành cho ai”.</p>
-<h3>2. Điều nhóm từng nghĩ</h3><p>Proposal giả định sinh viên gặp khó sẽ giảm tương tác dần, nên “mức suy giảm tuần 1→4” được chọn làm tín hiệu chính.</p>
-<h3>3. Điều dữ liệu cho thấy</h3><p>Không phải vậy. Ngay tuần 1, nhóm sau này không hoàn thành (Fail + Withdrawn) có trung vị {f(U["clicks_w1"]["median_noncompl"],0)} click so với {f(U["clicks_w1"]["median_compl"],0)} ở nhóm hoàn thành, và khoảng cách giữ nguyên cả bốn tuần (biểu đồ 4, 7). Mức suy giảm tuần 1→4 gần như không phân biệt hai nhóm. Tín hiệu rõ nhất là chưa nộp bài đánh giá đầu tiên: 1 trên 4 sinh viên không hoàn thành chưa nộp, so với chưa tới 1 trên 30 ở nhóm hoàn thành.</p>
-<h3>4. Từ tín hiệu đến danh sách</h3><p>Một mô hình hồi quy logistic đơn giản, chỉ dùng dữ liệu đến ngày 28, xếp hạng sinh viên của kỳ 2014J – kỳ mô hình chưa từng thấy. Gọi 200 người đầu danh sách thì khoảng 3/4 (BBB) đến 7/8 (FFF) cuộc gọi đến đúng người cần hỗ trợ, gấp khoảng hai lần gọi ngẫu nhiên (biểu đồ 9). Mỗi tên kèm 2–3 lý do trung tính (tab Dashboard). Kết quả này cùng mức với nghiên cứu đã công bố trên OULAD (Top-10%: PPV 0,834 – Wu et al., 2026).</p>
-<h3>5. Điều chưa trả lời được</h3><p>Mô hình bỏ sót sinh viên trông bình thường ở tuần 4 nhưng gặp khó về sau; Recall {f(T["recall"])} chưa đạt mốc 0,70; một số lý do giải thích còn khó hiểu. OULAD không ghi nhận việc liên hệ nên chưa biết một cuộc gọi có giúp sinh viên hoàn thành hay không.</p>
-<h3>6. Đề xuất</h3><p>Theo dõi từ tuần 1–2; nhắc nhở quanh hạn bài đánh giá đầu tiên; dùng danh sách 200 ca kèm lý do ở cuối tuần 4, con người duyệt từng ca; chạy thử nghiệm có nhóm đối chứng trước khi mở rộng.</p>
-<p class="note">Gợi ý trình bày 10 phút: Bối cảnh (1p) → Điều nhóm từng nghĩ (1p) → Biểu đồ 4 + 7 (2p) → Danh sách + dashboard demo (3p) → Giới hạn (2p) → Đề xuất (1p).</p>
-""")
+import base64
+_steps = [("s1_boi_canh.png", "Bối cảnh", "Ai còn có thể được giúp ở tuần 4? Hơn 1/6 đã rời đi; trong số còn lại, 4/10 vẫn không hoàn thành."),
+          ("s2_nang_luc.png", "Vấn đề", "Nhu cầu vượt xa năng lực: khoảng 700 sinh viên cần hỗ trợ, cố vấn chỉ gọi được 200."),
+          ("s3_tuan_1.png", "Phát hiện 1", "Sinh viên gặp khó không “tụt dần” – họ khác ngay từ tuần đầu tiên."),
+          ("s4_tma1.png", "Phát hiện 2", "Một hành vi cụ thể nói lên nhiều nhất: chưa nộp bài đánh giá đầu tiên."),
+          ("s5_danh_sach.png", "Giải pháp", "Danh sách xếp hạng giúp 3/4–7/8 cuộc gọi đến đúng người, gấp đôi gọi ngẫu nhiên."),
+          ("s6_danh_doi.png", "Đánh đổi", "Thêm ca gọi vẫn có ích nhưng hiệu quả mỗi cuộc gọi giảm – 200 ca là điểm cân bằng hợp lý."),
+          ("s7_gioi_han.png", "Giới hạn", "Mô hình chưa thấy nhóm gặp khó muộn – cần thêm mốc cảnh báo; hiệu quả cuộc gọi cần thử nghiệm thật.")]
+_parts = ['<h2 style="margin-top:0">Câu chuyện: “200 cuộc gọi nên dành cho ai?”</h2><p class="note">7 biểu đồ khổ 16:9 dùng trực tiếp cho slide (file PNG trong P5/story_charts). Mỗi biểu đồ: tiêu đề = thông điệp, một màu nhấn (cam = cần hỗ trợ), còn lại xám, nhãn trực tiếp.</p>']
+for i, (fn, role, line) in enumerate(_steps, 1):
+    b64 = base64.b64encode((P5 / "story_charts" / fn).read_bytes()).decode()
+    _parts.append(f'<h3>{i}. {role}</h3><p>{line}</p><img alt="{role}" style="width:100%;max-width:900px;border:1px solid var(--line);border-radius:8px" src="data:image/png;base64,{b64}">')
+_parts.append('<p class="note">Gợi ý trình bày 10 phút: biểu đồ 1–2 (2 phút) → 3–4 (3 phút) → 5–6 + demo dashboard (3 phút) → 7 + kết luận (2 phút).</p>')
+STORY = "".join(_parts)
 
 
 def js(o):
