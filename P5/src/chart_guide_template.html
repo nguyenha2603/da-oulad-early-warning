@@ -41,8 +41,8 @@ code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:13px}
 .kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
 .kpi span{display:block;color:var(--ink2);font-size:12px}
 .kpi b{font-size:22px}
-.dash{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;margin-top:12px}
-.dlist{max-height:470px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.dash{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}.dcard{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}.dcard h4{margin:0 0 6px;font-size:14px}.dbox{position:relative;height:230px}.chip{display:inline-block;background:var(--hl);border-radius:999px;padding:1px 8px;font-size:12px;margin:2px 4px 2px 0}
+.dlist{height:230px;overflow:auto}
 .dlist tr{cursor:pointer}
 .dlist tr.sel td{background:var(--hl)}
 .pill{display:inline-block;border-radius:999px;padding:1px 8px;font-size:12px;border:1px solid var(--line)}
@@ -52,7 +52,7 @@ select{background:var(--card);color:var(--ink);border:1px solid var(--line);bord
 .story p{max-width:780px}
 .story h3{margin:18px 0 6px}
 header{position:relative}.themebtn{position:absolute;top:20px;right:16px}header h1,header .sub{padding-right:240px}
-@media (max-width:820px){.grid2,.dash{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.spec{grid-template-columns:1fr}.chartbox{height:280px}.themebtn{position:static;margin:0 0 10px}header h1,header .sub{padding-right:0}}
+@media (max-width:980px){.dash{grid-template-columns:1fr 1fr}}@media (max-width:820px){.grid2,.dash{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.spec{grid-template-columns:1fr}.chartbox{height:280px}.themebtn{position:static;margin:0 0 10px}header h1,header .sub{padding-right:0}}
 </style>
 </head>
 <body>
@@ -110,24 +110,23 @@ header{position:relative}.themebtn{position:absolute;top:20px;right:16px}header 
 <div class="row">
 <label>Module-kỳ <select id="dMod"><option value="FFF">FFF-2014J</option><option value="BBB">BBB-2014J</option></select></label>
 <label>Hạn mức <select id="dK"><option>100</option><option selected>200</option><option>300</option></select></label>
-<label><input type="checkbox" id="dEval"> Hiện kết quả thật (chỉ để đánh giá)</label>
+
 </div>
 </div>
 <div class="kpis" style="margin-top:12px">
 <div class="kpi"><span>Sĩ số còn học ở ngày 28</span><b id="kN"></b></div>
 <div class="kpi"><span>Đề xuất liên hệ</span><b id="kK"></b></div>
 <div class="kpi"><span>Đã duyệt</span><b id="kOk">0</b></div>
-<div class="kpi"><span id="kPrecLab">Đúng đối tượng (ẩn)</span><b id="kPrec">—</b></div>
+<div class="kpi"><span id="kPrecLab">Chưa nộp TMA1: danh sách / cả lớp</span><b id="kPrec">—</b></div>
 </div>
 <div class="dash">
-<div class="dlist"><table><thead><tr><th>#</th><th>Mã SV (giả danh)</th><th>Ưu tiên</th><th>Lý do chính</th><th>Duyệt</th></tr></thead><tbody id="dBody"></tbody></table></div>
-<div class="card" style="margin:0">
-<h3 id="dTitle" style="margin-top:0"></h3>
-<div class="chartbox" style="height:220px"><canvas id="dCanvas" aria-label="Tương tác theo tuần của sinh viên so với trung vị lớp"></canvas></div>
-<p class="note" style="margin:10px 0 4px">Lý do (mô hình giải thích, ngôn ngữ trung tính):</p>
-<ul id="dReasons"></ul>
-<div class="row"><button class="btn" id="bOk" type="button">Duyệt liên hệ</button><button class="btn ghost" id="bSkip" type="button">Bỏ qua</button></div>
-</div>
+<div class="dcard"><h4>① Phân bố điểm rủi ro của lớp</h4><div class="dbox"><canvas id="dHist"></canvas></div></div>
+<div class="dcard"><h4>② Lý do phổ biến trong danh sách</h4><div class="dbox"><canvas id="dTags"></canvas></div></div>
+<div class="dcard"><h4>③ Tương tác theo tuần (trung vị click)</h4><div class="dbox"><canvas id="dWeek"></canvas></div></div>
+<div class="dcard"><h4>Danh sách ưu tiên</h4><div class="dlist"><table><thead><tr><th>Mã SV</th><th>Ưu tiên</th><th>Lý do chính</th><th>✓</th></tr></thead><tbody id="dBody"></tbody></table></div></div>
+<div class="dcard"><h4 id="dTitle"></h4><div class="dbox" style="height:170px"><canvas id="dCanvas"></canvas></div><div id="dReasons" style="margin:6px 0"></div>
+<div class="row"><button class="btn" id="bOk" type="button">Duyệt liên hệ</button><button class="btn ghost" id="bSkip" type="button">Bỏ qua</button></div></div>
+<div class="dcard"><h4>⑤ Giám sát công bằng: tỷ trọng nhóm</h4><div class="dbox"><canvas id="dFair"></canvas></div></div>
 </div>
 </div>
 <div class="card">
@@ -136,10 +135,14 @@ header{position:relative}.themebtn{position:absolute;top:20px;right:16px}header 
 <thead><tr><th>Thành phần</th><th>Visual Power BI</th><th>Trường dữ liệu</th></tr></thead>
 <tbody>
 <tr><td>Bộ lọc module-kỳ, hạn mức</td><td>Slicer (dropdown); hạn mức = What-if parameter 100/200/300</td><td><code>code_module</code>; measure <code>Trong hạn mức = IF(MAX(rank_in_module) &lt;= [Hạn mức], 1, 0)</code> làm filter visual</td></tr>
-<tr><td>4 thẻ KPI</td><td>Card</td><td>Sĩ số (lấy từ c02 hoặc nhập 1.786/1.858); <code>[Hạn mức]</code>; đếm cột trạng thái duyệt (nếu có)</td></tr>
-<tr><td>Danh sách ưu tiên</td><td>Table, sắp theo <code>rank_in_module</code></td><td><code>rank_in_module, ma_sv, muc_uu_tien, reason_1</code></td></tr>
+<tr><td>4 thẻ KPI</td><td>Card</td><td>Sĩ số (COUNTROWS của <code>dashboard_cohort_scores</code> theo module); <code>[Hạn mức]</code>; số ca đã duyệt; % chưa nộp TMA1 trong danh sách / cả lớp</td></tr>
+<tr><td>① Phân bố điểm rủi ro</td><td>Histogram (Clustered column + bins)</td><td><code>dashboard_cohort_scores.p_M2</code>, bin 0,03; tô màu theo <code>rank_in_module ≤ [Hạn mức]</code></td></tr>
+<tr><td>② Lý do phổ biến</td><td>Clustered bar</td><td>Unpivot <code>tag1..tag3</code> của <code>dashboard_top300</code> (lọc theo hạn mức) → COUNT theo tag</td></tr>
+<tr><td>③ Danh sách vs phần còn lại</td><td>Line chart</td><td><code>dashboard_weekly_list_vs_rest</code>: X = week, Y = median_clicks, Legend = group</td></tr>
+<tr><td>⑤ Giám sát công bằng</td><td>Clustered bar</td><td><code>c11_fairness</code>: Y = group, X = share_population và share_top200</td></tr>
+<tr><td>Danh sách ưu tiên</td><td>Table, sắp theo <code>rank_in_module</code></td><td><code>rank_in_module, ma_sv, muc_uu_tien, tag1</code></td></tr>
 <tr><td>Tương tác theo tuần</td><td>Line chart (unpivot <code>clicks_w1..w4</code> trong Power Query)</td><td>Trục X = tuần; Y = click; thêm đường trung vị lớp từ <code>dashboard_class_median_weekly.csv</code></td></tr>
-<tr><td>Lý do</td><td>Multi-row card hoặc Table</td><td><code>reason_1, reason_2, reason_3</code> (drill-through từ danh sách)</td></tr>
+<tr><td>④ Chi tiết SV</td><td>Line chart + Multi-row card</td><td>Unpivot <code>clicks_w1..w4</code>; đường trung vị lớp từ <code>dashboard_class_median_weekly</code>; nhãn <code>tag1..tag3</code> (drill-through từ danh sách)</td></tr>
 </tbody></table>
 <p class="note">Superset: dùng Table chart (danh sách), Big Number (KPI), Line Chart (tương tác) và Native Filters cho module/hạn mức. Không hiển thị cột <code>target_noncompletion</code> trên dashboard vận hành – cột này chỉ dùng để đánh giá.</p>
 </div>
@@ -172,7 +175,7 @@ document.querySelectorAll('nav.tabs button').forEach(b => b.addEventListener('cl
 }));
 document.getElementById('themeBtn').addEventListener('click', () => {
   const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  r.dataset.theme = dark ? 'light' : 'dark'; drawChart(current); if (dChart) renderDetail();
+  r.dataset.theme = dark ? 'light' : 'dark'; drawChart(current); if (dChart) renderDash();
 });
 
 function csvDownload(name, rows) {
@@ -210,7 +213,7 @@ function hist(values, step, lo, hi) {
 }
 function refLine(y, label) { return {label, data: [], borderColor: css('--ink2'), borderDash: [5, 4], pointRadius: 0, yRef: y}; }
 const yLinePlugin = {id: 'yline', afterDraw(c, a, o) {
-  (c.options.plugins.yline || []).forEach(l => {
+  (Array.isArray(c.options.plugins.yline) ? c.options.plugins.yline : []).forEach(l => {
     const sc = l.axis === 'x' ? c.scales.x : c.scales.y, ctx = c.ctx; const p = sc.getPixelForValue(l.value);
     ctx.save(); ctx.strokeStyle = css('--ink2'); ctx.setLineDash([5, 4]); ctx.beginPath();
     if (l.axis === 'x') { ctx.moveTo(p, c.chartArea.top); ctx.lineTo(p, c.chartArea.bottom); } else { ctx.moveTo(c.chartArea.left, p); ctx.lineTo(c.chartArea.right, p); }
@@ -294,36 +297,63 @@ function drawChart(id) {
 }
 
 // dashboard
-const DL = DATA.dashboard_top300, MED = DATA.dashboard_class_median_weekly;
-const COH = {BBB: 1786, FFF: 1858};
-let sel = null, dChart = null; const approved = new Set();
+const DL = DATA.dashboard_top300, MED = DATA.dashboard_class_median_weekly, SC = DATA.dashboard_cohort_scores, WK = DATA.dashboard_weekly_list_vs_rest, FR = DATA.c11_fairness;
+let sel = null, dChart = null; const approved = new Set(); const dCharts = {};
+function mk(id, cfg) { if (dCharts[id]) dCharts[id].destroy(); dCharts[id] = new Chart(document.getElementById(id), cfg); }
 function renderDash() {
-  const m = document.getElementById('dMod').value, k = +document.getElementById('dK').value, ev = document.getElementById('dEval').checked;
-  const rows = DL.filter(r => r.code_module === m && r.rank_in_module <= k);
-  document.getElementById('kN').textContent = COH[m].toLocaleString('vi-VN');
+  const m = document.getElementById('dMod').value, k = +document.getElementById('dK').value, C = COL();
+  const cohort = SC.filter(r => r.code_module === m), rows = DL.filter(r => r.code_module === m && r.rank_in_module <= k);
+  document.getElementById('kN').textContent = cohort.length.toLocaleString('vi-VN');
   document.getElementById('kK').textContent = k;
-  document.getElementById('kOk').textContent = rows.filter(r => approved.has(r.ma_sv)).length + ' / ' + k;
-  const tp = rows.reduce((a, r) => a + r.target_noncompletion, 0);
-  document.getElementById('kPrecLab').textContent = ev ? 'Đúng đối tượng (Precision@k)' : 'Đúng đối tượng (ẩn)';
-  document.getElementById('kPrec').textContent = ev ? (tp / k).toLocaleString('vi-VN', {maximumFractionDigits: 3}) : '—';
-  document.getElementById('dBody').innerHTML = rows.map(r => `<tr data-id="${r.ma_sv}" class="${sel === r.ma_sv ? 'sel' : ''}"><td>${r.rank_in_module}</td><td>${r.ma_sv}</td><td><span class="pill">${r.muc_uu_tien}</span></td><td>${r.reason_1}${ev ? (r.target_noncompletion ? ' <b>· thật: không HT</b>' : ' · thật: HT') : ''}</td><td>${approved.has(r.ma_sv) ? '☑' : '☐'}</td></tr>`).join('');
+  document.getElementById('kOk').textContent = rows.filter(r => approved.has(m + r.ma_sv)).length + ' / ' + k;
+  const listNo = rows.filter(r => !r.tma1_submitted_by_d28).length / rows.length;
+  const allNo = cohort.filter(r => !r.tma1_submitted_by_d28).length / cohort.length;
+  document.getElementById('kPrec').textContent = Math.round(listNo * 100) + '% / ' + Math.round(allNo * 100) + '%';
+  // ① histogram
+  const lo = 0, step = 0.033, nb = 30, cut = Math.min(...rows.map(r => r.p_M2));
+  const inL = Array(nb).fill(0), outL = Array(nb).fill(0);
+  cohort.forEach(r => { const i = Math.min(nb - 1, Math.floor((r.p_M2 - lo) / step)); (r.rank_in_module <= k ? inL : outL)[i]++; });
+  mk('dHist', {type: 'bar', data: {labels: inL.map((_, i) => (lo + i * step).toFixed(2)), datasets: [
+    {label: 'Ngoài danh sách', data: outL, backgroundColor: C.Pass + '55', stack: 's', barPercentage: 1, categoryPercentage: 0.95},
+    {label: 'Trong danh sách', data: inL, backgroundColor: C.Pass, stack: 's', barPercentage: 1, categoryPercentage: 0.95}]},
+    options: baseOpts({scales: {x: {stacked: true, ticks: {maxTicksLimit: 6}, title: {display: true, text: 'Điểm rủi ro (mô hình)'}}, y: {stacked: true}}})});
+  // ② tags
+  const cnt = {}; rows.forEach(r => [r.tag1, r.tag2, r.tag3].forEach(t => { if (t) cnt[t] = (cnt[t] || 0) + 1; }));
+  const tg = Object.entries(cnt).sort((a, b) => b[1] - a[1]).slice(0, 6);
+  mk('dTags', {type: 'bar', data: {labels: tg.map(t => t[0]), datasets: [{label: 'Số SV', data: tg.map(t => t[1]), backgroundColor: C.Pass, borderRadius: 4}]},
+    options: baseOpts({indexAxis: 'y', plugins: {legend: {display: false}}})});
+  // ③ list vs rest (theo top-200 cố định)
+  const w = g => [1, 2, 3, 4].map(x => (WK.find(r => r.code_module === m && r.group === g && r.week === x) || {}).median_clicks);
+  mk('dWeek', {type: 'line', data: {labels: ['T1', 'T2', 'T3', 'T4'], datasets: [
+    {label: 'Trong danh sách (top-200)', data: w('Trong danh sách (top-200)'), borderColor: C.Fail, backgroundColor: C.Fail, pointRadius: 4, borderWidth: 2},
+    {label: 'Phần còn lại của lớp', data: w('Phần còn lại của lớp'), borderColor: C.Pass, backgroundColor: C.Pass, pointRadius: 4, borderWidth: 2}]},
+    options: baseOpts({scales: {y: {beginAtZero: true}}})});
+  // ⑤ fairness
+  const fr = FR.filter(r => ['gender', 'disability', 'imd_group'].includes(r.attribute));
+  const lab = r => ({gender: 'Giới', disability: 'Khuyết tật', imd_group: 'IMD'}[r.attribute] + ' ' + r.group);
+  mk('dFair', {type: 'bar', data: {labels: fr.map(lab), datasets: [
+    {label: 'Trong lớp', data: fr.map(r => r.share_population * 100), backgroundColor: '#c9c8c2'},
+    {label: 'Trong danh sách', data: fr.map(r => r.share_top200 * 100), backgroundColor: C.Withdrawn}]},
+    options: baseOpts({indexAxis: 'y', scales: {x: {title: {display: true, text: '%'}}}})});
+  // bảng
+  document.getElementById('dBody').innerHTML = rows.map(r => `<tr data-id="${r.ma_sv}" class="${sel === r.ma_sv ? 'sel' : ''}"><td>${r.ma_sv}</td><td><span class="pill">${r.muc_uu_tien}</span></td><td>${r.tag1}</td><td>${approved.has(m + r.ma_sv) ? '☑' : '☐'}</td></tr>`).join('');
   document.querySelectorAll('#dBody tr').forEach(tr => tr.addEventListener('click', () => { sel = tr.dataset.id; renderDash(); }));
   if (!rows.find(r => r.ma_sv === sel)) sel = rows[0].ma_sv;
   renderDetail();
 }
 function renderDetail() {
   const m = document.getElementById('dMod').value, r = DL.find(x => x.ma_sv === sel && x.code_module === m); if (!r) return;
-  document.getElementById('dTitle').textContent = `Sinh viên ${r.ma_sv} – ưu tiên ${r.muc_uu_tien}`;
-  document.getElementById('dReasons').innerHTML = [r.reason_1, r.reason_2, r.reason_3].filter(Boolean).map(x => `<li>${x}</li>`).join('');
+  document.getElementById('dTitle').textContent = `④ ${r.ma_sv} – ưu tiên ${r.muc_uu_tien}`;
+  document.getElementById('dReasons').innerHTML = [r.tag1, r.tag2, r.tag3].filter(Boolean).map(x => `<span class="chip">${x}</span>`).join('');
   const med = MED.filter(x => x.code_module === m).sort((a, b) => a.week - b.week).map(x => x.clicks);
   if (dChart) dChart.destroy(); const C = COL();
   dChart = new Chart(document.getElementById('dCanvas'), {type: 'line', data: {labels: ['T1', 'T2', 'T3', 'T4'], datasets: [
-    {label: 'Sinh viên', data: [r.clicks_w1, r.clicks_w2, r.clicks_w3, r.clicks_w4], borderColor: C.Pass, backgroundColor: C.Pass, pointRadius: 5, borderWidth: 2},
+    {label: r.ma_sv, data: [r.clicks_w1, r.clicks_w2, r.clicks_w3, r.clicks_w4], borderColor: C.Fail, backgroundColor: C.Fail, pointRadius: 4, borderWidth: 2},
     {label: 'Trung vị lớp', data: med, borderColor: css('--ink2'), borderDash: [5, 4], pointRadius: 3}]}, options: baseOpts({scales: {y: {beginAtZero: true}}})});
 }
-['dMod', 'dK', 'dEval'].forEach(i => document.getElementById(i).addEventListener('change', renderDash));
-document.getElementById('bOk').addEventListener('click', () => { approved.add(sel); renderDash(); });
-document.getElementById('bSkip').addEventListener('click', () => { approved.delete(sel); renderDash(); });
+['dMod', 'dK'].forEach(i => document.getElementById(i).addEventListener('change', renderDash));
+document.getElementById('bOk').addEventListener('click', () => { approved.add(document.getElementById('dMod').value + sel); renderDash(); });
+document.getElementById('bSkip').addEventListener('click', () => { approved.delete(document.getElementById('dMod').value + sel); renderDash(); });
 
 // O-I-E-L + story
 document.getElementById('oielBox').innerHTML = '<table><thead><tr><th>Biểu đồ</th><th>Observation</th><th>Insight</th><th>Evidence</th><th>Limitation</th></tr></thead><tbody>' +

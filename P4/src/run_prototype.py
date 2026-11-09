@@ -419,9 +419,10 @@ def aq5(man, te, P, models, primary_feats_model, sens):
             m = float(np.expm1(med[f])) if f == "log_clicks_0_28" else med[f]
             txt.append(sentence(f, v, m))
         rows.append({"reason_1": txt[0] if len(txt) > 0 else "", "reason_2": txt[1] if len(txt) > 1 else "",
-                     "reason_3": txt[2] if len(txt) > 2 else ""})
+                     "reason_3": txt[2] if len(txt) > 2 else "",
+                     "reason_f1": rs[0] if len(rs) > 0 else "", "reason_f2": rs[1] if len(rs) > 1 else "", "reason_f3": rs[2] if len(rs) > 2 else ""})
     pred = pd.concat([te[["code_module", "code_presentation", "id_student", "target_noncompletion", "p"] +
-                         [f"clicks_w{i}" for i in range(1, 5)] + ["active_days_0_28", "tma1_submitted_by_d28"]].reset_index(drop=True),
+                         [f"clicks_w{i}" for i in range(1, 5)] + ["active_days_0_28", "tma1_submitted_by_d28", "tma1_on_time", "days_since_last_active_d28"]].reset_index(drop=True),
                       pd.DataFrame(rows)], axis=1)
     pred["p_M1"] = P[("M1", "test")]; pred["p_M3"] = P[("M3", "test")]
     pred = pred.rename(columns={"p": "p_M2"})
