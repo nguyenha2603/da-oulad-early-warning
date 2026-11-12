@@ -1,4 +1,4 @@
-"""Xuất dữ liệu cho 11 chart + dashboard (CSV để vẽ lại bằng Power BI/Superset) và vẽ dashboard wireframe.
+"""Xuất dữ liệu cho 11 chart + dashboard (CSV) và vẽ dashboard wireframe, hình công bằng của P5.
 Input: P3 interim/processed + P4 results (đã sinh bằng pipeline). Chạy: python3 P5/src/export_chart_data.py
 Output: P5/chart_data/*.csv, P5/chart_data/bundle.json, P5/figures/p5_dashboard_wireframe.png
 """

@@ -26,7 +26,7 @@ P2/  Thu thập dữ liệu: data/raw (zip gốc OULAD – chỉ có trên GitHu
 P3/  Hiểu và chuẩn bị dữ liệu: src/prepare_data.py (pipeline), profile_data.py, dictionary.py, column_decisions.py,
      notebooks 02–03, data/processed (analytic-ready views), data/metadata (dictionary, lineage, manifest, logs)
 P4/  Mô hình hóa và đánh giá: evaluation/ (plan chốt bằng SHA-256), src/run_prototype.py, notebook 04, results/
-P5/  Dữ liệu biểu đồ, biểu đồ kể chuyện (story_charts/) và hướng dẫn vẽ lại (chart_guide/N05_chart_guide.html)
+P5/  Dữ liệu biểu đồ (chart_data/), hình báo cáo P5 (figures/) và biểu đồ kể chuyện (story_charts/)
 ```
 
 ## Tái lập
@@ -42,7 +42,7 @@ pip install -r requirements.txt
 cd P2 && jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_collection.ipynb && cd ..   # tải/giải nén + kiểm tra SHA-256
 cd P3 && python3 src/prepare_data.py && python3 src/profile_data.py && python3 src/dictionary.py && python3 src/column_decisions.py && cd ..
 cd P4 && python3 src/run_prototype.py && cd ..
-cd P5 && python3 src/export_chart_data.py && python3 src/story_charts.py && python3 src/build_chart_guide.py
+cd P5 && python3 src/export_chart_data.py && python3 src/story_charts.py
 ```
 Notebook minh họa: chạy `P3/notebooks/03_data_preparation.ipynb` trước `02_data_understanding.ipynb` (notebook 02 đọc dữ liệu do 03/`prepare_data.py` tạo), rồi `P4/notebooks/04_modeling_prototype.ipynb`.
 **Không chạy lại** `P4/src/freeze_eval_plan.py`: Evaluation Plan đã được chốt bằng SHA-256 trước khi chạy mô hình (`P4/evaluation/`).

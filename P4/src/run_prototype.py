@@ -415,7 +415,7 @@ def aq5(man, te, P, models, primary_feats_model, sens):
                                  "actual": int(te.loc[idx, "target_noncompletion"]),
                                  "reasons": [{"feature": f, "contribution_logit": round(float(cc), 3)} for f, cc in reasons],
                                  "text": " ".join(sentence(f.replace("log_clicks_0_28", "log_clicks_0_28"), vals[f], meds[f]) for f, _ in reasons)})
-    # lưu dự đoán + 3 lý do cho mọi SV test (phục vụ dashboard wireframe / chart guide ở P5)
+    # lưu dự đoán + 3 lý do cho mọi SV test (phục vụ dashboard wireframe ở P5)
     rows = []
     for idx in te.index:
         rs = [f for f, _ in pick(idx)]
