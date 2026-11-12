@@ -22,7 +22,7 @@
           "contribution_logit": 0.532
         }
       ],
-      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (0 so với trung vị 11). Lượt tương tác với tài nguyên homepage thấp hơn mức thường gặp (0 so với trung vị 40)."
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên VLE trong 4 tuần đầu thấp hơn mức thường gặp (0 so với trung vị 11). Lượt tương tác với tài nguyên homepage thấp hơn mức thường gặp (0 so với trung vị 40)."
     },
     {
       "student": "BBB-2014J-689298",
@@ -42,7 +42,7 @@
           "contribution_logit": 0.298
         }
       ],
-      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (1 so với trung vị 11). Lượt tương tác tuần 2 thấp hơn mức thường gặp (0 so với trung vị 37)."
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên VLE trong 4 tuần đầu thấp hơn mức thường gặp (1 so với trung vị 11). Lượt tương tác tuần 2 thấp hơn mức thường gặp (0 so với trung vị 37)."
     },
     {
       "student": "BBB-2014J-624709",
@@ -62,7 +62,7 @@
           "contribution_logit": 0.168
         }
       ],
-      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (7 so với trung vị 11). Lượt tương tác với tài nguyên oucontent cao hơn mức thường gặp (91 so với trung vị 9)."
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên VLE trong 4 tuần đầu thấp hơn mức thường gặp (7 so với trung vị 11). Lượt tương tác với tài nguyên oucontent cao hơn mức thường gặp (91 so với trung vị 9)."
     },
     {
       "student": "BBB-2014J-695654",
@@ -82,7 +82,7 @@
           "contribution_logit": 0.426
         }
       ],
-      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên vle trong 4 tuần đầu thấp hơn mức thường gặp (2 so với trung vị 11). Lượt tương tác với tài nguyên homepage thấp hơn mức thường gặp (1 so với trung vị 40)."
+      "text": "Chưa nộp bài đánh giá đầu tiên (TMA1) tính đến ngày 28. Số ngày có hoạt động trên VLE trong 4 tuần đầu thấp hơn mức thường gặp (2 so với trung vị 11). Lượt tương tác với tài nguyên homepage thấp hơn mức thường gặp (1 so với trung vị 40)."
     }
   ],
   "coef_top_positive": {

@@ -1,13 +1,13 @@
 {
   "prepared_version": "N05-prepared-v1.2",
   "input_raw": "OULAD (UCI id 349, DOI 10.24432/C5KK69), tải 09/11/2026",
-  "created_utc": "2026-11-09T16:39:22Z",
+  "created_utc": "2026-11-12T04:38:46Z",
   "python": "3.11.9",
   "pandas": "3.0.5",
   "numpy": "1.26.4",
   "pipeline": "src/prepare_data.py",
-  "pipeline_sha256": "2a51990c1a0d2f9035502b2e0545a70ee0e2dee6d9c467633d8672181f60948f",
-  "config_sha256": "e828c189a90adf579e6613ef1af00370342444d7b28bd1041b3ac6c928fb02fa",
+  "pipeline_sha256": "f726eb1f912a5ebd1ce5978464f37bf23adf598f270e8ec159e1114950a3ef1d",
+  "config_sha256": "c3ee4b1117db81992d4813426568d9f13593dff4a72e2b7ed6ef909764649c21",
   "prediction_day": 28,
   "split": {
     "2013B": "train",

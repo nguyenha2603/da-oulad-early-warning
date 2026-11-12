@@ -1,10 +1,11 @@
-pandas>=2.2
-numpy>=1.26
-scipy>=1.11
-scikit-learn>=1.4
-statsmodels>=0.14
-matplotlib>=3.8
-pyarrow>=14
+# Phiên bản đã dùng để tạo kết quả trong báo cáo (Python 3.11.9)
+pandas==3.0.5
+numpy==1.26.4
+scipy==1.16.3
+scikit-learn==1.8.0
+statsmodels==0.14.6
+matplotlib==3.10.8
+pyarrow==24.0.0
 jupyter
 nbconvert
 nbformat

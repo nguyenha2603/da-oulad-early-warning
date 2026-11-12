@@ -33,13 +33,16 @@ Notebook: `notebooks/03_data_preparation.ipynb` (chạy trước), `notebooks/02
 
 Metadata: `data/metadata/` (data_dictionary, data_lineage, prepared_manifest có SHA-256, transformation_log, validation_summary, profiling_summary).
 
+## License
+Dữ liệu: OULAD CC BY 4.0 – Kuzilek, Hlosta & Zdrahal (2017), doi:10.1038/sdata.2017.171.
 
-## v1.1 (09/11/2026, tối) – rà soát tiền xử lý
+
+## v1.1 (09/11/2026) – rà soát tiền xử lý
 - `python3 src/column_decisions.py` → `data/metadata/column_decision_log.csv`: quyết định + lý do business cho từng cột của 7 bảng.
 - Kiểm định cơ chế thiếu (chi-square) trong `profile_data.py`; kiểm tra ngữ nghĩa 0 click, đăng ký muộn, hoạt động sau ngày hủy trong `validation_summary.json`.
 - Cờ mới: `late_registration_1_28`, `days_observable_0_28`, `flag_high_activity` (ngưỡng p99 fit trên train). Không xóa dòng nào vì thiếu dữ liệu.
-- Phân tích VIF (train) → `feature_sets.reduced_core` trong `prepared_manifest.json` (22 biến, VIF ≤ 5).
+- Phân tích VIF (train) → `feature_sets.reduced_core` trong `prepared_manifest.json` (21 biến, VIF ≤ 5).
 
-## v1.2 (09/11/2026, khuya)
+## v1.2 (09/11/2026)
 - Tuần 4 = ngày 21–27; hai cờ dẫn xuất từ nhãn và `date_registration_missing` chuyển sang `aq3_audit_attributes.csv` (assert vắng mặt trong bảng mô hình).
 - Kiểm tra ngữ nghĩa chỉ tính trên tập train; thống kê trước/sau biến đổi; Cramér's V; SHA-256 của mã nguồn trong manifest.

@@ -356,7 +356,8 @@ def sentence(f, v, med):
     if pd.isna(v):
         return f"Không có dữ liệu về {label_of(f)}."
     direction = "thấp hơn" if v < med else "cao hơn"
-    return f"{label_of(f).capitalize()} {direction} mức thường gặp ({fmt(v)} so với trung vị {fmt(med)})."
+    lab = label_of(f)
+    return f"{lab[:1].upper() + lab[1:]} {direction} mức thường gặp ({fmt(v)} so với trung vị {fmt(med)})."
 
 
 def aq5(man, te, P, models, primary_feats_model, sens):

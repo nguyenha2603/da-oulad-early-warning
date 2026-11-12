@@ -12,7 +12,7 @@ Dữ liệu: Open University Learning Analytics Dataset (OULAD), module BBB và 
 | AQ2 | Diagnostic | Chỉ báo nào khác biệt có ý nghĩa, từ tuần nào? |
 | AQ3 | Predictive | Dự báo Fail/Withdrawn chỉ từ dữ liệu ngày 0–28? |
 | AQ4 | Prescriptive (decision support) | Quy tắc ưu tiên nào cho danh sách 200 ca mỗi module-kỳ? |
-| AQ5 | Diagnostic (explanatory) | Lý do nào khiến một sinh viên được đưa vào danh sách? |
+| AQ5 | Diagnostic (explanatory) | Với mỗi sinh viên trong danh sách ưu tiên, đặc trưng nào đóng góp nhiều nhất vào điểm rủi ro của mô hình, và có diễn đạt được thành 2–3 câu cho người không chuyên không? |
 
 ## Kết quả chính (test = kỳ 2014J)
 - Khác biệt giữa sinh viên hoàn thành và không hoàn thành đã hiện diện từ tuần 1.
@@ -22,7 +22,7 @@ Dữ liệu: Open University Learning Analytics Dataset (OULAD), module BBB và 
 
 ## Cấu trúc
 ```
-P2/  Thu thập dữ liệu: data/raw (zip gốc OULAD), data/metadata (nguồn, license, SHA-256), notebook 01, src/verify_structure.py
+P2/  Thu thập dữ liệu: data/raw (zip gốc OULAD – chỉ có trên GitHub, không kèm bản nộp), data/metadata (nguồn, license, SHA-256), notebook 01, src/verify_structure.py
 P3/  Hiểu và chuẩn bị dữ liệu: src/prepare_data.py (pipeline), profile_data.py, dictionary.py, column_decisions.py,
      notebooks 02–03, data/processed (analytic-ready views), data/metadata (dictionary, lineage, manifest, logs)
 P4/  Mô hình hóa và đánh giá: evaluation/ (plan chốt bằng SHA-256), src/run_prototype.py, notebook 04, results/
@@ -30,13 +30,23 @@ P5/  Dữ liệu biểu đồ, biểu đồ kể chuyện (story_charts/) và h�
 ```
 
 ## Tái lập
+Môi trường đã kiểm tra: **Python 3.11**, các phiên bản ghi trong `requirements.txt`. Toàn bộ pipeline chạy khoảng 1 phút.
+
+**Bước 0 – Lấy dữ liệu gốc.** File zip OULAD (~45 MB) không kèm trong bản nộp Moodle. Notebook 01 tự tải từ UCI nếu `P2/data/raw/` chưa có file; có thể tải tay:
+`https://archive.ics.uci.edu/static/public/349/open+university+learning+analytics+dataset.zip` (trang dataset: https://archive.ics.uci.edu/dataset/349) và đặt vào `P2/data/raw/`. SHA-256 của zip phải là
+`f2ed1902616c1fe8d2824d872c0b7d2d72be435bf0124d077044fe4be2c6d3e4` (xem `P2/data/metadata/SHA256SUMS.txt`).
+
+**Chạy theo đúng thứ tự** (P4 cần dữ liệu gốc để kiểm tra trọng số TMA1; P5 cần `P3/data/interim` do bước P3 sinh ra):
 ```bash
 pip install -r requirements.txt
-cd P2 && jupyter nbconvert --to notebook --execute notebooks/01_data_collection.ipynb && cd ..   # giải nén + kiểm tra SHA-256
+cd P2 && jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_collection.ipynb && cd ..   # tải/giải nén + kiểm tra SHA-256
 cd P3 && python3 src/prepare_data.py && python3 src/profile_data.py && python3 src/dictionary.py && python3 src/column_decisions.py && cd ..
 cd P4 && python3 src/run_prototype.py && cd ..
 cd P5 && python3 src/export_chart_data.py && python3 src/story_charts.py && python3 src/build_chart_guide.py
 ```
+Notebook minh họa: chạy `P3/notebooks/03_data_preparation.ipynb` trước `02_data_understanding.ipynb` (notebook 02 đọc dữ liệu do 03/`prepare_data.py` tạo), rồi `P4/notebooks/04_modeling_prototype.ipynb`.
+**Không chạy lại** `P4/src/freeze_eval_plan.py`: Evaluation Plan đã được chốt bằng SHA-256 trước khi chạy mô hình (`P4/evaluation/`).
+
 Prepared dataset hiện tại: `N05-prepared-v1.2`. Mọi bước đều tất định (seed 42); kết quả ghi trong `P3/data/metadata` và `P4/results`.
 
 ## Dữ liệu và giấy phép

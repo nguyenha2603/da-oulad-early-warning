@@ -64,7 +64,7 @@
   },
   {
     "step": 3,
-    "action": "Chuẩn hóa nhãn imd_band '10-20' → '10-20%' (DQ-05)",
+    "action": "Chuẩn hóa nhãn imd_band '10-20' → '10-20%' (P2: DQ-05)",
     "rows_in": null,
     "rows_out": null,
     "note": ""
@@ -78,7 +78,7 @@
   },
   {
     "step": 6,
-    "action": "Giữ final_result làm outcome chính thức; gắn cờ ca mâu thuẫn với date_unregistration (DQ-04)",
+    "action": "Giữ final_result làm outcome chính thức; gắn cờ ca mâu thuẫn với date_unregistration (P2: DQ-04)",
     "rows_in": null,
     "rows_out": null,
     "note": "Withdrawn không có ngày hủy 40, có ngày hủy nhưng không Withdrawn 6"

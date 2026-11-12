@@ -110,9 +110,9 @@ def build_registrations(T):
     reg = reg.drop(columns="_merge")
     log(7, "Ghép studentInfo + studentRegistration (1:1, validate)", n0, len(reg))
 
-    # 3. standardize labels (DQ-05) and types
+    # 3. standardize labels (P2: DQ-05) and types
     reg["imd_band"] = reg["imd_band"].replace({"10-20": "10-20%"})
-    log(3, "Chuẩn hóa nhãn imd_band '10-20' -> '10-20%' (DQ-05)")
+    log(3, "Chuẩn hóa nhãn imd_band '10-20' -> '10-20%' (P2: DQ-05)")
     # 5. missing values
     reg["imd_band_missing"] = reg["imd_band"].isna().astype(int)
     reg["imd_band"] = reg["imd_band"].fillna("Unknown")
@@ -128,10 +128,10 @@ def build_registrations(T):
     reg["unregistered_by_d28"] = (unreg <= PREDICTION_DAY).fillna(False).astype(int)
     reg["registered_after_d28"] = (reg["date_registration"] > PREDICTION_DAY).fillna(False).astype(int)
     reg["active_d28"] = ((reg["unregistered_by_d28"] == 0) & (reg["registered_after_d28"] == 0)).astype(int)
-    # 6. inconsistent label vs. unregistration date (DQ-04): keep final_result as official outcome, flag
+    # 6. inconsistent label vs. unregistration date (P2: DQ-04): keep final_result as official outcome, flag
     reg["flag_withdrawn_no_unreg_date"] = ((reg["final_result"] == "Withdrawn") & unreg.isna()).astype(int)
     reg["flag_unreg_date_not_withdrawn"] = ((reg["final_result"] != "Withdrawn") & unreg.notna()).astype(int)
-    log(6, "Giữ final_result làm outcome chính thức; gắn cờ ca mâu thuẫn với date_unregistration (DQ-04)",
+    log(6, "Giữ final_result làm outcome chính thức; gắn cờ ca mâu thuẫn với date_unregistration (P2: DQ-04)",
         note=f"Withdrawn không có ngày hủy {int(reg['flag_withdrawn_no_unreg_date'].sum())}, có ngày hủy nhưng không Withdrawn {int(reg['flag_unreg_date_not_withdrawn'].sum())}")
     reg["split"] = reg["code_presentation"].map(SPLIT)
     return reg
@@ -140,7 +140,7 @@ def build_registrations(T):
 def vle_features(T, reg):
     v = T["studentVle"]
     n0 = len(v)
-    # 4. duplicates: grain = một lượt truy cập, KHÔNG phải một ngày (xem DQ-06) -> giữ và cộng dồn
+    # 4. duplicates: grain = một lượt truy cập, KHÔNG phải một ngày (xem P2 DQ-06) -> giữ và cộng dồn
     k = ["code_module", "code_presentation", "id_student", "id_site", "date"]
     g = v.groupby(k, observed=True)["sum_click"].agg(["size", "nunique"])
     CHECKS["vle_exact_duplicate_extra_rows"] = int(v.duplicated().sum())
@@ -230,7 +230,7 @@ def main():
     assert len(df) == n0, "join làm thay đổi số dòng"
     log(7, "Ghép đặc trưng VLE + đánh giá vào bảng đăng ký (left, 1:1)", n0, len(df))
 
-    # missing VLE = không có hoạt động (0) – phân biệt bằng cờ (DQ-07)
+    # missing VLE = không có hoạt động (0) – phân biệt bằng cờ (P2: DQ-07)
     cnt = [c for c in df.columns if c.startswith(("clicks_", "active_days_", "n_sites_"))]
     df["no_vle_record_any"] = df["n_vle_rows_all"].isna().astype(int)
     df["no_vle_activity_0_28"] = df["clicks_0_28"].isna().astype(int)
