@@ -222,6 +222,22 @@ const yLinePlugin = {id: 'yline', afterDraw(c, a, o) {
 }};
 Chart.register(yLinePlugin);
 
+// đảm bảo mọi chart có tiêu đề + tên trục X/Y
+function labelChart(cfg, title, xT, yT) {
+  const o = cfg.options = cfg.options || {}; o.plugins = o.plugins || {}; o.scales = o.scales || {};
+  o.plugins.title = {display: !!title, text: title || '', align: 'start', color: css('--ink'), font: {size: 14, weight: '600'}, padding: {bottom: 10}};
+  [['x', xT], ['y', yT]].forEach(([a, t]) => { const sc = o.scales[a] = o.scales[a] || {};
+    sc.grid = sc.grid || {color: css('--line')}; sc.ticks = Object.assign({color: css('--ink2')}, sc.ticks || {});
+    if (!(sc.title && sc.title.display)) sc.title = {display: true, text: t}; sc.title.color = css('--ink2'); });
+  return cfg;
+}
+const AX = {c01: ['Tỷ lệ thiếu (%)', 'Biến (bảng.cột)'], c02: ['Module – kỳ học', '% SV còn học ở ngày 28'], c03: ['Ngày so với khai giảng', 'Số SV có hoạt động'],
+  c04: ['Tuần học', 'Trung vị click / tuần'], c05: ['log(1 + tổng click ngày 0–28)', 'Số sinh viên'], c06: ['Ngày hủy đăng ký (bin 7 ngày)', 'Số lượt hủy'],
+  c07: ['Tuần học', "Cliff's δ"], c08: ['Recall', 'Precision'], c08b: ['Xác suất dự báo', 'Tỷ lệ thực tế'], c09: ['Hạn mức k (số ca mỗi module – kỳ)', 'Precision@k'],
+  c10: ['Mức giảm PR-AUC khi xáo trộn', 'Biến đặc trưng'], c11: ['Nhóm (thuộc tính: nhóm)', 'Giá trị (0–1)']};
+// dashboard: tiêu đề đã có ở thẻ h4 của mỗi ô nên title = null
+const DAX = {dHist: [null, 'Điểm rủi ro p_M2', 'Số SV'], dTags: [null, 'Số SV', 'Lý do (tag1–3)'],
+  dWeek: [null, 'Tuần', 'Trung vị click'], dFair: [null, 'Tỷ trọng (%)', 'Nhóm'], dCanvas: [null, 'Tuần', 'Số click']};
 function drawChart(id) {
   const s = SPECS.find(x => x.id === id), rows = DATA[s.data], C = COL();
   document.querySelectorAll('#chartList button').forEach(b => b.setAttribute('aria-current', b.dataset.id === id));
@@ -293,13 +309,14 @@ function drawChart(id) {
       {label: 'Precision', data: rows.map(r => r.precision), backgroundColor: C.Fail, borderRadius: 4}]},
       options: baseOpts({scales: {y: {min: 0, max: 1}}})};
   }
+  labelChart(cfg, s.title, ...AX[id]);
   chart = new Chart(ctx, cfg);
 }
 
 // dashboard
 const DL = DATA.dashboard_top300, MED = DATA.dashboard_class_median_weekly, SC = DATA.dashboard_cohort_scores, WK = DATA.dashboard_weekly_list_vs_rest, FR = DATA.c11_fairness;
 let sel = null, dChart = null; const approved = new Set(); const dCharts = {};
-function mk(id, cfg) { if (dCharts[id]) dCharts[id].destroy(); dCharts[id] = new Chart(document.getElementById(id), cfg); }
+function mk(id, cfg) { if (dCharts[id]) dCharts[id].destroy(); if (DAX[id]) labelChart(cfg, ...DAX[id]); dCharts[id] = new Chart(document.getElementById(id), cfg); }
 function renderDash() {
   const m = document.getElementById('dMod').value, k = +document.getElementById('dK').value, C = COL();
   const cohort = SC.filter(r => r.code_module === m), rows = DL.filter(r => r.code_module === m && r.rank_in_module <= k);
@@ -347,9 +364,9 @@ function renderDetail() {
   document.getElementById('dReasons').innerHTML = [r.tag1, r.tag2, r.tag3].filter(Boolean).map(x => `<span class="chip">${x}</span>`).join('');
   const med = MED.filter(x => x.code_module === m).sort((a, b) => a.week - b.week).map(x => x.clicks);
   if (dChart) dChart.destroy(); const C = COL();
-  dChart = new Chart(document.getElementById('dCanvas'), {type: 'line', data: {labels: ['T1', 'T2', 'T3', 'T4'], datasets: [
+  dChart = new Chart(document.getElementById('dCanvas'), labelChart({type: 'line', data: {labels: ['T1', 'T2', 'T3', 'T4'], datasets: [
     {label: r.ma_sv, data: [r.clicks_w1, r.clicks_w2, r.clicks_w3, r.clicks_w4], borderColor: C.Fail, backgroundColor: C.Fail, pointRadius: 4, borderWidth: 2},
-    {label: 'Trung vị lớp', data: med, borderColor: css('--ink2'), borderDash: [5, 4], pointRadius: 3}]}, options: baseOpts({scales: {y: {beginAtZero: true}}})});
+    {label: 'Trung vị lớp', data: med, borderColor: css('--ink2'), borderDash: [5, 4], pointRadius: 3}]}, options: baseOpts({scales: {y: {beginAtZero: true}}})}, ...DAX.dCanvas));
 }
 ['dMod', 'dK'].forEach(i => document.getElementById(i).addEventListener('change', renderDash));
 document.getElementById('bOk').addEventListener('click', () => { approved.add(document.getElementById('dMod').value + sel); renderDash(); });

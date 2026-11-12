@@ -177,13 +177,14 @@ ax = fig.add_subplot(gs[1, 1]); style(ax, "② Lý do phổ biến trong danh s�
 tags = pd.concat([lst.tag1, lst.tag2, lst.tag3]); tags = tags[tags != ""].value_counts().head(6)[::-1]
 ax.barh(tags.index, tags.values, color=ACC, height=0.6)
 for i, v in enumerate(tags.values): ax.text(v + 2, i, str(v), va="center", fontsize=8, color=INK2)
-ax.set_xlabel("Số SV", fontsize=8); ax.grid(axis="y", visible=False)
+ax.set_xlabel("Số SV", fontsize=8); ax.set_ylabel("Lý do (tag1–3)", fontsize=8); ax.grid(axis="y", visible=False)
 # (3) tương tác theo tuần: danh sách vs phần còn lại
 ax = fig.add_subplot(gs[1, 2]); style(ax, "③ Tương tác theo tuần (trung vị click)")
 rest = g[g.rank_in_module > K]
 for d_, c, lab in [(lst, C2, "Trong danh sách"), (rest, ACC, "Phần còn lại")]:
     ax.plot([1, 2, 3, 4], [d_[f"clicks_w{w}"].median() for w in range(1, 5)], color=c, lw=2, marker="o", ms=5, label=lab)
 ax.set_xticks([1, 2, 3, 4]); ax.set_xticklabels(["T1", "T2", "T3", "T4"]); ax.legend(frameon=False, fontsize=8); ax.set_ylim(0)
+ax.set_xlabel("Tuần", fontsize=8); ax.set_ylabel("Trung vị click", fontsize=8)
 # bảng danh sách gọn
 ax = fig.add_subplot(gs[2, 0]); ax.axis("off"); ax.set_title("Danh sách (8/200 dòng đầu)", fontsize=10, color=INK, loc="left", weight="bold")
 cols = [("Mã SV", 0.0), ("Ưu tiên", 0.24), ("Lý do chính", 0.46), ("Duyệt", 0.93)]
@@ -201,6 +202,7 @@ mf = med[med.code_module == MOD]
 ax.plot([1, 2, 3, 4], [r0[f"clicks_w{w}"] for w in range(1, 5)], color=C2, lw=2, marker="o", ms=5, label=r0.ma_sv)
 ax.plot(mf.week, mf.clicks, color=INK2, ls="--", lw=1.4, marker="o", ms=3, label="Trung vị lớp")
 ax.set_xticks([1, 2, 3, 4]); ax.set_xticklabels(["T1", "T2", "T3", "T4"]); ax.legend(frameon=False, fontsize=8); ax.set_ylim(0)
+ax.set_xlabel("Tuần", fontsize=8); ax.set_ylabel("Số click", fontsize=8)
 chips = " · ".join(t for t in [r0.tag1, r0.tag2, r0.tag3] if t)
 ax.text(0, -0.32, "Lý do: " + chips, transform=ax.transAxes, fontsize=8.5, color=INK)
 ax.text(0, -0.45, "[ Duyệt liên hệ ]   [ Bỏ qua ]   [ Ghi chú ]", transform=ax.transAxes, fontsize=8.5, color=ACC, weight="bold")
@@ -212,7 +214,7 @@ ax = fig.add_subplot(gs[2, 2]); style(ax, "⑤ Giám sát công bằng: tỷ tr�
 yy = np.arange(len(fr)); h = 0.38
 ax.barh(yy - h / 2, fr.share_population * 100, height=h, color="#c9c8c2", label="Trong lớp")
 ax.barh(yy + h / 2, fr.share_top200 * 100, height=h, color=C3, label="Trong danh sách")
-ax.set_yticks(yy); ax.set_yticklabels(fr.lab, fontsize=8); ax.invert_yaxis(); ax.set_xlabel("%", fontsize=8)
+ax.set_yticks(yy); ax.set_yticklabels(fr.lab, fontsize=8); ax.invert_yaxis(); ax.set_xlabel("Tỷ trọng (%)", fontsize=8); ax.set_ylabel("Nhóm", fontsize=8)
 ax.legend(frameon=False, fontsize=7.5, loc="lower right"); ax.grid(axis="y", visible=False)
 fig.savefig(FIG / "p5_dashboard_wireframe.png", dpi=200, facecolor=fig.get_facecolor())
 plt.close(fig)
@@ -227,8 +229,9 @@ for ax, col, title, c in [(axes[0], "recall", "Recall (ca không hoàn thành đ
     ax.barh(yy, fr[col], color=c, height=0.6)
     for i, v in enumerate(fr[col]):
         ax.text(v + 0.01, i, f"{v:.2f}".replace(".", ","), va="center", fontsize=7, color="#52514e")
-    ax.set_title(title, fontsize=9); ax.set_xlim(0, 1); ax.grid(axis="y", visible=False)
+    ax.set_title(title, fontsize=9); ax.set_xlim(0, 1); ax.grid(axis="y", visible=False); ax.set_xlabel(col.upper() if col == "fpr" else "Recall", fontsize=8)
     for s_ in ("top", "right"): ax.spines[s_].set_visible(False)
-axes[0].set_yticks(yy); axes[0].set_yticklabels(fr.lab, fontsize=8); axes[0].invert_yaxis()
+axes[0].set_yticks(yy); axes[0].set_yticklabels(fr.lab, fontsize=8); axes[0].invert_yaxis(); axes[0].set_ylabel("Nhóm sinh viên", fontsize=8)
+fig.suptitle("Công bằng theo nhóm – Recall và FPR (test 2014J)", x=0.02, ha="left", fontsize=11, fontweight="bold")
 fig.tight_layout(); fig.savefig(FIG / "p5_fairness.png", dpi=200, bbox_inches="tight")
 print("fairness figure saved")

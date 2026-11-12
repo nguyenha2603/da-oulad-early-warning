@@ -148,7 +148,8 @@ def figures(reg, feat, pop, daily, miss):
     ax.barh([k for k, _ in items], [v["rate"] * 100 for _, v in items], color="#2a78d6", height=0.55)
     for i, (_, v) in enumerate(items):
         ax.text(v["rate"] * 100 + 1, i, f"{v['rate']*100:.1f}% (n={v['n']:,})".replace(",", "."), va="center", fontsize=8, color=INK2)
-    ax.set_xlabel("Tỷ lệ thiếu (%) – phạm vi BBB+FFF"); ax.grid(axis="y", visible=False)
+    ax.set_xlabel("Tỷ lệ thiếu (%) – phạm vi BBB+FFF"); ax.set_ylabel("Biến (bảng.cột)"); ax.grid(axis="y", visible=False)
+    ax.set_title("Tỷ lệ dữ liệu thiếu theo biến", loc="left", fontsize=11, fontweight="bold")
     ax.set_xlim(0, max(v["rate"] for v in miss.values()) * 100 * 1.35)
     save(fig, "fig1_missingness.png")
 
@@ -160,7 +161,8 @@ def figures(reg, feat, pop, daily, miss):
     for k in COL:
         ax.bar(lbl, t[k] * 100, bottom=left, color=COL[k], label=k, width=0.62, edgecolor="white", linewidth=1.2)
         left += t[k].values * 100
-    ax.set_ylabel("% sinh viên còn học ở ngày 28"); ax.set_ylim(0, 100); ax.grid(axis="x", visible=False)
+    ax.set_ylabel("% sinh viên còn học ở ngày 28"); ax.set_xlabel("Module – kỳ học"); ax.set_ylim(0, 100); ax.grid(axis="x", visible=False)
+    ax.set_title("Kết quả cuối khóa theo module – kỳ", loc="left", fontsize=11, fontweight="bold", pad=24)
     ax.legend(ncol=3, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.16))
     save(fig, "fig2_target_balance.png")
 
@@ -173,6 +175,7 @@ def figures(reg, feat, pop, daily, miss):
     ax.axvline(0, color=INK2, lw=0.8, ls=":"); ax.axvline(PREDICTION_DAY, color=INK, lw=1.2, ls="--")
     ax.text(PREDICTION_DAY + 3, ax.get_ylim()[1] * 0.9, "mốc dự báo ngày 28", fontsize=8, color=INK)
     ax.set_xlabel("Ngày tương đối so với ngày khai giảng (cộng 4 kỳ)"); ax.set_ylabel("Số SV có hoạt động")
+    ax.set_title("Số sinh viên hoạt động trên VLE mỗi ngày", loc="left", fontsize=11, fontweight="bold")
     ax.legend(frameon=False)
     save(fig, "fig3_temporal_coverage.png")
 
@@ -184,7 +187,8 @@ def figures(reg, feat, pop, daily, miss):
         ax.plot(m.index, m[k], color=COL[k], lw=2, marker="o", ms=6, label=k)
         ax.text(4.08, m[k].iloc[-1], k, color=INK, fontsize=8, va="center")
     ax.set_xticks([1, 2, 3, 4]); ax.set_xticklabels(["Tuần 1\n(0–6)", "Tuần 2\n(7–13)", "Tuần 3\n(14–20)", "Tuần 4\n(21–28)"])
-    ax.set_ylabel("Trung vị số click / tuần"); ax.set_xlim(0.8, 4.5); ax.set_ylim(0)
+    ax.set_ylabel("Trung vị số click / tuần"); ax.set_xlabel("Tuần học (ngày)"); ax.set_xlim(0.8, 4.5); ax.set_ylim(0)
+    ax.set_title("Số click theo tuần theo kết quả cuối khóa", loc="left", fontsize=11, fontweight="bold", pad=24)
     ax.legend(frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.16))
     save(fig, "fig4_weekly_clicks_by_result.png")
 
@@ -192,8 +196,9 @@ def figures(reg, feat, pop, daily, miss):
     fig, ax = plt.subplots(figsize=(7, 2.6))
     ax.hist(np.log1p(pop.clicks_0_28), bins=50, color="#2a78d6", edgecolor="white", linewidth=0.5)
     ax.set_xlabel("log(1 + tổng click ngày 0–28)"); ax.set_ylabel("Số sinh viên"); ax.grid(axis="x", visible=False)
+    ax.set_title("Phân bố tổng click 4 tuần đầu", loc="left", fontsize=11, fontweight="bold")
     z = (pop.clicks_0_28 == 0).sum()
-    ax.annotate(f"{z} SV = 0 click", xy=(0.05, z), xytext=(1.2, z * 1.6 if z > 50 else 300), fontsize=8, color=INK,
+    ax.annotate(f"{z} SV = 0 click", xy=(0.05, z), xytext=(0.9, z * 1.15 if z > 50 else 300), fontsize=8, color=INK,
                 arrowprops=dict(arrowstyle="-", color=INK2, lw=0.8))
     save(fig, "fig5_clicks_distribution.png")
 
@@ -204,7 +209,8 @@ def figures(reg, feat, pop, daily, miss):
     ax.axvline(PREDICTION_DAY, color=INK, lw=1.2, ls="--")
     n28 = int((u <= PREDICTION_DAY).sum())
     ax.text(PREDICTION_DAY + 5, ax.get_ylim()[1] * 0.85, f"{n28:,} lượt hủy ≤ ngày 28".replace(",", "."), fontsize=8)
-    ax.set_xlabel("Ngày hủy đăng ký (tương đối với khai giảng)"); ax.set_ylabel("Số lượt"); ax.grid(axis="x", visible=False)
+    ax.set_xlabel("Ngày hủy đăng ký (tương đối với khai giảng)"); ax.set_ylabel("Số lượt hủy đăng ký"); ax.grid(axis="x", visible=False)
+    ax.set_title("Thời điểm hủy đăng ký", loc="left", fontsize=11, fontweight="bold")
     save(fig, "fig6_unregistration_timing.png")
 
 

@@ -9,44 +9,44 @@
     "plan_sha256": "0b8e71483d6e47219d04f8f61e3db8b0b0075c29a14e5da2b489219d8f57e8b7",
     "plan_frozen_utc": "2026-11-09T14:55:01Z",
     "data_version": "N05-prepared-v1.2",
-    "run_utc": "2026-11-12T04:41:23Z",
-    "runtime_s": 10.7
+    "run_utc": "2026-11-12T12:45:20Z",
+    "runtime_s": 10.2
   },
   "log": [
     {
-      "t": "04:41:13",
+      "t": "12:45:10",
       "msg": "Input OK: plan 0b8e71483d6e frozen 2026-11-09T14:55:01Z; data N05-prepared-v1.2"
     },
     {
-      "t": "04:41:14",
+      "t": "12:45:11",
       "msg": "AQ1 done: checks True True"
     },
     {
-      "t": "04:41:14",
+      "t": "12:45:11",
       "msg": "AQ2 done: first week 1; significant 13/16"
     },
     {
-      "t": "04:41:17",
+      "t": "12:45:14",
       "msg": "AQ3: primary M2 (gain -0.0066); test {'pr_auc': 0.6623, 'roc_auc': 0.7315, 'recall': 0.6933, 'precision': 0.5188, 'f1': 0.5935, 'brier': 0.1981, 'flagged_share': 0.5047}"
     },
     {
-      "t": "04:41:17",
+      "t": "12:45:14",
       "msg": "AQ4: chosen a, val P@200 {'a': 0.8475, 'b': 0.665, 'd': 0.8575}, success True"
     },
     {
-      "t": "04:41:20",
+      "t": "12:45:17",
       "msg": "AQ5: faithful err 8.88e-16; >=2 reasons 1.0"
     },
     {
-      "t": "04:41:21",
+      "t": "12:45:17",
       "msg": "Fairness flags: {'gender': False, 'age_band': False, 'disability': False, 'imd_group': True}"
     },
     {
-      "t": "04:41:21",
+      "t": "12:45:18",
       "msg": "PD-02 reduced LR: test 0.6573 vs primary 0.6623; sign inconsistent 0"
     },
     {
-      "t": "04:41:23",
+      "t": "12:45:20",
       "msg": "Extras: PR-AUC CI [0.637, 0.686], recall CI [0.668, 0.717], cal test {'mean_pred': 0.4426, 'base_rate': 0.3776, 'slope': 0.97, 'intercept': -0.335}"
     }
   ]

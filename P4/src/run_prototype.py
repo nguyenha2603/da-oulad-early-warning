@@ -89,8 +89,10 @@ def aq1():
                 ax.plot(d.week, d[f"{m}_median"], color=c, lw=2, marker="o", ms=5, label=k)
             else:
                 ax.plot(d.week, d[f"{m}_mean"], color=c, lw=2, marker="o", ms=5, label=k)
-        ax.set_xticks([1, 2, 3, 4]); ax.set_xlabel("Tuần"); ax.set_ylabel(lab); ax.set_ylim(0)
-    axes[0].legend(frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(1.1, 1.18))
+        ax.set_xticks([1, 2, 3, 4]); ax.set_xlabel("Tuần học"); ax.set_ylabel(lab); ax.set_ylim(0)
+    axes[0].set_title("Số click mỗi tuần", fontsize=9); axes[1].set_title("Số ngày hoạt động mỗi tuần", fontsize=9)
+    fig.suptitle("AQ1 – Tương tác 4 tuần đầu theo kết quả cuối khóa", x=0.02, ha="left", fontsize=11, fontweight="bold", y=1.17)
+    axes[0].legend(frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(1.1, 1.30))
     save(fig, "p4_fig1_aq1_weekly.png")
     log(f"AQ1 done: checks {checks['rows_eq_4x']} {checks['each_student_4_weeks']}")
     return res
@@ -154,7 +156,8 @@ def aq2(plan):
         ax.plot(range(1, 5), e, color=c, lw=2, marker="o", ms=6, label=lab)
     ax.axhline(-0.147, color=INK2, lw=0.8, ls="--"); ax.text(4.05, -0.147, "ngưỡng nhỏ\n|δ| = 0,147", fontsize=7, va="center", color=INK2)
     ax.set_xticks(range(1, 5)); ax.set_xticklabels([f"Tuần {w}" for w in range(1, 5)])
-    ax.set_ylabel("Cliff's δ (âm = nhóm không\nhoàn thành thấp hơn)"); ax.set_xlim(0.8, 4.6)
+    ax.set_ylabel("Cliff's δ (âm = nhóm không\nhoàn thành thấp hơn)"); ax.set_xlabel("Tuần học"); ax.set_xlim(0.8, 4.6)
+    ax.set_title("AQ2 – Độ lớn khác biệt theo tuần (Cliff's δ)", loc="left", fontsize=11, fontweight="bold", pad=24)
     ax.legend(frameon=False, ncol=2, loc="upper center", bbox_to_anchor=(0.5, 1.18))
     save(fig, "p4_fig2_aq2_effect_by_week.png")
     log(f"AQ2 done: first week {first_week}; significant {int(t.significant.sum())}/{len(t)}")
@@ -248,6 +251,7 @@ def aq3(plan, man):
         axes[1].plot(mp, fp, color=c, lw=1.8, marker="o", ms=4, label=mname)
     axes[1].plot([0, 1], [0, 1], color=INK2, ls="--", lw=0.8)
     axes[1].set_xlabel("Xác suất dự báo"); axes[1].set_ylabel("Tỷ lệ thực tế"); axes[1].legend(frameon=False, fontsize=8); axes[1].set_title("Calibration (test 2014J)", fontsize=9)
+    fig.suptitle("AQ3 – Chất lượng xếp hạng và hiệu chỉnh xác suất", x=0.02, ha="left", fontsize=11, fontweight="bold", y=1.04)
     save(fig, "p4_fig3_aq3_pr_calibration.png")
     return df, tr, va, te, y, P, R, sel, models
 
@@ -313,7 +317,8 @@ def aq4(plan, va, te, P, R, primary):
         v = [out["test"][f"{rule}_k{k}"].get("mean_precision", out["test"][f"{rule}_k{k}"].get("precision")) for k in ks]
         ax.bar(np.arange(3) + (i - 1) * w, v, width=w * 0.92, color=c, label=lab)
     ax.axhline(0.70, color=INK, ls="--", lw=1); ax.text(2.45, 0.71, "mục tiêu 0,70", fontsize=7)
-    ax.set_xticks(range(3)); ax.set_xticklabels([f"k = {k}" for k in ks]); ax.set_ylabel("Precision@k (test 2014J)"); ax.set_ylim(0, 1)
+    ax.set_xticks(range(3)); ax.set_xticklabels([f"k = {k}" for k in ks]); ax.set_ylabel("Precision@k (test 2014J)"); ax.set_xlabel("Hạn mức k (số ca liên hệ mỗi module – kỳ)"); ax.set_ylim(0, 1)
+    ax.set_title("AQ4 – Precision@k theo quy tắc lập danh sách", loc="left", fontsize=11, fontweight="bold", pad=28)
     ax.grid(axis="x", visible=False); ax.legend(frameon=False, fontsize=8, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.2))
     save(fig, "p4_fig4_aq4_precision_at_k.png")
     log(f"AQ4: chosen {chosen}, val P@200 {val200}, success {succ}")
@@ -462,7 +467,8 @@ def aq5(man, te, P, models, primary_feats_model, sens):
     fig, ax = plt.subplots(figsize=(7, 3))
     top = imp.head(8)[::-1]
     ax.barh([label_of(f) for f in top.index], top.values, color=C1, height=0.55)
-    ax.set_xlabel("Mức giảm PR-AUC khi xáo trộn (validation 2014B)"); ax.grid(axis="y", visible=False)
+    ax.set_xlabel("Mức giảm PR-AUC khi xáo trộn (validation 2014B)"); ax.set_ylabel("Biến đặc trưng"); ax.grid(axis="y", visible=False)
+    ax.set_title("AQ5 – 8 biến quan trọng nhất (permutation importance)", loc="left", fontsize=11, fontweight="bold")
     save(fig, "p4_fig5_aq5_permutation_importance.png")
     log(f"AQ5: faithful err {faithful_err:.2e}; >=2 reasons {res['share_with_ge2_reasons']}")
     return res
