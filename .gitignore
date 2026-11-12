@@ -6,3 +6,5 @@ __pycache__/
 P2/data/raw/oulad/
 # kết quả trung gian (tái tạo bằng P3/src/prepare_data.py)
 P3/data/interim/
+# file trung gian của export_chart_data.py (không thuộc bài nộp)
+P5/chart_data/bundle.json
